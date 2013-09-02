@@ -1,0 +1,18 @@
+{
+    "aui-button": {
+        "use": [
+            "aui-button-core"
+        ]
+    },
+
+    "aui-button-core": {
+        "requires": [
+            "button",
+            "button-group",
+            "button-plugin",
+            "aui-component",
+            "aui-widget-cssclass",
+            "aui-widget-toggle"
+        ]
+    }
+}
