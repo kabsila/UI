@@ -1214,7 +1214,7 @@ var DiagramBuilderBase = A.Component.create(
 
 					defaultValue.children = [
 						{ label: strings[ADD_NODE] },
-						{ label: strings[SETTINGS] }
+						{ label: strings[SETTINGS], disabled: true }
 					];
 				}
 

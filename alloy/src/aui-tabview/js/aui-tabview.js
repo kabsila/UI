@@ -28,6 +28,7 @@ var Lang = A.Lang,
     TABS = 'tabs',
     TYPE = 'type',
     TYPE_CHANGE = 'typeChange',
+    SELECTED_CHANGE = 'selectedChange',
 
     getClassName = A.getClassName;
 
@@ -46,7 +47,7 @@ A.TabviewBase._classNames = {
 A.TabviewBase._queries = {
     selectedPanel: '> div ' + _DOT + A.TabviewBase._classNames.selectedPanel,
     selectedTab: '> ul > ' + _DOT + A.TabviewBase._classNames.selectedTab,
-    tab: '> ul > li:not(.nav-header):not(.disabled)',
+    tab: '> ul > li:not(.nav-header)',
     tabLabel: '> ul > li:not(.nav-header) > a',
     tabPanel: '> div > div',
     tabview: _DOT + A.TabviewBase._classNames.tabview,
@@ -77,6 +78,17 @@ A.Tab = A.Component.create({
      */
     NAME: TAB,
 
+    ATTRS: {
+
+        /**
+         * @attribute disabled
+         */
+        disabled: {
+            validator: isBoolean,
+            valueFn: '_valueDisabled'
+        }
+    },
+
     /**
      * Static property provides a string to identify the CSS prefix.
      *
@@ -106,6 +118,8 @@ A.Tab = A.Component.create({
         initializer: function() {
             var instance = this;
 
+            instance.on(SELECTED_CHANGE, instance._onTabSelectedChange);
+
             A.after(instance._afterUiSetDisabled, instance, '_uiSetDisabled');
         },
 
@@ -120,6 +134,21 @@ A.Tab = A.Component.create({
             var instance = this;
 
             instance.get(BOUNDING_BOX).toggleClass(getClassName(DISABLED), val);
+        },
+
+        /**
+         * Fire before <code>selected</code> attribute change.
+         *
+         * @method _onTabSelectedChange
+         * @param event
+         * @protected
+         */
+        _onTabSelectedChange: function(event) {
+            var instance = this;
+
+            if (instance.get(DISABLED)) {
+                event.halt();
+            }
         },
 
         /**
@@ -139,6 +168,19 @@ A.Tab = A.Component.create({
             if (!tabviewPanelNode.contains(tabPanelNode)) {
                 tabviewPanelNode.appendChild(tabPanelNode);
             }
+        },
+
+        /**
+         * Determines the value of the disabled attribute
+         *
+         * @method _valueDisabled
+         * @protected
+         * @return {Boolean}
+         */
+         _valueDisabled: function() {
+            var instance = this;
+
+            return instance.get(BOUNDING_BOX).hasClass(DISABLED);
         }
     }
 });
@@ -152,6 +194,7 @@ A.TabView.CSS_PREFIX = getClassName(TABBABLE);
  * Check the [live demo](http://alloyui.com/examples/tabview/).
  *
  * @class A.TabView
+ * @extends TabView
  * @param config {Object} Object literal specifying widget configuration properties.
  * @constructor
  */
@@ -268,6 +311,30 @@ A.TabView = A.Component.create({
             var instance = this;
 
             instance.item(i).set(DISABLED, false);
+        },
+
+        /**
+         * Get the active tab.
+         *
+         * @method getActiveTab
+         */
+        getActiveTab: function() {
+            var instance = this,
+                _queries = A.TabviewBase._queries;
+
+            return instance.get(CONTENT_BOX).one(_queries.selectedTab);
+        },
+
+        /**
+         * Get the tabs.
+         *
+         * @method getActiveTab
+         */
+        getTabs: function() {
+            var instance = this,
+                _queries = A.TabviewBase._queries;
+
+            return instance.get(CONTENT_BOX).all(_queries.tab);
         },
 
         /**
