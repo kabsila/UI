@@ -53,7 +53,7 @@ label.control-label
 <div id="menu" style="background-color:#F5A9F2;height:30%;width:80%; border-radius:25px;">
     
     
-    <form id="myForm" style="">
+    <form id="myForm" >
     <div class="control-group">
         <div class="controls" >       
           <label class="control-label" for="name">
@@ -178,7 +178,16 @@ label.control-label
         </div>
     </div>
             
-            <input class="input-xxlarge" type="text" placeholder="Day, Mon dd, yyyy" value="date">
+    <div class="control-group">
+        <div class="controls" >      
+          <label class="control-label" for="name">              
+              วันที่รับไว้ในการเยี่ยมบ้าน:<input name="date" id="date"  type="text" placeholder="mm-dd-yyyy" style="width:100px;">
+          </label>
+         
+        </div>
+    </div>
+            
+          
             
     </form>
     </div>
@@ -207,45 +216,7 @@ Copyright © Chanon</div>
   }
 );
  </script>
- <script>
- YUI({ lang: 'ja' }).use(
-  'aui-datepicker',
-  function(Y) {
-    var datepicker = new Y.DatePicker(
-      {
-        trigger: 'input',
-        mask: '%a, %b %d, %Y',
-        popover: {
-          toolbars: {
-            header: [[
-              {
-                icon:'icon-trash',
-                label: 'Clear',
-                on: {
-                  click: function() {
-                    datepicker.clearSelection();
-                  }
-                }
-              },
-              {
-                icon:'icon-globe',
-                label: 'Travel date',
-                on: {
-                  click: function() {
-                    datepicker.clearSelection();
-                    datepicker.selectDates(new Date(2015, 2, 3, 2, 0, 0));
-                  }
-                }
-              }
-            ]]
-          },
-          zIndex: 1
-        }
-      }
-    );
-  }
-);
-</script>
+
     
 </body>
 </html>
