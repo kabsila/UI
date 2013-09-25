@@ -54,13 +54,21 @@
                  table-layout:auto;
                  
             }
+            table.ex2 
+            {
+                 text-align: center;
+                 margin-left:auto;
+                 margin-right:auto;
+                 table-layout:auto;
+                 
+            }
             #menu2
             {
                 display: block;
-                opacity: 0;
-                transition: opacity 3s ease;
-                -webkit-transition: opacity 1s linear;            
-                  
+                opacity: 1;
+                transition: opacity 1s ease;
+                -webkit-transition: opacity 500ms linear;            
+                margin-top: 25px;  
             }
          
             
@@ -85,6 +93,33 @@
                     var el = document.getElementById('menu2');
                     el.style.opacity = 1;
                }
+               
+               function loadXMLDoc()
+                {
+                    var xmlhttp;
+                    if (window.XMLHttpRequest)
+                      {// code for IE7+, Firefox, Chrome, Opera, Safari
+                      xmlhttp=new XMLHttpRequest();
+                      }
+                    else
+                      {// code for IE6, IE5
+                      xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                      }
+                    xmlhttp.onreadystatechange=function()
+                      {
+                      if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                        {
+                        document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+                        }
+                      }
+                      var pmeters = "tFname=" + encodeURI( document.getElementById("fname").value) +
+						"&tSname=" + encodeURI( document.getElementById("sname").value );
+                    xmlhttp.open("POST","add_name_newp_to_db.php",true);
+                    xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                    xmlhttp.send(pmeters);
+                    }
+                    
+                
         </script>
     </head>
     <body>
@@ -113,23 +148,35 @@
 
                 </div>
                 
-                <div id="menu2" style="background-color:#FF9933;height:100px;width:400px; border-radius:25px;">
+                <div id="menu2" style="background-color:#7BA6B4;height:150px;width:400px; border-radius:25px;">
 
-                    <form id="myForm" >
-                        <table class="ex1" border="0" >
+                    
+                        <table class="ex2" border="0" >
                             <tr>
                                 <td>
-                                    <button class="btn btn-large btn-primary" type="button" onclick="addP()">เพิ่มผู้ป่วยรายใหม่</button>
+                                    <label class="control-label" for="name">ชื่อผู้ป่วย:</label> 
+                                </td>
+                                <td>
+                                    <label class="control-label" for="name">นามสกุลผู้ป่วย:</label> 
                                 </td>
                             </tr>
                             <tr>
-                                <div id="yourDiv"> <input name="sname" id="sname"  type="text" style="">  </div>
+                                <td>
+                                    <div id="yourDiv"> <input  id="fname"  type="text" style="width:80px;text-align: center;">  </div>
+                                </td>
+                                <td>
+                                    <div id="yourDiv"> <input  id="sname"  type="text" style="width:80px;text-align: center;">  </div>
+                                </td>
+                                
+                            </tr>
+                            <tr >
+                                <td colspan="2">
+                                    <button class="button" onclick="loadXMLDoc()" style="width:80px;">OK</button>
+                                </td>
                             </tr>
                         </table>
-
-                    </form>
-
-                </div>
+             </div>
+                <div id="myDiv"></div>
                 
                 
                 
