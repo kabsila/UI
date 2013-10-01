@@ -12,8 +12,12 @@
         <meta charset="UTF-8">
         <title></title>
         <link rel="stylesheet" href="./alloy/build/aui-css/css/bootstrap.css">
+        <link rel="stylesheet" href="./alloy/jquery-ui/css/smoothness/jquery-ui-1.10.3.custom.css">
+        
         <script src="./alloy/build/aui/aui.js"></script>
         <script src="./alloy/jquery.js"></script>
+        <script src="./alloy/jquery-ui/js/jquery-ui-1.10.3.custom.js"></script>
+        <script src="./alloy/jquery-ui/development-bundle/ui/i18n/jquery.ui.datepicker-th.js"></script>
         <style>
             #myForm
             {
@@ -332,7 +336,13 @@
                     xmlhttp.send(pmeters);
                 }
                 
-                
+                $(function() {
+		$( "#datepicker" ).datepicker($.datepicker.regional[ "th" ] );
+		$( "#format" ).change(function() {
+			$( "#datepicker" ).datepicker( "option", "dateFormat", $( this ).val() );
+            
+		});
+	});
                 
                 
         </script>

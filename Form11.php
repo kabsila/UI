@@ -10,8 +10,12 @@
         <meta charset="UTF-8">
         <title></title>
         <link rel="stylesheet" href="./alloy/build/aui-css/css/bootstrap.css">
+        <link rel="stylesheet" href="./alloy/jquery-ui/css/smoothness/jquery-ui-1.10.3.custom.css">
+        
         <script src="./alloy/build/aui/aui.js"></script>
         <script src="./alloy/jquery.js"></script>
+        <script src="./alloy/jquery-ui/js/jquery-ui-1.10.3.custom.js"></script>
+        <script src="./alloy/jquery-ui/development-bundle/ui/i18n/jquery.ui.datepicker-th.js"></script>
         <style>
             #myForm
             {
@@ -53,6 +57,11 @@
                 width:70%;
                 text-align: center;
                 
+            }
+            input.spec
+            {
+                width:80%;
+                text-align: center;
             }
 
             
@@ -483,7 +492,7 @@
             </div>
 
                 
-                <div id="menu" style="background-color:#FFD200;height:850px;width:700px; border-radius:25px;">
+                <div id="menu" style="background-color:#FFD200;height:450px;width:700px; border-radius:25px;">
 
                     
                     <table class="ex1" border="0">
@@ -495,7 +504,9 @@
                         <tr class="tg-even">
                             <td>ลำดับ</td>
                             <td>ผลการตรวจ</td>
-                            <td><input type="date" style="width: 45%;"></td>
+                            
+                            <td> วันที่: <input type="text"  placeholder="เลือกวันที่" class="datepicker" style="width: 58%;" /></td>
+                            
                         </tr>
                         <tr>
                             <td>1</td>
@@ -546,6 +557,59 @@
                             <td colspan="3"><button class="btn btn-success" style="color:#484848; width: 80px">เสร็จสิ้น</button></td>
                         </tr>
                     </table>
+                    
+            </div>
+                
+                <div id="menu" style="background-color:#FFD200;height:450px;width:700px; border-radius:25px;">
+
+                   <table class="ex1" border="0">
+                        <tr>
+                            <th colspan="2">การตรวจเฉพาะ</th>
+                            
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="control-group">
+                                    <label class="control-label" >วันที่ตรวจ:</label>
+                                    <div class="controls" > 
+                                        <input type="text"  name="123" placeholder="คลิ๊กเพื่อเลือกวันที่" class="datepicker" style="" />
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="control-group">
+                                    <label class="control-label" >ผู้ตรวจ:</label>
+                                    <div class="controls" > 
+                                        <input type="text"  name="123" placeholder="ชื่อและนามสกุลผู้ตรวจ" id="datepicker" style="" />
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="control-group">
+                                    <label class="control-label" >การตรวจตา:</label>
+                                    <div class="controls" > 
+                                        <input class="spec"  type="text" style="">
+                                    </div>
+                                </div>
+                            </td>
+                            
+                        </tr>
+                        <tr class="tg-even">
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="tg-even">
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    
             </div>
 <!-- <input class="btn btn-info" type="submit" value="Submit" style="margin-left:20%;">
 <input class="btn btn-primary" type="reset" value="Reset"> -->
@@ -599,7 +663,15 @@ $(document).ready(function(){
       });
     });
     
-    
+    $(function() {
+		$( ".datepicker" ).datepicker($.datepicker.regional[ "th" ] );
+		$( "#format" ).change(function() {
+			$( ".datepicker" ).datepicker( "option", "dateFormat", $( this ).val() );
+            
+		});
+	});
+        
+      
         </script>
 
 
