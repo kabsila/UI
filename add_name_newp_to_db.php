@@ -32,7 +32,7 @@
         
         //$strSQL = "SELECT * FROM general_info";
   
-        $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());;
+        $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
         
         /**
          while($row = mysql_fetch_array($objQuery))
@@ -62,12 +62,13 @@
         echo "</br>";
         echo "<div id='info'>";
         echo "<label>$staa$strFname  $strSname ได้ถูกเพิ่มชื่อลงในฐานข้อมูลผู้ป่วยเบาหวานแล้ว</label></br>";
-        echo "<button class='btn btn-info' id='btninfo' type='button' onclick='addDataPage()'>เพิ่มข้อมูลของ $staa$strFname  $strSname</button>";
+        echo "<button class='button' id='btninfo' type='button'>เพิ่มข้อมูลของ $staa$strFname  $strSname</button>";
         echo "</div>";
-        
+       // btn btn-info
         session_start();
         $_SESSION['name'] = $strFname;
         $_SESSION['sname'] = $strSname;
+        $_SESSION['status'] = $strStatus;
         /**
         $con=mysqli_connect("localhost","root","","diabetes");
 
