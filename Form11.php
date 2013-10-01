@@ -560,7 +560,7 @@
                     
             </div>
                 
-                <div id="menu" style="background-color:#FFD200;height:450px;width:700px; border-radius:25px;">
+                <div id="menu" style="background-color:#FFD200;height:500px;width:700px; border-radius:25px;">
 
                    <table class="ex1" border="0">
                         <tr>
@@ -596,17 +596,41 @@
                             </td>
                             
                         </tr>
-                        <tr class="tg-even">
-                            <td></td>
-                            <td></td>
+                        <tr>
+                            <td colspan="2">
+                                <div class="control-group">
+                                    <label class="control-label" >การตรวจเท้า:</label>
+                                    <div class="controls" > 
+                                        <input class="spec"  type="text" style="">
+                                    </div>
+                                </div>
+                            </td>
+                            
                         </tr>
                         <tr>
-                            <td></td>
-                            <td></td>
+                            <td colspan="2">
+                                <div class="control-group">
+                                    <label class="control-label" >การประเมินความซึมเศร้า:</label>
+                                    <div class="controls" > 
+                                        <input class="spec"  type="text" style="">
+                                    </div>
+                                </div>
+                            </td>
+                            
                         </tr>
-                        <tr class="tg-even">
-                            <td></td>
-                            <td></td>
+                        <tr>
+                            <td colspan="2">
+                                <div class="control-group">
+                                    <label class="control-label" >ระดับคะแนน:</label>
+                                    <div class="controls" > 
+                                        <input class="spec"  type="text" style="">
+                                    </div>
+                                </div>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td colspan="2"><button class="btn btn-success" style="color:#484848; width: 80px">บันทึก</button></td>
                         </tr>
                     </table>
                     
