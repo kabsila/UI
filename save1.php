@@ -1,7 +1,7 @@
 <?php
 
 header('Content-Type: text/html; charset=utf-8');
-
+include_once ( 'connectDB.php' ); 
         session_start();    
   
         $name1 = $_SESSION['name'];
@@ -60,6 +60,7 @@ header('Content-Type: text/html; charset=utf-8');
         
         //echo $row['ID'];
        // echo "</br>";
+        $_SESSION['lastid'] = $row['ID'];
         echo "<label>บันทึกข้อมูลเรียบร้อยแล้ว</label>";
         mysql_close($objConnect);
 ?>

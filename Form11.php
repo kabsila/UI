@@ -304,7 +304,7 @@
                                 <div class="control-group">
                                     <label class="control-label" >ชื่อแพทย์ผู้ดูแล:</label>
                                     <div class="controls" > 
-                                        <input name="with" id="with"  type="text" style="">
+                                        <input name="with" id="DrName"  type="text" style="">
                                     </div>
                                 </div>
                             </td>
@@ -312,7 +312,7 @@
                                 <div class="control-group">
                                     <label class="control-label" >ชื่อพยาบาลผู้ดูแล:</label>
                                     <div class="controls" > 
-                                        <input name="with" id="with"  type="text" style="">
+                                        <input name="with" id="Nname"  type="text" style="">
                                     </div>
                                 </div>
                             </td>
@@ -320,7 +320,7 @@
                                 <div class="control-group">
                                     <label class="control-label" >ชื่อ อสม. ผู้ดูแล:</label>
                                     <div class="controls" > 
-                                        <input name="with" id="with"  type="text" style="">
+                                        <input name="with" id="AsmName"  type="text" style="">
                                     </div>
                                 </div>
                             </td>
@@ -330,7 +330,7 @@
                                 <div class="control-group">
                                     <label class="control-label" >โรงพยาบาลที่รับการรักษา:</label>
                                     <div class="controls" > 
-                                        <input name="with" id="with"  type="text" style="">
+                                        <input name="with" id="Hospital"  type="text" style="">
                                     </div>
                                 </div>
                             </td>
@@ -338,7 +338,7 @@
                                 <div class="control-group">
                                     <label class="control-label" >ยาที่ได้รับ:</label>
                                     <div class="controls" > 
-                                        <input name="with" id="with"  type="text" style="">
+                                        <input name="with" id="med"  type="text" style="">
                                     </div>
                                 </div>
                             </td>
@@ -346,7 +346,7 @@
                                 <div class="control-group">
                                     <label class="control-label" >ประวัติการแพ้ยา:</label>
                                     <div class="controls" > 
-                                        <input name="with" id="with"  type="text" style="">
+                                        <input name="with" id="med_history"  type="text" style="">
                                     </div>
                                 </div>
                             </td>
@@ -356,7 +356,7 @@
                                 <div class="control-group">
                                     <label class="control-label" >อาหารเฉพาะ:</label>
                                     <div class="controls" > 
-                                        <input name="with" id="with"  type="text" style="">
+                                        <input name="with" id="spec_food"  type="text" style="">
                                     </div>
                                 </div>
                             </td>
@@ -374,14 +374,14 @@
                                 <div class="control-group">
                                     <label class="control-label" >ข้อมูลครอบครัวและผู้ดูแล (อาชีพ รายได้ ภาระ การจัดการเพื่อดูแล):</label>
                                     <div class="controls" > 
-                                        <textarea style="width: 80%; height: 70px;"></textarea>
+                                        <textarea id="family_info" style="width: 80%; height: 70px;"></textarea>
                                     </div>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                                 <td colspan="4">
-                                    <button class="btn btn-success" style="color:#484848; width: 80px">บันทึก</button>
+                                    <button class="btn btn-success" id="save3" style="color:#484848; width: 80px">บันทึก</button>
                                 </td>
                             </tr>
                     </table>
@@ -635,6 +635,214 @@
                     </table>
                     
             </div>
+                
+                <div id="menu" style="background-color:#FFD200;height:180px;width:700px; border-radius:25px;">
+
+                    <table class="ex1" border="0">
+                        <tr>
+                            <th colspan="3">การเตรียมผู้ดูแล</th>
+                            
+                        </tr>
+                        <tr>
+                            <td>
+                               <div class="control-group">
+                                    <label class="control-label" >ประเด็นที่ได้รับการเตรียม:</label>
+                                    <div class="controls" > 
+                                        <input class="td"  type="text" style="">
+                                    </div>
+                                </div> 
+                            </td>
+                            <td>
+                               <div class="control-group">
+                                    <label class="control-label" >วันที่เตรียม:</label>
+                                    <div class="controls" > 
+                                        <input class="datepicker" type="text" style="">
+                                    </div>
+                                </div> 
+                            </td>
+                            <td>
+                               <div class="control-group">
+                                    <label class="control-label" >ผู้เตรียม:</label>
+                                    <div class="controls" > 
+                                        <input class="td"  type="text" style="">
+                                    </div>
+                                </div> 
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td colspan="3"><button class="btn btn-success" style="color:#484848; width: 80px">บันทึก</button></td>
+                            
+                        </tr>
+                    </table>
+                    
+            </div>
+                
+                <div id="menu" style="background-color:#FFD200;height:250px;width:700px; border-radius:25px;">
+
+                    <table class="ex1" border="0">
+                        <tr>
+                            <th colspan="3">แผนการดูแลที่บ้าน</th>
+                            
+                        </tr>
+                        <tr>
+                            <td>
+                               <div class="control-group">
+                                    <label class="control-label" >ประเด็นที่ดูแล:</label>
+                                    <div class="controls" > 
+                                        <input class="td"  type="text" style="">
+                                    </div>
+                                </div> 
+                            </td>
+                            <td>
+                               <div class="control-group">
+                                    <label class="control-label" >แนวทางการดูแล:</label>
+                                    <div class="controls" > 
+                                        <input class="" type="text" style="">
+                                    </div>
+                                </div> 
+                            </td>
+                            <td>
+                               <div class="control-group">
+                                    <label class="control-label" >ผู้ที่ดูแล:</label>
+                                    <div class="controls" > 
+                                        <input class="td"  type="text" style="">
+                                    </div>
+                                </div> 
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                               <div class="control-group">
+                                    <label class="control-label" >หมายเหตุ:</label>
+                                    <div class="controls" > 
+                                        <input class="td"  type="text" style="">
+                                    </div>
+                                </div> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><button class="btn btn-success" style="color:#484848; width: 80px">บันทึก</button></td>
+                            
+                        </tr>
+                    </table>
+                    
+            </div>
+                
+                <div id="menu" style="background-color:#FFD200;height:300px;width:700px; border-radius:25px;">
+
+                    <table class="ex1" border="0">
+                        <tr>
+                            <th colspan="3">การเยี่ยมบ้าน</th>
+                            
+                        </tr>
+                        <tr>
+                            <td>
+                               <div class="control-group">
+                                    <label class="control-label" >การเยี่ยมครั้งที่:</label>
+                                    <div class="controls" > 
+                                        <input   type="text" style="width:30px">
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                               <div class="control-group">
+                                    <label class="control-label" >ผู้เยี่ยม:</label>
+                                    <select id="py" style="width: 60%; text-align: center;">
+                                        <option value="n">พยาบาล</option>
+                                        <option value="osm">อสม.</option>
+                                        <option value="staff">เจ้าหน้าที่</option>
+                                    </select> 
+                                </div>
+                            </td>
+                            <td>
+                               <div class="control-group">
+                                    <label class="control-label" >บุคคลที่ได้รับการเยี่ยม:</label>
+                                    <select id="py" style="width: 60%; text-align: center;">
+                                        <option value="pp">ผู้ป่วย</option>
+                                        <option value="pd">ผู้ดูแล.</option>
+                                        
+                                    </select>
+                                </div> 
+                            </td>
+                                                       
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                               <div class="control-group">
+                                    <label class="control-label" >สภาวะแวดล้อมของครอบครัว:</label>
+                                    <div class="controls" > 
+                                        <textarea style="width: 80%; height: 70px;"></textarea>
+                                    </div>
+                                </div> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><button class="btn btn-success" style="color:#484848; width: 80px">บันทึก</button></td>
+                            
+                        </tr>
+                    </table>
+                    
+            </div>
+                
+                <div id="menu" style="background-color:#FFD200;height:300px;width:700px; border-radius:25px;">
+
+                    <table class="ex1" border="0">
+                        <tr>
+                            <th colspan="4">บันทึกการดูแลจากการเยี่ยมบ้าน</th>
+                            
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="control-group">
+                                    <label class="control-label" >ประเด็นที่ดูแล:</label>
+                                    <div class="controls" > 
+                                        <input   type="text" style="">
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="control-group">
+                                    <label class="control-label" >การดูแล:</label>
+                                    <div class="controls" > 
+                                        <input   type="text" style="">
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="control-group">
+                                    <label class="control-label" >ผู้ดูแล:</label>
+                                    <div class="controls" > 
+                                        <input   type="text" style="">
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="control-group">
+                                    <label class="control-label" >หมายเหตุ:</label>
+                                    <div class="controls" > 
+                                        <input   type="text" style="">
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <button class="btn btn-success" style="color:#484848; width: 90px">บันทึกเพิ่ม</button>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                </br></br></br></br>
+                                <button class="btn btn-success" style="color:#484848; width: 130px">เสร็จสิ้นการบันทึก</button>
+                            </td>
+                            
+                        </tr>
+                    </table>
+                    
+            </div>
 <!-- <input class="btn btn-info" type="submit" value="Submit" style="margin-left:20%;">
 <input class="btn btn-primary" type="reset" value="Reset"> -->
 
@@ -689,10 +897,7 @@ $(document).ready(function(){
     
     $(function() {
 		$( ".datepicker" ).datepicker($.datepicker.regional[ "th" ] );
-		$( "#format" ).change(function() {
-			$( ".datepicker" ).datepicker( "option", "dateFormat", $( this ).val() );
-            
-		});
+		
 	});
         
       

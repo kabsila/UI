@@ -14,7 +14,7 @@ jQuery(function($){
 		dayNamesShort: ['อา.','จ.','อ.','พ.','พฤ.','ศ.','ส.'],
 		dayNamesMin: ['อา.','จ.','อ.','พ.','พฤ.','ศ.','ส.'],
 		weekHeader: 'Wk',
-		dateFormat: 'dd/mm/yy',
+		dateFormat: 'yy-mm-dd',
 		firstDay: 0,
 		isRTL: false,
 		showMonthAfterYear: false,

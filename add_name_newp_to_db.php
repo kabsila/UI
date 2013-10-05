@@ -1,6 +1,7 @@
 <?php
 
         header('Content-Type: text/html; charset=utf-8');
+        include_once ( 'connectDB.php' ); 
         
         $strStatus = trim($_POST['tStatus']);
         $strFname = trim($_POST['tFname']);
@@ -25,7 +26,7 @@
 	}
 	
 
-	$objConnect = mysql_connect("localhost","root","root") or die("Error Connect to Database");
+	//$objConnect = mysql_connect("localhost","root","root") or die("Error Connect to Database");
         $objDB = mysql_select_db("diabetes");
         mysql_query("SET NAMES UTF8");
         $strSQL = "INSERT INTO general_info (status, name, sname) VALUES ('$strStatus', '$strFname', '$strSname')";
@@ -62,7 +63,7 @@
         echo "</br>";
         echo "<div id='info'>";
         echo "<label>$staa$strFname  $strSname ได้ถูกเพิ่มชื่อลงในฐานข้อมูลผู้ป่วยเบาหวานแล้ว</label></br>";
-        echo "<button class='button' id='btninfo' type='button'>เพิ่มข้อมูลของ $staa$strFname  $strSname</button>";
+        echo "<button class='btn btn-large btn-primary' id='btninfo' type='button'>เพิ่มข้อมูลของ $staa$strFname  $strSname</button>";
         echo "</div>";
        // btn btn-info
         session_start();
