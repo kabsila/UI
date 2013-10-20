@@ -1,0 +1,61 @@
+        .inlineTable 
+        {
+          /**  display: inline-block;  
+            
+            float: left;
+            float: top;**/ 
+            display: inline-table;                 
+            text-align: left;
+          
+         }
+        
+        #tm
+        {
+            margin-right: 25px;
+        }
+        #listName2
+        {
+             
+            height:auto;
+            margin: 0 auto;
+            margin-top:20px;             
+            text-align: center;
+            padding-top: 25px;
+            padding-bottom: 25px;            
+            display: none;
+            
+            
+        }
+        
+        #listName3
+        {
+             
+            height:auto;
+            margin: 0 auto;
+            margin-top:20px;             
+            text-align: center;
+            padding-top: 25px;
+            padding-bottom: 25px;
+            display: block;
+            
+            
+        }
+        .cursorName
+        {
+            cursor:pointer;
+            color:#ecf0f1;
+        }
+        
+        label.cursorName:hover,label.cursorName:active 
+        {
+            color:blue;
+        }
+        /**
+        a:link {color:#ecf0f1;}    
+        a:visited {color:#ecf0f1;} 
+        a:hover {color:#ecf0f1;}   
+        a:active {color:#ecf0f1;}
+        a
+        {            
+            cursor:pointer;
+        }**/

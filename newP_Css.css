@@ -1,0 +1,228 @@
+            #myForm
+            {
+               
+                text-align: center;
+            }
+
+           /* #menu label
+            {display:inline;
+                float:left;
+                margin-right:4px;
+                vertical-align:top;
+            }*/
+            #content
+            {
+               padding-top: 25px;
+               margin:auto;
+               text-align: center;
+            }
+            #menu
+            {
+                margin:auto;
+                padding-top: 40px;   
+                text-align: center;
+                
+            }
+            
+            #menu2
+            {
+                height:150px;
+                width:400px;
+                margin:auto;
+                text-align: center;
+                padding-top: 40px; 
+                margin-top: 25px;
+            }
+            
+            #menu3
+            {
+                background-color: #FF9900;
+                height: 200px;
+                width: 700px; 
+                border-radius: 25px;
+                margin: auto;
+                margin-top:20px;               
+                text-align: center;
+                padding-top: 47px;
+                display: none;
+                
+                
+                               
+            }
+            
+            #menu4
+            {
+                display: none;
+                margin:auto;
+                margin-top:20px;               
+                text-align: center;
+                padding-top: 47px;
+            }
+            
+            #menu5
+            {
+                margin:auto;
+                margin-top:20px;               
+                text-align: center;
+                padding-top: 47px;
+                display: none;
+                
+            }
+            
+             #menu6
+            {
+                margin:auto;
+                margin-top:20px;               
+                text-align: center;
+                padding-top: 47px;
+                display: none;
+            }
+            
+            #menu7
+            {
+                margin:auto;
+                margin-top:20px;               
+                text-align: center;
+                padding-top: 47px;
+                display: none;
+            }
+            #menu8
+            {
+                margin:auto;
+                margin-top:20px;               
+                text-align: center;
+                padding-top: 47px;
+                display: none;
+            }
+            
+            #menu9
+            {
+                margin:auto;
+                margin-top:20px;               
+                text-align: center;
+                padding-top: 47px;
+                display: none;
+            }
+            
+            #menu10
+            {
+                margin:auto;
+                margin-top:20px;               
+                text-align: center;
+                padding-top: 47px;
+                display: none;
+            }
+            #menu11
+            {
+                margin:auto;
+                margin-top:20px;               
+                text-align: center;
+                padding-top: 47px;
+                display: none;
+            }
+            
+            #menu12
+            {
+                margin:auto;
+                margin-top:20px;               
+                text-align: center;
+                padding-top: 47px;
+                display: none;
+            }
+            
+            #menu13
+            {
+                margin:auto;
+                margin-top:20px;               
+                text-align: center;
+                padding-top: 47px;
+                display: none;
+            }
+            
+         
+            table.ex1 
+            {
+                 text-align: center;
+                 margin-left:auto;
+                 margin-right:auto;
+                 table-layout:auto;
+                 
+                 
+            }
+            table.ex2 
+            {
+                 text-align: center;
+                 margin-left:auto;
+                 margin-right:auto;
+                 table-layout:auto;
+                 
+            }
+            table.ex5
+            {
+                 text-align: center;
+                 margin-left:auto;
+                 margin-right:auto;
+                 table-layout:auto;
+                 width: 600px;              
+            }
+            #menu2
+            {   
+                 display: none;
+            }
+            
+            input.w_input
+            {
+                width:60%;
+                text-align: center;
+                
+            }
+            
+            #info
+            {
+                margin:auto;
+                
+                height: 80px;
+                font-size: 150%;
+                
+            }
+            
+           
+            #myDiv
+            {
+                display: block;
+                opacity: 1;
+                
+            }
+            #test
+            {
+                display: none;
+            }            
+            
+            input
+            {
+                width:70%;
+                text-align: center;
+            }
+            
+            input.spec
+            {
+                width:80%;
+                text-align: center;
+            }
+            
+            #successPopUp
+            {  
+                display:none;  
+               
+                
+                height:50px;  
+                width:300px; 
+                     
+                background:#A3FF47;  
+               
+                padding-top: 25px;
+                 
+                font-size:16px;
+                border-radius: 40px;
+                text-align: center;
+            }  

@@ -6,13 +6,15 @@
         $strAnalysis = trim($_POST['tAnalysis']);
         $strInput_other = trim($_POST['tInput_other']);
         $strDrName = trim($_POST['tDrName']);
-        $strNname = trim($_POST['tNname']);
-        $strAsmName = trim($_POST['tAsmName']);
-        $strHospital = trim($_POST['tHospital']);
+        //$strNname = trim($_POST['tNname']);
+        //$strAsmName = trim($_POST['tAsmName']);
+        $strHospital1 = trim($_POST['tHospital1']);
+        $strHospital2 = trim($_POST['tHospital2']);
+        $strHospital3 = trim($_POST['tHospital3']);
         $strmed = trim($_POST['tmed']);
         $strmed_history = trim($_POST['tmed_history']);
         $strspec_food = trim($_POST['tspec_food']);
-        $strsmpai = trim($_POST['tsmpai']);
+        //$strsmpai = trim($_POST['tsmpai']);
         $strfamily_info = trim($_POST['tfamily_info']);
         
         
@@ -28,13 +30,12 @@
                       
         $strSQL = "UPDATE general_info SET analysis = '$strAnalysis', 
                                            drname = '$strDrName',
-                                           nname = '$strNname',
-                                           asmname = '$strAsmName',
-                                           hospital = '$strHospital',
+                                           hospital1 = '$strHospital1',
+                                           hospital2 = '$strHospital2',
+                                           hospital3 = '$strHospital3',
                                            medicine = '$strmed',
                                            anti_medicine = '$strmed_history',
-                                           spac_food = '$strspec_food',
-                                           smpai = '$strsmpai',
+                                           spac_food = '$strspec_food',                                           
                                            family_info = '$strfamily_info'
                    WHERE ID = $lastID";
                                            

@@ -4,28 +4,19 @@
 
         session_start();
 
-        $str1 = trim($_POST['tfirst_rateDB']);
-        $str2 = trim($_POST['tbloodP']);
-        //$str3 = trim($_POST['ttemp']);
-        //$str4 = trim($_POST['thj']);
-        //$str5 = trim($_POST['tenviHome']);
-        //$str6 = trim($_POST['tbelieve']);
-       // $str7 = trim($_POST['tp1']);
-        //$str8 = trim($_POST['tjit']);
-       // $str9 = trim($_POST['tp2']);
-       // $str10 = trim($_POST['tecono']);
-       
-        
-    
+        $str1 = trim($_POST['ttakecarePoint']);
+        $str2 = trim($_POST['ttakecare']);
+        $str3 = trim($_POST['tnamePD']);
+        $str4 = trim($_POST['tnote2']);
                 
         $lastID = $_SESSION["lastid"];
-        
+        $visitOrder = $_SESSION["visit_order"];
         //$objConnect = mysql_connect("localhost","root","root") or die("Error Connect to Database");
         $objDB = mysql_select_db("diabetes");
         mysql_query("SET NAMES UTF8");             
                       
-        $strSQL = "INSERT INTO first_rate (ID, first_rateData, blood_p) 
-                             VALUES ('$lastID', '$str1', '$str2')";
+        $strSQL = "INSERT INTO visit_table (id, visit_order, takecarePoint, takecare, name_d, note) 
+                             VALUES ('$lastID', '$visitOrder', '$str1', '$str2', '$str3', '$str4')";
                                            
         $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
        

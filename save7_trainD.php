@@ -4,19 +4,9 @@
 
         session_start();
 
-        $str1 = trim($_POST['tfirst_rateDB']);
-        $str2 = trim($_POST['tbloodP']);
-        //$str3 = trim($_POST['ttemp']);
-        //$str4 = trim($_POST['thj']);
-        //$str5 = trim($_POST['tenviHome']);
-        //$str6 = trim($_POST['tbelieve']);
-       // $str7 = trim($_POST['tp1']);
-        //$str8 = trim($_POST['tjit']);
-       // $str9 = trim($_POST['tp2']);
-       // $str10 = trim($_POST['tecono']);
-       
-        
-    
+        $str1 = trim($_POST['ttrianPoint']);
+        $str2 = trim($_POST['tdateTrain']);
+        $str3 = trim($_POST['tnameTrain']);
                 
         $lastID = $_SESSION["lastid"];
         
@@ -24,8 +14,8 @@
         $objDB = mysql_select_db("diabetes");
         mysql_query("SET NAMES UTF8");             
                       
-        $strSQL = "INSERT INTO first_rate (ID, first_rateData, blood_p) 
-                             VALUES ('$lastID', '$str1', '$str2')";
+        $strSQL = "INSERT INTO train_d (id, main_d, date, trainer_name) 
+                             VALUES ('$lastID', '$str1', '$str2', '$str3')";
                                            
         $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
        

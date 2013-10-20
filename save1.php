@@ -9,13 +9,13 @@ include_once ( 'connectDB.php' );
         $strStatus = $_SESSION['status'];
 
         $strtAge = trim($_POST['tAge']);
-        $strtJob = trim($_POST['tJob']);
-        $strtTel = trim($_POST['tTel']);
+        //$strtJob = trim($_POST['tJob']);
+        //$strtTel = trim($_POST['tTel']);
         $strtNameD = trim($_POST['tNameD']);
         $strtSnameD = trim($_POST['tSnameD']);
         $strtWithD = trim($_POST['tWithD']);
-        $strtJobD = trim($_POST['tJobD']);
-        $strtTelD = trim($_POST['tTelD']);
+        //$strtJobD = trim($_POST['tJobD']);
+        //$strtTelD = trim($_POST['tTelD']);
         
         
         
@@ -36,7 +36,7 @@ include_once ( 'connectDB.php' );
 		exit();
 	}**/
         
-        $objConnect = mysql_connect("localhost","root","root") or die("Error Connect to Database");
+        //$objConnect = mysql_connect("localhost","root","root") or die("Error Connect to Database");
         $objDB = mysql_select_db("diabetes");
         mysql_query("SET NAMES UTF8");
         $strSQL = "SELECT ID FROM general_info WHERE (name = '$name1') AND (sname = '$sname1')";        
@@ -47,13 +47,11 @@ include_once ( 'connectDB.php' );
         
         $strSQL = "UPDATE general_info SET status = '$strStatus', 
                                            age = '$strtAge',
-                                           job = '$strtJob',
-                                           tel = '$strtTel',
+                                        
                                            name_d = '$strtNameD',
                                            sname_d = '$strtSnameD',
-                                           relation = '$strtWithD',
-                                           job_d = '$strtJobD',
-                                           tel_d = '$strtTelD'
+                                           relation = '$strtWithD'
+                                           
                    WHERE ID = ".$row['ID'];
                                            
         $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());

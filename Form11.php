@@ -114,22 +114,7 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td>
-                                    <div class="control-group">
-                                        <label class="control-label" >อาชีพ:</label>
-                                        <div class="controls" > 
-                                            <input name="job" id="job"  type="text" style="">
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="control-group">
-                                        <label class="control-label" >เบอร์โทร:</label>
-                                        <div class="controls" >
-                                            <input name="tel" id="tel"  type="text" style="">
-                                        </div>
-                                    </div>
-                                </td>
+                                
                             </tr>
                             <tr>
                                 <td>
@@ -157,22 +142,7 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td>
-                                    <div class="control-group">
-                                        <label class="control-label" >อาชีพ:</label>
-                                        <div class="controls" > 
-                                            <input name="djob" id="djob"  type="text" style="">
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="control-group">
-                                        <label class="control-label" >เบอร์โทร:</label>
-                                        <div class="controls" >
-                                            <input name="dtel" id="dtel"  type="text" style="">
-                                        </div>
-                                    </div>
-                                </td>
+                                
                             </tr>
                             <tr >
                                 <td colspan="5">
@@ -280,7 +250,7 @@
 
                 </div>
 
-                <div id="menu" style="background-color:#FFD200;height:500px;width:700px; border-radius:25px;">
+                <div id="menu" style="background-color:#2c3e50;height:600px;width:700px; border-radius:25px;color: #ecf0f1;">
 
                     
                     <table class="ex1" border="0">
@@ -300,7 +270,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td colspan="3">
                                 <div class="control-group">
                                     <label class="control-label" >ชื่อแพทย์ผู้ดูแล:</label>
                                     <div class="controls" > 
@@ -308,32 +278,35 @@
                                     </div>
                                 </div>
                             </td>
-                            <td>
-                                <div class="control-group">
-                                    <label class="control-label" >ชื่อพยาบาลผู้ดูแล:</label>
-                                    <div class="controls" > 
-                                        <input name="with" id="Nname"  type="text" style="">
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="control-group">
-                                    <label class="control-label" >ชื่อ อสม. ผู้ดูแล:</label>
-                                    <div class="controls" > 
-                                        <input name="with" id="AsmName"  type="text" style="">
-                                    </div>
-                                </div>
-                            </td>
+                            
                         </tr>
                         <tr>
                             <td>
                                 <div class="control-group">
-                                    <label class="control-label" >โรงพยาบาลที่รับการรักษา:</label>
+                                    <label class="control-label" ><font color="#2c3e50">1</font></label>
                                     <div class="controls" > 
-                                        <input name="with" id="Hospital"  type="text" style="">
+                                        <input name="with" placeholder="โรงพยาบาลที่ 1" id="Hospital1"  type="text" style="">
                                     </div>
                                 </div>
                             </td>
+                            <td>
+                                <div class="control-group">
+                                    <label class="control-label">โรงพยาบาลที่รับการรักษา:</label>
+                                    <div class="controls" > 
+                                        <input name="with" placeholder="โรงพยาบาลที่ 2" id="Hospital2"  type="text" style="">
+                                    </div>
+                                </div>
+                            </td>
+                            <td colspan="2">
+                                <div class="control-group">
+                                    <label class="control-label" ><font color="#2c3e50">3</font></label>
+                                    <div class="controls" > 
+                                        <input name="with" placeholder="โรงพยาบาลที่ 3" id="Hospital3"  type="text" style="">
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr colspan="2">                            
                             <td>
                                 <div class="control-group">
                                     <label class="control-label" >ยาที่ได้รับ:</label>
@@ -346,28 +319,21 @@
                                 <div class="control-group">
                                     <label class="control-label" >ประวัติการแพ้ยา:</label>
                                     <div class="controls" > 
-                                        <input name="with" id="med_history"  type="text" style="">
+                                        <input name="with" id="med_history"  type="text" style="width: 85%;">
                                     </div>
                                 </div>
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td colspan="3">
                                 <div class="control-group">
                                     <label class="control-label" >อาหารเฉพาะ:</label>
                                     <div class="controls" > 
-                                        <input name="with" id="spec_food"  type="text" style="">
+                                        <input name="with" id="spec_food"  type="text" style="width: 80%">
                                     </div>
                                 </div>
                             </td>
-                            <td colspan="3">
-                                <div class="control-group">
-                                    <label class="control-label" >การใช้สมุนไพรหรือการปฎิบัติเฉพาะที่ใช้:</label>
-                                    <div class="controls" > 
-                                        <input name="with" id="smpai"  type="text" style="width: 85%;">
-                                    </div>
-                                </div>
-                            </td>
+                            
                         </tr>
                         <tr>
                             <td colspan="4">
@@ -391,98 +357,32 @@
                 </div>
                 
                 
-                <div id="menu" style="background-color:#FFD200;height:850px;width:700px; border-radius:25px;">
+                <div id="menu" style="background-color:#e74c3c;height:300px;width:700px; border-radius:25px;color: #ecf0f1;">
 
                     
                     <table class="ex1" border="0">
                         <tr>
-                            <th colspan="4">การประเมินครั้งแรกที่รับไว้ในการดูแล</th>
-                        </tr>
-                        <tr>
-                          <td colspan="4">
+                            <td colspan="4">
                                 <div class="control-group">
-                                    <label class="control-label" >ความสามารถในการดูแลตนเอง:</label>
+                                    <label class="control-label" >การประเมินครั้งแรกที่รับไว้ในการดูแล:</label>
                                     <div class="controls" > 
-                                        <input placeholder="ประเมินตามดัชนีบาเธล (คะแนน)" id="smpai"  type="text" style="">
+                                        <textarea id="first_rateDB" style="width: 80%; height: 70px;"></textarea>
                                     </div>
                                 </div>
-                            </td>  
-                        </tr>
+                            </td>
+                        </tr>                        
                         <tr>
                             
                             <td>
                                 <div class="control-group">
                                     <label class="control-label" >ความดันโลหิต:</label>
                                     <div class="controls" > 
-                                        <input placeholder="มม.ปรอท" id="smpai"  type="text" style="">
+                                        <input placeholder="มม.ปรอท" id="bloodP"  type="text" style="">
                                     </div>
                                 </div>
-                            </td>
-                            <td>
-                                <div class="control-group">
-                                    <label class="control-label" >อุณหภูมิ:</label>
-                                    <div class="controls" > 
-                                        <input placeholder="องศาเซลเซียส" id="smpai"  type="text" style="">
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="control-group">
-                                    <label class="control-label" >หายใจ:</label>
-                                    <div class="controls" > 
-                                        <input placeholder="ครั้ง" id="smpai"  type="text" style="">
-                                    </div>
-                                </div>
-                            </td>
+                            </td>                            
                         </tr>
-                        <tr>
-                            <td colspan="4">
-                                <div class="control-group">
-                                    <label class="control-label" >สภาพแวดล้อมภายในและภายนอนบ้าน:</label>
-                                    <div class="controls" > 
-                                        <textarea style="width: 80%; height: 70px;"></textarea>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="4">
-                                <div class="control-group">
-                                    <label class="control-label" >ความเชื่อและวิถีชีวิต:</label>
-                                    <div class="controls" > 
-                                        <textarea style="width: 80%; height: 70px;"></textarea>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="4">
-                                <div class="control-group">
-                                    <label class="control-label" >สภาวะทางด้านจิตสังคมของผู้ป่วยและผู้ดูแล:</label>
-                                    <select id="p1" style="width:140px;text-align: center;">
-                                        <option value="p">มีปัญหา</option>
-                                        <option value="nop">ไม่มีปัญหา</option>                                        
-                                    </select>  
-                                    <div class="controls" > 
-                                        <textarea style="width: 80%; height: 70px;"></textarea>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="4">
-                                <div class="control-group">
-                                    <label class="control-label" >สภาวะทางด้านเศรษฐกิจของผู้ป่วยและผู้ดูแล:</label>
-                                    <select id="p2" style="width:140px;text-align: center;">
-                                        <option value="p">มีปัญหา</option>
-                                        <option value="nop">ไม่มีปัญหา</option>                                        
-                                    </select>  
-                                    <div class="controls" > 
-                                        <textarea style="width: 80%; height: 70px;"></textarea>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
+                        
                         <tr>
                             <td colspan="4">
                                 <button class="btn btn-success" style="color:#484848; width: 80px">บันทึก</button>
@@ -492,7 +392,7 @@
             </div>
 
                 
-                <div id="menu" style="background-color:#FFD200;height:450px;width:700px; border-radius:25px;">
+                <div id="menu" style="background-color:#99ff00;height:450px;width:700px; border-radius:25px;">
 
                     
                     <table class="ex1" border="0">
@@ -560,7 +460,7 @@
                     
             </div>
                 
-                <div id="menu" style="background-color:#FFD200;height:500px;width:700px; border-radius:25px;">
+                <div id="menu" style="background-color:#33ff00;height:500px;width:700px; border-radius:25px;">
 
                    <table class="ex1" border="0">
                         <tr>
@@ -636,7 +536,7 @@
                     
             </div>
                 
-                <div id="menu" style="background-color:#FFD200;height:180px;width:700px; border-radius:25px;">
+                <div id="menu" style="background-color:#00ff00;height:180px;width:700px; border-radius:25px;">
 
                     <table class="ex1" border="0">
                         <tr>
@@ -648,7 +548,7 @@
                                <div class="control-group">
                                     <label class="control-label" >ประเด็นที่ได้รับการเตรียม:</label>
                                     <div class="controls" > 
-                                        <input class="td"  type="text" style="">
+                                        <input class="td"  id="trainPoint" type="text" style="">
                                     </div>
                                 </div> 
                             </td>
@@ -656,7 +556,7 @@
                                <div class="control-group">
                                     <label class="control-label" >วันที่เตรียม:</label>
                                     <div class="controls" > 
-                                        <input class="datepicker" type="text" style="">
+                                        <input class="datepicker" id="dateTrain" type="text" style="">
                                     </div>
                                 </div> 
                             </td>
@@ -664,7 +564,7 @@
                                <div class="control-group">
                                     <label class="control-label" >ผู้เตรียม:</label>
                                     <div class="controls" > 
-                                        <input class="td"  type="text" style="">
+                                        <input class="td"  id="nameTrain" type="text" style="">
                                     </div>
                                 </div> 
                             </td>
@@ -678,7 +578,7 @@
                     
             </div>
                 
-                <div id="menu" style="background-color:#FFD200;height:250px;width:700px; border-radius:25px;">
+                <div id="menu" style="background-color:#00ff66;height:250px;width:700px; border-radius:25px;">
 
                     <table class="ex1" border="0">
                         <tr>
@@ -730,7 +630,7 @@
                     
             </div>
                 
-                <div id="menu" style="background-color:#FFD200;height:300px;width:700px; border-radius:25px;">
+                <div id="menu" style="background-color:#00ffCC;height:300px;width:700px; border-radius:25px;">
 
                     <table class="ex1" border="0">
                         <tr>
@@ -786,7 +686,7 @@
                     
             </div>
                 
-                <div id="menu" style="background-color:#FFD200;height:300px;width:700px; border-radius:25px;">
+                <div id="menu" style="background-color:#00ffff;height:300px;width:700px; border-radius:25px;">
 
                     <table class="ex1" border="0">
                         <tr>

@@ -39,22 +39,7 @@ echo "<table class='ex1' border='0' >
                                         </div>
                                     </div>
                                 </td>
-                                <td>
-                                    <div class='control-group'>
-                                        <label class='control-label' >อาชีพ:</label>
-                                        <div class='controls' > 
-                                            <input class='w_input' name='job' id='job'  type='text' style=''>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class='control-group'>
-                                        <label class='control-label' >เบอร์โทร:</label>
-                                        <div class='controls' >
-                                            <input class='w_input' name='tel' id='tel' type='text' style=''>
-                                        </div>
-                                    </div>
-                                </td>
+                                
                             </tr>
                             <tr>
                                 <td>
@@ -82,22 +67,7 @@ echo "<table class='ex1' border='0' >
                                         </div>
                                     </div>
                                 </td>
-                                <td>
-                                    <div class='control-group'>
-                                        <label class='control-label' >อาชีพ:</label>
-                                        <div class='controls' > 
-                                            <input class='w_input' name='djob' id='jobd'  type='text' style=''>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class='control-group'>
-                                        <label class='control-label' >เบอร์โทร:</label>
-                                        <div class='controls' >
-                                            <input class='w_input' name='dtel' id='teld'  type='text' style=''>
-                                        </div>
-                                    </div>
-                                </td>
+                                
                             </tr>
                             <tr >
                                 <td colspan='5'>
