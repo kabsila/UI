@@ -15,19 +15,30 @@
         <link rel="stylesheet" href="./alloy/jquery-ui/css/smoothness/jquery-ui-1.10.3.custom.css">
         <link rel="stylesheet" href="./newP_Css.css">
         <link rel="stylesheet" href="./Gedit/edit_Css.css">
+        <link rel="stylesheet" href="./alloy/jquery-ui-all/themes/base/jquery-ui.css">
+        
+<!--        <link rel="stylesheet" href="./alloy/pagination/css/jqpagination.css">-->
+        
+        
         
         <script src="./alloy/build/aui/aui.js"></script>
         <script src="./alloy/jquery.js"></script>
         <script src="./alloy/jquery-ui/js/jquery-ui-1.10.3.custom.js"></script>
         <script src="./alloy/jquery-ui/development-bundle/ui/i18n/jquery.ui.datepicker-th.js"></script>
-        <script src="./Gedit/jsEdit.js"></script>
+        <script src="./alloy/jquery-ui-all/ui/jquery-ui.js"></script>
+        <script src="./Gedit/jsEdit.js"></script>        
+        
+        <script src="./alloy/pagination/js/jquery.jqpagination.js"></script>
+        
+       
+        
+        
         <style>
-            
-
+           
         </style>
         
         <script>
-            
+
         </script>
     </head>
     <body>
@@ -65,9 +76,7 @@
                 <div id="listName2" style="background-color:#e74c3c;width:400px; border-radius:25px;color: #ecf0f1;"></div>
                 <div id="listName3"></div>
                 
-                
-                
-
+             
             
 <!-- <input class="btn btn-info" type="submit" value="Submit" style="margin-left:20%;">
 <input class="btn btn-primary" type="reset" value="Reset"> -->
@@ -81,7 +90,7 @@
             
         </div>
 
-        
+      
 
 
     </body>

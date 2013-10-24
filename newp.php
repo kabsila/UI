@@ -592,8 +592,8 @@
                             <td>
                                <div class="control-group">
                                     <label class="control-label" >การเยี่ยมครั้งที่:</label>
-                                    <div class="controls" > 
-                                        <input   type="text" id="visit_order" style="width:30px">
+                                    <div class="controls" >                                         
+                                        <input   type="text" id="visit_order" style="width:30px;">
                                     </div>
                                 </div>
                             </td>
@@ -679,7 +679,7 @@
                                 <div class="control-group">
                                     <label class="control-label" >หมายเหตุ:</label>
                                     <div class="controls" > 
-                                        <input   type="text" id="note2" style="">
+                                        <input   type="text" id="note2" value="-">
                                     </div>
                                 </div>
                             </td>
@@ -700,7 +700,9 @@
                     
             </div>
 
-            <div id="menu13">sdsds</div>
+            <div id="menu13">
+                <button class="btn btn-success" id="finish6" style="color:#484848; width: 400px;">เสร็จสิ้นการบันทึกข้อมูลของผู้ป่วยรายนี้</button>
+            </div>
 <!-- <input class="btn btn-info" type="submit" value="Submit" style="margin-left:20%;">
 <input class="btn btn-primary" type="reset" value="Reset"> -->
 

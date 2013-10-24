@@ -177,6 +177,13 @@
                 
             }
             
+            input.w_input2
+            {
+                width:80%;
+                text-align: center;
+                
+            }
+            
             #info
             {
                 margin:auto;

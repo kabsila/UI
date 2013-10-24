@@ -437,6 +437,10 @@ YUI().use(
                              $('#enviFam').val('');
                              $('#table11').fadeIn(1500);
                              $("#successPopUp").slideUp(1500);**/
+                              $('#visit_order').val('');
+                              //$('#Pvisit').val('');
+                             // $('#PRvisit').val('');
+                              $('#enviFam').val('');
                             $("#menu11").slideUp(2000);                     
                             $("#menu12").fadeIn(2000);
                           });
@@ -491,7 +495,21 @@ YUI().use(
                $(document).ready(function(){
                 $("#finish5").click(function(){
                     $("#menu12").slideUp(2000);
+                    $("#menu11").slideDown(2000);
+                    $("#menu13").fadeIn(2000);
+                    //$("#menu13").html("<label>บันทึกข้อมูลของผู้ป่วยรายนี้เสร็จสิ้นแล้ว</label>").fadeIn("slow");
+                    //$("#menu13").fadeIn(2000);
+                });
+               });
+               
+               
+               $(document).ready(function(){
+                $("#finish6").click(function(){
+                    $("#menu12").slideUp(2000);
+                    $("#menu11").slideUp(2000);
                     $("#menu13").html("<label>บันทึกข้อมูลของผู้ป่วยรายนี้เสร็จสิ้นแล้ว</label>").fadeIn("slow");
+                    
+                    //$("#menu13").html("<label>บันทึกข้อมูลของผู้ป่วยรายนี้เสร็จสิ้นแล้ว</label>").fadeIn("slow");
                     //$("#menu13").fadeIn(2000);
                 });
                });

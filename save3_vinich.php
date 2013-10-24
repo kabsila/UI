@@ -35,7 +35,8 @@
                                            hospital3 = '$strHospital3',
                                            medicine = '$strmed',
                                            anti_medicine = '$strmed_history',
-                                           spac_food = '$strspec_food',                                           
+                                           spac_food = '$strspec_food',
+                                           other = '$strInput_other',
                                            family_info = '$strfamily_info'
                    WHERE ID = $lastID";
                                            
