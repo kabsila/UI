@@ -16,7 +16,7 @@
         
         while($objResuut = mysql_fetch_array($objQuery))
 	{  
-            	echo $objResuut["main_takecare"]." ".$objResuut["takecare"]." ".$objResuut["name_d"]." ".$objResuut["note"]." ";		
+            	echo $objResuut["idd"]." ".$objResuut["main_takecare"]." ".$objResuut["takecare"]." ".$objResuut["name_d"]." ".$objResuut["note"]." ";		
 	}
         
         

@@ -9,7 +9,22 @@ YUI().use(
                     }
             );
                 
-                              
+              
+                    $(document).ready(function(){          
+                    $("select#analysis").change(function () {
+                        if( $("option#other:selected").length )
+                        {
+                          $("#input_other").slideDown();
+                        }else
+                        {
+                          $("#input_other").slideUp(); 
+                                 
+                        }
+
+                  });
+                });
+                
+                
                $(document).ready(function(){
                     $("#addP").click(function(){
                       $("#menu2").slideToggle();
@@ -76,7 +91,19 @@ YUI().use(
                     {
                       $( "#listName3" ).on('mouseover', '#menu4', function() {                 
                            $( ".datepicker" ).datepicker($.datepicker.regional[ "th" ] );                           
-                        }); 
+                        });
+                        
+                      $( "#listName3" ).on('change', 'select#analysis', function() {                 
+                                if ($("option#other:selected").length)
+                                    {
+                                        $("#input_other").slideDown();
+                                    } 
+                                    else
+                                    {
+                                        $("#input_other").slideUp();
+
+                                    }                          
+                        });
                         
                       $("#listName3").html(msg).fadeIn("slow");
                       $("#menu3").fadeIn();
@@ -169,7 +196,54 @@ YUI().use(
                        $( "#listName3" ).on('click', '#save1', function() {                 
                            save1_Edit(gId);                           
                         });
+                        $( "#listName3" ).on('click', '#save2', function() {                 
+                           save2_Edit(gId);                           
+                        });
+                         $( "#listName3" ).on('click', '#save3', function() {                 
+                           save3_Edit(gId);                           
+                        });
+                         $( "#listName3" ).on('click', '#save4', function() {                 
+                           save4_Edit(gId);                           
+                        });
+                         $( "#listName3" ).on('click', '#save5', function() {                 
+                           save5_Edit(gId);                           
+                        });
+                         $( "#listName3" ).on('click', '#save6', function() {                 
+                           save6_Edit(gId);                           
+                        });
+                         $( "#listName3" ).on('click', '#save7', function() {                 
+                           save7_Edit(gId);                           
+                        });
+                         $( "#listName3" ).on('click', '#save8', function() {                 
+                           save8_Edit(gId);                           
+                        });
+                         $( "#listName3" ).on('click', '#save9', function() {                 
+                           save9_Edit(gId);                           
+                        });
+                         $( "#listName3" ).on('click', '#save10', function() {                 
+                           save10_Edit(gId);                           
+                        });
                                                 
+                        
+                        $( "#listName3" ).on('click', '#finish1', function() {                 
+                           $( "#menu7" ).slideUp();                          
+                        });
+                        
+                        $( "#listName3" ).on('click', '#finish2', function() {                 
+                           $( "#menu9" ).slideUp();                          
+                        });
+                        
+                        $( "#listName3" ).on('click', '#finish3', function() {                 
+                           $( "#menu10" ).slideUp();                          
+                        });
+                        
+                        $( "#listName3" ).on('click', '#finish4', function() {                 
+                           $( "#menu11" ).slideUp();                          
+                        });
+                        
+                        $( "#listName3" ).on('click', '#finish5', function() {                 
+                           $( "#menu12" ).slideUp();                          
+                        });
                         
                         $(document).ready(function(){
                             getFirst(gId);
@@ -271,10 +345,11 @@ YUI().use(
                       var mys = msg;
                       str1 = mys.split(' ');
                     
-                          $("#planPoint").val(str1[0]); 
-                          $("#wayD").val(str1[1]);
-                          $("#namedd").val(str1[2]); 
-                          $("#mark").val(str1[3]);
+                          $("#orderPlanD").text(str1[0]); 
+                          $("#planPoint").val(str1[1]); 
+                          $("#wayD").val(str1[2]);
+                          $("#namedd").val(str1[3]); 
+                          $("#mark").val(str1[4]);
                      
                     
                     });
@@ -332,13 +407,13 @@ YUI().use(
                       var mys = msg;
                       str1 = mys.split(' ');
                     
-                    
-                    
+                            
+                          $('#idTable').text(str1[0]);
                           $("#visit_order_table").text(1); 
-                          $("#takecarePoint").val(str1[1]);
-                          $("#takecare").val(str1[2]); 
-                          $("#namePD").val(str1[3]);
-                          $("#note2").val(str1[4]);
+                          $("#takecarePoint").val(str1[2]);
+                          $("#takecare").val(str1[3]); 
+                          $("#namePD").val(str1[4]);
+                          $("#note2").val(str1[5]);
                          
                     });
                     
@@ -346,34 +421,7 @@ YUI().use(
                     
                    
              }
-
-             function save1_Edit(gId)
-             {
-                   $.ajax({
-                    type: "POST",
-                    url: "./Gedit/save1_edit.php",
-                    dataType: "HTML",
-                    cache: true,
-                    data: 
-                    { 
-                        tId: gId,
-                        tName:$('#namep').val(),
-                        tSname:$('#snamep').val(),
-                        tAge:$('#age').val(),                        
-                        tNameD:$('#named').val(),
-                        tSnameD:$('#snamed').val(),
-                        tWithD:$('#with').val()
-                       
-                    }
-                  })
-                    .done(function( msg ) 
-                    {
-                      $("#menu3").html(msg)
-                      $("#menu3").slideUp(2000);                    
-                       
-                    });
-             }
-             
+            
              var index = 0;
              
              function getValue(gId,page)
@@ -498,23 +546,24 @@ YUI().use(
                     if(page == 1){
                         index3 = 0;
                     }else if(page == 2){
-                        index3 = 4;
+                        index3 = 5;
                     }else if(page == 3){
-                        index3 = 8;
+                        index3 = 10;
                     }else if(page == 4){
-                        index3 = 12;
+                        index3 = 15;
                     }else if(page == 5){
-                        index3 = 16;
-                    }else if(page == 6){
                         index3 = 20;
+                    }else if(page == 6){
+                        index3 = 25;
                     }else if(page == 7){
-                        index3 = 24;
+                        index3 = 30;
                     }
                     
-                          $("#planPoint").val(str1[0+index3]); 
-                          $("#wayD").val(str1[1+index3]);
-                          $("#namedd").val(str1[2+index3]); 
-                          $("#mark").val(str1[3+index3]);
+                          $("#orderPlanD").text(str1[0+index3]); 
+                          $("#planPoint").val(str1[1+index3]); 
+                          $("#wayD").val(str1[2+index3]);
+                          $("#namedd").val(str1[3+index3]); 
+                          $("#mark").val(str1[4+index3]);
                          
                     });
                     
@@ -593,11 +642,12 @@ YUI().use(
                         index5 = 8;
                     }
                     
+                          $("#idTable").text(str1[0]);
                           $("#visit_order_table").text(page); 
-                          $("#takecarePoint").val(str1[1]);
-                          $("#takecare").val(str1[2]); 
-                          $("#namePD").val(str1[3]);
-                          $("#note2").val(str1[4]);
+                          $("#takecarePoint").val(str1[2]);
+                          $("#takecare").val(str1[3]); 
+                          $("#namePD").val(str1[4]);
+                          $("#note2").val(str1[5]);
                          
                     });
                     
@@ -630,23 +680,24 @@ YUI().use(
                     if(page == 1){
                         index6 = 0;
                     }else if(page == 2){
-                        index6 = 4;
+                        index6 = 5;
                     }else if(page == 3){
-                        index6 = 8;
+                        index6 = 10;
                     }else if(page == 4){
-                        index6 = 12;
+                        index6 = 15;
                     }else if(page == 5){
-                        index6 = 16;
-                    }else if(page == 6){
                         index6 = 20;
+                    }else if(page == 6){
+                        index6 = 25;
                     }else if(page == 7){
-                        index6 = 24;
+                        index6 = 30;
                     }
                     
-                          $("#takecarePoint").val(str1[0+index6]);
-                          $("#takecare").val(str1[1+index6]); 
-                          $("#namePD").val(str1[2+index6]);
-                          $("#note2").val(str1[3+index6]);
+                          $("#idTable").text(str1[0]);
+                          $("#takecarePoint").val(str1[1+index6]);
+                          $("#takecare").val(str1[2+index6]); 
+                          $("#namePD").val(str1[3+index6]);
+                          $("#note2").val(str1[4+index6]);
                          
                     });
                     
@@ -658,18 +709,279 @@ YUI().use(
                // });
                
                
-               
+               function save1_Edit(gId)
+             {
+                   $.ajax({
+                    type: "POST",
+                    url: "./Gedit/save1_edit.php",
+                    dataType: "HTML",
+                    cache: true,
+                    data: 
+                    { 
+                        tId: gId,
+                        tName:$('#namep').val(),
+                        tSname:$('#snamep').val(),
+                        tAge:$('#age').val(),                        
+                        tNameD:$('#named').val(),
+                        tSnameD:$('#snamed').val(),
+                        tWithD:$('#with').val()
+                       
+                    }
+                  })
+                    .done(function( msg ) 
+                    {
+                      $("#menu3").html(msg)
+                      $("#menu3").slideUp(2000);                    
+                       
+                    });
+             }
+             
+             function save2_Edit(gId)
+             {
+                   $.ajax({
+                    type: "POST",
+                    url: "./Gedit/save2_edit.php",
+                    dataType: "HTML",
+                    cache: true,
+                    data: 
+                    { 
+                        tId: gId,
+                        t1:$('#AddNum').val(),
+                        t2:$('#Road').val(),
+                        t3:$('#Tumbol').val(),                        
+                        t4:$('#Aumphor').val(),
+                        t5:$('#City').val(),
+                        t6:$('#Zipcode').val(),
+                        t7:$('#Latitude').val(),
+                        t8:$('#Longitude').val(),
+                        t9:$('#DateAcc').val()
+                       
+                    }
+                  })
+                    .done(function( msg ) 
+                    {
+                      $("#menu4").html(msg)
+                      $("#menu4").slideUp(2000);                    
+                       
+                    });
+             }
+             
+             function save3_Edit(gId)
+             {
+                   $.ajax({
+                    type: "POST",
+                    url: "./Gedit/save3_edit.php",
+                    dataType: "HTML",
+                    cache: true,
+                    data: 
+                    { 
+                        tId: gId,
+                        t1:$('#analysis').val(),
+                        t2:$('#input_other').val(),
+                        t3:$('#DrName').val(),                        
+                        t4:$('#Hospital1').val(),
+                        t5:$('#Hospital2').val(),
+                        t6:$('#Hospital3').val(),
+                        t7:$('#med').val(),
+                        t8:$('#med_history').val(),
+                        t9:$('#spec_food').val(),
+                        t10:$('#family_info').val()
+                    }
+                  })
+                    .done(function( msg ) 
+                    {
+                      $("#menu5").html(msg)
+                      $("#menu5").slideUp(2000);                    
+                       
+                    });
+             }
+             
+             function save4_Edit(gId)
+             {
+                   $.ajax({
+                    type: "POST",
+                    url: "./Gedit/save4_edit.php",
+                    dataType: "HTML",
+                    cache: true,
+                    data: 
+                    { 
+                        tId: gId,
+                        t1:$('#first_rateDB').val(),
+                        t2:$('#bloodP').val()
+                        
+                    }
+                  })
+                    .done(function( msg ) 
+                    {
+                      $("#menu6").html(msg)
+                      $("#menu6").slideUp(2000);                    
+                       
+                    });
+             }
         
-                $(document).ready(function(){          
-                    $("select#analysis").change(function () {
-                        if( $("option#other:selected").length )
-                        {
-                          $("#input_other").slideDown();
-                        }else
-                        {
-                          $("#input_other").slideUp(); 
-                                 
-                        }
-
-                  });
-                });
+             function save5_Edit(gId)
+             {
+                   $.ajax({
+                    type: "POST",
+                    url: "./Gedit/save5_edit.php",
+                    dataType: "HTML",
+                    cache: true,
+                    data: 
+                    { 
+                        tId: gId,
+                        t1:$('#lab_date').val(),
+                        t2:$('#fbs').val(),
+                        t3:$('#ldl').val(),                        
+                        t4:$('#hdl').val(),
+                        t5:$('#Cholesterol').val(),
+                        t6:$('#Creatinine').val(),
+                        t7:$('#BUN').val(),
+                        t8:$('#HbA1C').val()
+                    }
+                  })
+                    .done(function( msg ) 
+                    {
+                        
+                       
+                      //$("#menu7").html(msg)
+                      $("#successPopUp2").fadeIn("slow");
+                      $("#successPopUp2").fadeOut("slow");
+                      //$("#menu4").slideUp(2000);                    
+                       
+                    });
+             }
+             
+             function save6_Edit(gId)
+             {
+                   $.ajax({
+                    type: "POST",
+                    url: "./Gedit/save6_edit.php",
+                    dataType: "HTML",
+                    cache: true,
+                    data: 
+                    { 
+                        tId: gId,
+                        t1:$('#dateC').val(),
+                        t2:$('#nameC').val(),
+                        t3:$('#eye').val(),                        
+                        t4:$('#foot').val(),
+                        t5:$('#sad').val(),
+                        t6:$('#point').val(),
+                        
+                    }
+                  })
+                    .done(function( msg ) 
+                    {
+                      $("#menu8").html(msg);
+                      $("#menu8").slideUp(2000);                    
+                       
+                    });
+             }
+            
+             function save7_Edit(gId)
+             {
+                   $.ajax({
+                    type: "POST",
+                    url: "./Gedit/save7_edit.php",
+                    dataType: "HTML",
+                    cache: true,
+                    data: 
+                    { 
+                        tId: gId,
+                        t1:$('#trianPoint').val(),
+                        t2:$('#dateTrain').val(),
+                        t3:$('#nameTrain').val(),                        
+                    }
+                  })
+                    .done(function( msg ) 
+                    {
+                      //$("#menu9").html(msg);
+                      //$("#menu9").slideUp(2000);บันทึกการแก้ไขแล้ว
+                      $("#successPopUp2").fadeIn("slow");
+                      $("#successPopUp2").fadeOut("slow");
+                       
+                    });
+             }
+             
+             function save8_Edit(gId)
+             {
+                   $.ajax({
+                    type: "POST",
+                    url: "./Gedit/save8_edit.php",
+                    dataType: "HTML",
+                    cache: true,
+                    data: 
+                    { 
+                        tId: gId,
+                        t1:$('#orderPlanD').text(),
+                        t2:$('#planPoint').val(),
+                        t3:$('#wayD').val(),
+                        t4:$('#namedd').val(), 
+                        t5:$('#mark').val()                       
+                    }
+                  })
+                    .done(function( msg ) 
+                    {
+                      //$("#menu10").html(msg);
+                      //$("#menu10").slideUp(2000);บันทึกการแก้ไขแล้ว
+                      $("#successPopUp2").fadeIn("slow");
+                      $("#successPopUp2").fadeOut("slow");
+                       
+                    });
+             }
+             
+             function save9_Edit(gId)
+             {
+                   $.ajax({
+                    type: "POST",
+                    url: "./Gedit/save9_edit.php",
+                    dataType: "HTML",
+                    cache: true,
+                    data: 
+                    { 
+                        tId: gId,
+                        t1:$('#visit_order').text(),
+                        t2:$('#Pvisit').val(),
+                        t3:$('#PRvisit').val(),
+                        t4:$('#enviFam').val()
+                                             
+                    }
+                  })
+                    .done(function( msg ) 
+                    {
+                      //$("#menu11").html(msg);
+                      //$("#menu11").slideUp(2000);บันทึกการแก้ไขแล้ว
+                      $("#successPopUp2").fadeIn("slow");
+                      $("#successPopUp2").fadeOut("slow");
+                       
+                    });
+             }
+             
+             function save10_Edit(gId)
+             {
+                   $.ajax({
+                    type: "POST",
+                    url: "./Gedit/save10_edit.php",
+                    dataType: "HTML",
+                    cache: true,
+                    data: 
+                    { 
+                        tId: gId,
+                        t1:$('#idTable').text(),
+                        t2:$('#visit_order_table').text(),
+                        t3:$('#takecarePoint').val(),
+                        t4:$('#takecare').val(),
+                        t5:$('#namePD').val(),
+                        t6:$('#note2').val()
+                                             
+                    }
+                  })
+                    .done(function( msg ) 
+                    {
+                      //$("#menu12").html(msg);
+                      //$("#menu12").slideUp(2000);บันทึกการแก้ไขแล้ว
+                      $("#successPopUp2").fadeIn("slow");
+                      $("#successPopUp2").fadeOut("slow");
+                       
+                    });
+             }

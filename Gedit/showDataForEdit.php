@@ -19,6 +19,7 @@ include_once ( '../connectDB.php' );
 
 
 ?>
+<div id="successPopUp2">บันทึกแล้ว</div>
 <div id="menu3">
     <table class='ex1' border='0' >
         <tr>
@@ -204,7 +205,20 @@ include_once ( '../connectDB.php' );
                         <option <?php if($ana == 'other'){echo 'selected ';} ?>value="other" id="other">อื่น ๆ</option>
                     </select>  
                 </div>
-                <?php if($ana == 'other'){echo "<input  id='input_other'  placeholder='กรอกกรณีการวินิจฉัยอื่น ๆ' type='text' value='$oth'"; } ?>
+                <center><input  id='input_other'  placeholder='กรอกกรณีการวินิจฉัยอื่น ๆ' type='text' style="
+                    
+                    <?php if($ana == 'other')
+                    {
+                        echo 'display:block;';                        
+                    }
+                    else
+                    {
+                        echo 'display:none;';
+                        
+                    }  
+                    ?>"
+                        
+                    <?php echo " value='".$oth."'"; ?> > </center>
                 
             </td>
         </tr>
@@ -346,7 +360,7 @@ include_once ( '../connectDB.php' );
             <td class="order">ลำดับ</td>
             <td>ผลการตรวจ</td>
 
-            <td class="slideData" ><label>วันที่: </label><input type="text"   id="lab_date" placeholder="เลือกวันที่" class="datepicker" style="width: 70%;" /></td>
+            <td class="slideData" ><label>วันที่: </label><input type="text"   id="lab_date" placeholder="เลือกวันที่" class="-datepicker" style="width: 70%;" readonly/></td>
 
         </tr>
         <tr>
@@ -547,7 +561,7 @@ include_once ( '../connectDB.php' );
                 <div class="control-group">
                     <label class="control-label" >วันที่เตรียม:</label>
                     <div class="slide2" > 
-                        <input class="datepicker" id="dateTrain" type="text" style="">
+                        <input class="-datepicker" id="dateTrain" type="text" readonly>
                     </div>
                 </div> 
             </td>
@@ -601,7 +615,7 @@ include_once ( '../connectDB.php' );
 
     <table class="ex5" id="table10" border="0">
         <tr>
-            <th colspan="3">แผนการดูแลที่บ้าน</th>
+            <th colspan="3">แผนการดูแลที่บ้านลำดับที่ <label id="orderPlanD" style="display: inline-table;opacity: 0.0;"> 1</label></th>
 
         </tr>
         <tr>
@@ -676,7 +690,7 @@ include_once ( '../connectDB.php' );
 </div>
 
 
-<div id="menu11" style="background-color:#3498db;height:300px;width:700px; border-radius:25px;">
+<div id="menu11" style="background-color:#3498db;height:350px;width:700px; border-radius:25px;">
 
     <table class="ex5" id="table11" border="0">
         <tr>
@@ -737,18 +751,18 @@ include_once ( '../connectDB.php' );
             <td colspan="3"><button class="btn btn-success" id="save9" style="color:#484848; width: 80px">บันทึก</button></td>
 
         </tr>
-       <!-- <tr>
+        <tr>
             <td colspan="3" style="padding-top:25px;">
                 <button class="btn btn-success" id="finish4" style="color:#484848; width: 200px;">เสร็จสิ้นการบันทึกในส่วนนี้</button>
             </td>
             
-        </tr> -->
+        </tr> 
     </table>
 
 </div>
 
 <div id="menu12" style="background-color:#27ae60;height:300px;width:700px; border-radius:25px;">
-
+<label id="idTable" style="display: inline-table;opacity: 0.0;"></label>
     <table class="ex5" id="table12" border="0">
         <tr>
             <th colspan="4">
