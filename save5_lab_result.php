@@ -14,6 +14,39 @@
         $str8 = trim($_POST['tHbA1C']);
        
  
+        if($str1 == "")
+	{
+		$str1 = "-";
+	}
+        if($str2 == "")
+	{
+		$str2 = "-";
+	}
+        if($str3 == "")
+	{
+		$str3 = "-";
+	}
+        if($str4 == "")
+	{
+		$str4 = "-";
+	}
+        if($str5 == "")
+	{
+		$str5 = "-";
+	}
+        if($str6 == "")
+	{
+		$str6 = "-";
+	}
+        if($str7 == "")
+	{
+		$str7 = "-";
+	}
+        if($str8 == "")
+	{
+		$str8 = "-";
+	}
+        
         $lastID = $_SESSION["lastid"];
         
         //$objConnect = mysql_connect("localhost","root","root") or die("Error Connect to Database");

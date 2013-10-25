@@ -131,7 +131,7 @@ YUI().use(
                     .done(function( msg ) 
                     {
                       $("#menu3").hide().html(msg).fadeToggle("slow");
-                      $("#menu3").slideToggle(1500);
+                      $("#menu3").slideToggle();
                       $("#menu4").slideToggle("slow");
                     });
               }
@@ -158,9 +158,9 @@ YUI().use(
                           .done(function( msg ) 
                           {
                             $("#menu4").height(60);
-                            $("#menu4").hide().html(msg).fadeToggle("slow");
+                            $("#menu4").hide().html(msg).fadeToggle();
                             $("#menu4").slideUp(1500);
-                            $("#menu5").fadeToggle("slow");
+                            $("#menu5").fadeToggle();
                            /** $("#menu4").slideToggle("slow");**/
                           });
                     
@@ -195,8 +195,8 @@ YUI().use(
                                             {
                                               $("#menu5").height(60);
                                               $("#menu5").hide().html(msg).fadeToggle("slow");
-                                              $("#menu5").slideUp(1500);
-                                              $("#menu6").fadeIn("slow");
+                                              $("#menu5").slideUp();
+                                              $("#menu6").fadeIn();
                                              /**  $("#menu5").fadeToggle("slow");
                                              $("#menu4").slideToggle("slow");**/
                                             });
@@ -220,9 +220,9 @@ YUI().use(
                           .done(function( msg ) 
                           {
                             $("#menu6").height(60);
-                            $("#menu6").hide().html(msg).fadeToggle("slow");
-                            $("#menu6").slideUp(2000);
-                            $("#menu7").fadeToggle("slow");
+                            $("#menu6").hide().html(msg).fadeToggle();
+                            $("#menu6").slideUp();
+                            $("#menu7").fadeToggle();
                            /** $("#menu4").slideToggle("slow");**/
                           });
                     
@@ -251,16 +251,16 @@ YUI().use(
                           .done(function( msg ) 
                           {
                               
-                              $("#successPopUp").css({
+                            /**  $("#successPopUp").css({
                                     "position": "absolute",
                                     "top": $("#table7").offset().top + $("#table7").offset().top/2,
                                     "left": $("#table7").offset().left - 45 + $("#table7").offset().left/2
-                              });
+                              });**/
                               
                              
-                             $("#successPopUp").slideDown(1500);
+                             $("#successPopUp").slideDown();
                              
-                             $('#table7').fadeOut(1500);
+                             $('#table7').fadeOut();
                              $('#lab_date').val('');
                              $('#fbs').val('');
                              $('#ldl').val('');
@@ -269,8 +269,8 @@ YUI().use(
                              $('#Creatinine').val('');
                              $('#BUN').val('');
                              $('#HbA1C').val('');
-                             $('#table7').fadeIn(1500);
-                             $("#successPopUp").slideUp(1500);   
+                             $('#table7').fadeIn();
+                             $("#successPopUp").slideUp();   
                     
                           });
                 });
@@ -280,8 +280,8 @@ YUI().use(
                $(document).ready(function(){
                 $("#finish1").click(function(){
                                          
-                     $("#menu7").slideUp(2000);                     
-                     $("#menu8").fadeIn(2000);        
+                     $("#menu7").slideUp();                     
+                     $("#menu8").fadeIn();        
                     
                 });
                });
@@ -309,7 +309,7 @@ YUI().use(
                             $("#menu8").hide().html(msg).fadeIn(2000,function(){$("#menu8").slideUp(2000);});
                             //
                             //$("#menu8").slideUp(2000);
-                            $("#menu9").fadeIn("slow");
+                            $("#menu9").fadeIn();
                           });
                     
                 });
@@ -331,22 +331,23 @@ YUI().use(
                         })
                           .done(function( msg ) 
                           {
+                              /**
                             $("#successPopUp").css({
                                     "position": "absolute",
                                     "top": $("#table9").offset().top - 120 + $("#table9").offset().top/2,
                                     "left": $("#table9").offset().left - ($("#table9").offset().left - 550)/2
-                              });
+                              });**/
                               
                              
-                             $("#successPopUp").html(msg).slideDown(1500);
+                             $("#successPopUp").html(msg).slideDown();
                              
-                             $('#table9').fadeOut(1500);
+                             $('#table9').fadeOut();
                              $('#trianPoint').val('');
                              $('#dateTrain').val('');
                              $('#nameTrain').val('');
                              
-                             $('#table9').fadeIn(1500);
-                             $("#successPopUp").slideUp(1500);  
+                             $('#table9').fadeIn();
+                             $("#successPopUp").slideUp();  
                           });
                     
                 });
@@ -355,8 +356,8 @@ YUI().use(
                $(document).ready(function(){
                 $("#finish2").click(function(){
                     
-                     $("#menu9").slideUp(2000);                     
-                     $("#menu10").fadeIn(2000);                     
+                     $("#menu9").slideUp();                     
+                     $("#menu10").fadeIn();                     
                      
                 });
                });
@@ -378,21 +379,22 @@ YUI().use(
                         })
                           .done(function( msg ) 
                           {
+                              /**
                             $("#successPopUp").css({
                                     "position": "absolute",
                                     "top": $("#table10").offset().top - 80 + $("#table10").offset().top/2,
                                     "left": $("#table10").offset().left - ($("#table10").offset().left - 550)/2//$("#table10").offset().left - 120 + $("#table10").offset().left/2
-                              });
+                              });**/
                               
                              
-                             $("#successPopUp").html(msg).slideDown(1500);                             
-                             $('#table10').fadeOut(1500);
+                             $("#successPopUp").html(msg).slideDown();                             
+                             $('#table10').fadeOut();
                              $('#wayD').val('');
                              $('#namedd').val('');
                              $('#mark').val('');
                              $('#planPoint').val('');
-                             $('#table10').fadeIn(1500);
-                             $("#successPopUp").slideUp(1500);    
+                             $('#table10').fadeIn();
+                             $("#successPopUp").slideUp();    
                           });
                     
                 });
@@ -400,8 +402,8 @@ YUI().use(
                
                $(document).ready(function(){
                 $("#finish3").click(function(){
-                    $("#menu10").slideUp(2000);                     
-                    $("#menu11").fadeIn(2000);  
+                    $("#menu10").slideUp();                     
+                    $("#menu11").fadeIn();  
                 });
                });
                
@@ -441,8 +443,8 @@ YUI().use(
                               //$('#Pvisit').val('');
                              // $('#PRvisit').val('');
                               $('#enviFam').val('');
-                            $("#menu11").slideUp(2000);                     
-                            $("#menu12").fadeIn(2000);
+                            $("#menu11").slideUp();                     
+                            $("#menu12").fadeIn();
                           });
                     
                 });
@@ -450,8 +452,8 @@ YUI().use(
                
                $(document).ready(function(){
                 $("#finish4").click(function(){
-                    $("#menu11").slideUp(2000);                     
-                    $("#menu12").fadeIn(2000);
+                    $("#menu11").slideUp();                     
+                    $("#menu12").fadeIn();
                 });
                });
                
@@ -471,22 +473,22 @@ YUI().use(
                           }
                         })
                           .done(function( msg ) 
-                          {
+                          {/**
                               $("#successPopUp").css({
                                     "position": "absolute",
                                     "top": $("#table12").offset().top - 120 + $("#table12").offset().top/2,
                                     "left": $("#table12").offset().left - ($("#table12").offset().left - 550)/2
-                              });
+                              });**/
                               
                              
-                             $("#successPopUp").html(msg).slideDown(1500);                             
-                             $('#table12').fadeOut(1500);
+                             $("#successPopUp").html(msg).slideDown();                             
+                             $('#table12').fadeOut();
                              $('#takecarePoint').val('');
                              $('#takecare').val('');
                              $('#namePD').val('');
                              $('#note2').val('');
-                             $('#table12').fadeIn(1500);
-                             $("#successPopUp").slideUp(1500);  
+                             $('#table12').fadeIn();
+                             $("#successPopUp").slideUp();  
                           });
                     
                 });
@@ -494,9 +496,9 @@ YUI().use(
                
                $(document).ready(function(){
                 $("#finish5").click(function(){
-                    $("#menu12").slideUp(2000);
-                    $("#menu11").slideDown(2000);
-                    $("#menu13").fadeIn(2000);
+                    $("#menu12").slideUp();
+                    $("#menu11").slideDown();
+                    $("#menu13").fadeIn();
                     //$("#menu13").html("<label>บันทึกข้อมูลของผู้ป่วยรายนี้เสร็จสิ้นแล้ว</label>").fadeIn("slow");
                     //$("#menu13").fadeIn(2000);
                 });
@@ -505,8 +507,8 @@ YUI().use(
                
                $(document).ready(function(){
                 $("#finish6").click(function(){
-                    $("#menu12").slideUp(2000);
-                    $("#menu11").slideUp(2000);
+                    $("#menu12").slideUp();
+                    $("#menu11").slideUp();
                     $("#menu13").html("<label>บันทึกข้อมูลของผู้ป่วยรายนี้เสร็จสิ้นแล้ว</label>").fadeIn("slow");
                     
                     //$("#menu13").html("<label>บันทึกข้อมูลของผู้ป่วยรายนี้เสร็จสิ้นแล้ว</label>").fadeIn("slow");

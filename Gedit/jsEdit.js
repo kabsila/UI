@@ -70,7 +70,11 @@ YUI().use(
                        $('#listName2').on('click', '.inlineTable label', function() {                            
                            showEdit(this.id);                           
                         });
-                       
+                        
+                        $('#listName2').on('click', '.cursorName', function() {                            
+                              $("html,body").animate({scrollTop:$('#listName3').position().top + 35}, 'slow');                      
+                        });
+                        
                     });
                   });
                  });
@@ -93,6 +97,9 @@ YUI().use(
                            $( ".datepicker" ).datepicker($.datepicker.regional[ "th" ] );                           
                         });
                         
+                      
+                        
+                        
                       $( "#listName3" ).on('change', 'select#analysis', function() {                 
                                 if ($("option#other:selected").length)
                                     {
@@ -104,6 +111,8 @@ YUI().use(
 
                                     }                          
                         });
+                       
+                      
                         
                       $("#listName3").html(msg).fadeIn("slow");
                       $("#menu3").fadeIn();

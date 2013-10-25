@@ -8,7 +8,26 @@
         $str2 = trim($_POST['tPvisit']);
         $str3 = trim($_POST['tPRvisit']);
         $str4 = trim($_POST['tenviFam']);
-                
+        
+        
+        if($str1 == "")
+	{
+		$str1 = "-";
+	}
+        if($str2 == "")
+	{
+		$str2 = "-";
+	}
+        if($str3 == "")
+	{
+		$str3 = "-";
+	}
+        if($str4 == "")
+	{
+		$str4 = "-";
+	}
+        
+        
         $lastID = $_SESSION["lastid"];
         $_SESSION["visit_order"] = $str1;
         //$objConnect = mysql_connect("localhost","root","root") or die("Error Connect to Database");

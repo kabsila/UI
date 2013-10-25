@@ -7,7 +7,18 @@
         $str1 = trim($_POST['ttrianPoint']);
         $str2 = trim($_POST['tdateTrain']);
         $str3 = trim($_POST['tnameTrain']);
-                
+        
+        
+        if($str1 == "")
+	{
+		$str1 = "-";
+	}
+        
+        if($str3 == "")
+	{
+		$str3 = "-";
+	}
+        
         $lastID = $_SESSION["lastid"];
         
         //$objConnect = mysql_connect("localhost","root","root") or die("Error Connect to Database");

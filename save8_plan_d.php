@@ -8,7 +8,26 @@
         $str2 = trim($_POST['twayD']);
         $str3 = trim($_POST['tnamedd']);
         $str4 = trim($_POST['tmark']);
-                
+           
+        
+        if($str1 == "")
+	{
+		$str1 = "-";
+	}
+        if($str2 == "")
+	{
+		$str2 = "-";
+	}
+        if($str3 == "")
+	{
+		$str3 = "-";
+	}
+        if($str4 == "")
+	{
+		$str4 = "-";
+	}
+        
+        
         $lastID = $_SESSION["lastid"];
         
         //$objConnect = mysql_connect("localhost","root","root") or die("Error Connect to Database");
