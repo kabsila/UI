@@ -90,4 +90,13 @@
         a
         {            
             cursor:pointer;
-        }**/
+        }
+        
+        .menu11
+            {
+                margin:auto;
+                margin-top:20px;               
+                text-align: center;
+                padding-top: 47px;
+                display: block;
+            }

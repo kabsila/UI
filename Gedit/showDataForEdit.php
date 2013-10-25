@@ -674,3 +674,172 @@ include_once ( '../connectDB.php' );
     </table>
 
 </div>
+
+
+<div id="menu11" style="background-color:#3498db;height:300px;width:700px; border-radius:25px;">
+
+    <table class="ex5" id="table11" border="0">
+        <tr>
+            <th colspan="3">การเยี่ยมบ้าน</th>
+        </tr>
+        <tr>
+            <td>
+                
+                    <label class="control-label" >การเยี่ยมครั้งที่:</label>
+
+
+                    <div class="pagination" id="page4" style="width:auto">
+                        <a href="#" class="previous" data-action="previous" style="width:auto;">
+                            <button class="btn btn-success"  style="color:#484848; width: 40px;margin-bottom: 10px;"><</button>
+                        </a>
+                        <label  id="visit_order" style="width: 30px;display: inline-block;">1</label>
+
+                        <a href="#" class="next" data-action="next" style="width:auto;">
+                            <button class="btn btn-success"  style="color:#484848; width: 40px;margin-bottom: 10px;">></button>
+                        </a>
+
+                    </div>
+               
+            </td>
+            <td>
+                <div class="control-group">
+                    <label class="control-label" >ผู้เยี่ยม:</label>
+                    <select id="Pvisit" class="slide4" style="width: 60%; text-align: center;">
+                        <option value="n">พยาบาล</option>
+                        <option value="osm">อสม.</option>
+                        <option value="staff">เจ้าหน้าที่</option>
+                    </select> 
+                </div>
+            </td>
+            <td>
+                <div class="control-group">
+                    <label class="control-label" >บุคคลที่ได้รับการเยี่ยม:</label>
+                    <select id="PRvisit" class="slide4" style="width: 60%; text-align: center;">
+                        <option value="pp">ผู้ป่วย</option>
+                        <option value="pd">ผู้ดูแล.</option>
+
+                    </select>
+                </div> 
+            </td>
+
+        </tr>
+        <tr>
+            <td colspan="3">
+                <div class="control-group">
+                    <label class="control-label" >สภาวะแวดล้อมของครอบครัว:</label>
+                    <div class="controls" > 
+                        <textarea id="enviFam" class="slide4" style="width: 80%; height: 70px;"></textarea>
+                    </div>
+                </div> 
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3"><button class="btn btn-success" id="save9" style="color:#484848; width: 80px">บันทึก</button></td>
+
+        </tr>
+       <!-- <tr>
+            <td colspan="3" style="padding-top:25px;">
+                <button class="btn btn-success" id="finish4" style="color:#484848; width: 200px;">เสร็จสิ้นการบันทึกในส่วนนี้</button>
+            </td>
+            
+        </tr> -->
+    </table>
+
+</div>
+
+<div id="menu12" style="background-color:#27ae60;height:300px;width:700px; border-radius:25px;">
+
+    <table class="ex5" id="table12" border="0">
+        <tr>
+            <th colspan="4">
+                <label>
+                    <B>บันทึกการดูแลจากการเยี่ยมบ้านครั้งที่</B>
+                </label>
+                <div class="pagination" id="page5" style="width:auto">
+                        <a href="#" class="previous" data-action="previous" style="width:auto;">
+                            <button class="btn btn-success"  style="color:#484848; width: 40px;margin-bottom: 10px;"><</button>
+                        </a>
+                    <label  id="visit_order_table" style="width: 30px;display: inline-block;"><B>1</B></label>
+
+                        <a href="#" class="next" data-action="next" style="width:auto;">
+                            <button class="btn btn-success"  style="color:#484848; width: 40px;margin-bottom: 10px;">></button>
+                        </a>
+
+                    </div>
+            </th>
+
+        </tr>
+        <tr>
+            <td>
+                <div class="control-group">
+                    <label class="control-label" >ประเด็นที่ดูแล:</label>
+                    <div class="controls" > 
+                        <input   class="slide5" type="text" id="takecarePoint" style="">
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="control-group">
+                    <label class="control-label" >การดูแล:</label>
+                    <div class="controls" > 
+                        <input   type="text" class="slide5" id="takecare" style="">
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="control-group">
+                    <label class="control-label" >ผู้ดูแล:</label>
+                    <div class="controls" > 
+                        <input   type="text" class="slide5" id="namePD" style="">
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="control-group">
+                    <label class="control-label" >หมายเหตุ:</label>
+                    <div class="controls" > 
+                        <input   type="text" class="slide5" id="note2" value="-">
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                
+                <div class="pagination" id="page6" style="width:auto">
+                    <a href="#" class="first" data-action="first" style="width:40px;">
+                        <button class="btn btn-success" id="" style="color:#484848; width: 40px;"><<</button>
+                    </a>
+
+                    <a href="#" class="previous" data-action="previous" style="width:40px;">
+                       <button class="btn btn-success" id="" style="color:#484848; width: 40px;"><</button>
+                    </a>
+                   <button class="btn btn-success" id="save10" style="color:#484848; width: 90px">บันทึกเพิ่ม</button>
+<!--                    <input type="text" readonly="readonly"/>-->
+                    <a href="#" class="next" data-action="next" style="width:40px;">
+                        <button class="btn btn-success" id="" style="color:#484848; width: 40px;">></button>
+                    </a>
+                    <a href="#" class="last" data-action="last" style="width:40px;">
+                        <button class="btn btn-success" id="" style="color:#484848; width: 40px;">>></button>
+                    </a>
+                </div>
+                
+                
+            </td>
+
+        </tr>
+        <tr>
+            <td colspan="4" style="padding-top:25px;">
+                <button class="btn btn-success" id="finish5" style="color:#484848; width: 200px;">เสร็จสิ้นการบันทึกในส่วนนี้</button>
+            </td>
+
+        </tr>
+    </table>
+
+</div>
+
+
+
+
+
+
