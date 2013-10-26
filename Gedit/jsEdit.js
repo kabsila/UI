@@ -65,15 +65,19 @@ YUI().use(
                     .done(function( msg ) 
                     {  
                        $('#listName2').html(msg);
-                       $('#listName2').slideDown(); 
+                       $('#listName2').slideDown();
                        //rightToLeft( '#listName2' );
                        $('#listName2').on('click', '.inlineTable label', function() {                            
                            showEdit(this.id);                           
                         });
                         
                         $('#listName2').on('click', '.cursorName', function() {                            
-                              $("html,body").animate({scrollTop:$('#listName3').position().top + 35}, 'slow');                      
+                              $("html,body").animate({scrollTop:$('#listName3').position().top}, 'slow');                      
                         });
+                        
+                       // $("#listname").click(function(){
+                        //    $('#listName2').slideToggle();
+                       // });
                         
                     });
                   });
@@ -850,7 +854,14 @@ YUI().use(
                   })
                     .done(function( msg ) 
                     {
-                        
+                      
+                      var p = $( "#menu7" );
+                      var position = p.position();
+                      $("#successPopUp2").css({
+                                    "position": "absolute",
+                                    "top": position.top + 250,
+                                    "left": position.left + 400
+                              }); 
                        
                       //$("#menu7").html(msg)
                       $("#successPopUp2").fadeIn("slow");
@@ -904,6 +915,13 @@ YUI().use(
                   })
                     .done(function( msg ) 
                     {
+                      var p = $( "#menu9" );
+                      var position = p.position();
+                      $("#successPopUp2").css({
+                                    "position": "absolute",
+                                    "top": position.top + 100,
+                                    "left": position.left + 400
+                              }); 
                       //$("#menu9").html(msg);
                       //$("#menu9").slideUp(2000);บันทึกการแก้ไขแล้ว
                       $("#successPopUp2").fadeIn("slow");
@@ -933,6 +951,14 @@ YUI().use(
                     {
                       //$("#menu10").html(msg);
                       //$("#menu10").slideUp(2000);บันทึกการแก้ไขแล้ว
+                      
+                      var p = $( "#menu10" );
+                      var position = p.position();
+                      $("#successPopUp2").css({
+                                    "position": "absolute",
+                                    "top": position.top + 150,
+                                    "left": position.left + 400
+                              }); 
                       $("#successPopUp2").fadeIn("slow");
                       $("#successPopUp2").fadeOut("slow");
                        
@@ -960,6 +986,14 @@ YUI().use(
                     {
                       //$("#menu11").html(msg);
                       //$("#menu11").slideUp(2000);บันทึกการแก้ไขแล้ว
+                      
+                      var p = $( "#menu11" );
+                      var position = p.position();
+                      $("#successPopUp2").css({
+                                    "position": "absolute",
+                                    "top": position.top + 190,
+                                    "left": position.left + 400
+                              });
                       $("#successPopUp2").fadeIn("slow");
                       $("#successPopUp2").fadeOut("slow");
                        
@@ -989,6 +1023,14 @@ YUI().use(
                     {
                       //$("#menu12").html(msg);
                       //$("#menu12").slideUp(2000);บันทึกการแก้ไขแล้ว
+                      
+                       var p = $( "#menu12" );
+                      var position = p.position();
+                      $("#successPopUp2").css({
+                                    "position": "absolute",
+                                    "top": position.top + 160,
+                                    "left": position.left + 400
+                              });
                       $("#successPopUp2").fadeIn("slow");
                       $("#successPopUp2").fadeOut("slow");
                        

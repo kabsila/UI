@@ -85,6 +85,7 @@
                 text-align: center;
                 padding-top: 47px;
                 display: none;
+                
             }
             #menu8
             {
@@ -118,7 +119,7 @@
                 margin-top:20px;               
                 text-align: center;
                 padding-top: 47px;
-                display: none;
+                display: block;
             }
             
             #menu12
@@ -221,9 +222,9 @@
             {  
                 display:none;  
                
-                position: fixed;
+               /** position: fixed;
                 margin-top: -50px;
-                margin-left: -150px;
+                margin-left: -150px;**/
                 
                 height:50px;  
                 width:300px; 

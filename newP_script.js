@@ -251,14 +251,16 @@ YUI().use(
                           .done(function( msg ) 
                           {
                               
-                            /**  $("#successPopUp").css({
+                            var p = $( "#menu7" );
+                            var position = p.position();
+                            $("#successPopUp").css({
                                     "position": "absolute",
-                                    "top": $("#table7").offset().top + $("#table7").offset().top/2,
-                                    "left": $("#table7").offset().left - 45 + $("#table7").offset().left/2
-                              });**/
+                                    "top": position.top + 250,
+                                    "left": position.left + 400
+                              }); 
                               
                              
-                             $("#successPopUp").slideDown();
+                             $("#successPopUp").slideDown("slow");
                              
                              $('#table7').fadeOut();
                              $('#lab_date').val('');
@@ -270,7 +272,7 @@ YUI().use(
                              $('#BUN').val('');
                              $('#HbA1C').val('');
                              $('#table7').fadeIn();
-                             $("#successPopUp").slideUp();   
+                             $("#successPopUp").slideUp("slow");   
                     
                           });
                 });
@@ -331,15 +333,16 @@ YUI().use(
                         })
                           .done(function( msg ) 
                           {
-                              /**
+                            var p = $( "#menu9" );
+                            var position = p.position();
                             $("#successPopUp").css({
                                     "position": "absolute",
-                                    "top": $("#table9").offset().top - 120 + $("#table9").offset().top/2,
-                                    "left": $("#table9").offset().left - ($("#table9").offset().left - 550)/2
-                              });**/
+                                    "top": position.top + 100,
+                                    "left": position.left + 400
+                              }); 
                               
                              
-                             $("#successPopUp").html(msg).slideDown();
+                             $("#successPopUp").html(msg).slideDown("slow");
                              
                              $('#table9').fadeOut();
                              $('#trianPoint').val('');
@@ -347,7 +350,7 @@ YUI().use(
                              $('#nameTrain').val('');
                              
                              $('#table9').fadeIn();
-                             $("#successPopUp").slideUp();  
+                             $("#successPopUp").slideUp("slow");  
                           });
                     
                 });
@@ -379,22 +382,22 @@ YUI().use(
                         })
                           .done(function( msg ) 
                           {
-                              /**
+                            var p = $( "#menu10" );
+                            var position = p.position();
                             $("#successPopUp").css({
                                     "position": "absolute",
-                                    "top": $("#table10").offset().top - 80 + $("#table10").offset().top/2,
-                                    "left": $("#table10").offset().left - ($("#table10").offset().left - 550)/2//$("#table10").offset().left - 120 + $("#table10").offset().left/2
-                              });**/
-                              
+                                    "top": position.top + 150,
+                                    "left": position.left + 400
+                              }); 
                              
-                             $("#successPopUp").html(msg).slideDown();                             
+                             $("#successPopUp").html(msg).slideDown("slow");                             
                              $('#table10').fadeOut();
                              $('#wayD').val('');
                              $('#namedd').val('');
                              $('#mark').val('');
                              $('#planPoint').val('');
                              $('#table10').fadeIn();
-                             $("#successPopUp").slideUp();    
+                             $("#successPopUp").slideUp("slow");    
                           });
                     
                 });
@@ -423,7 +426,16 @@ YUI().use(
                           }
                         })
                           .done(function( msg ) 
-                          {/**
+                          {
+                              
+                              var p = $( "#menu11" );
+                              var position = p.position();
+                              $("#successPopUp").css({
+                                    "position": "absolute",
+                                    "top": position.top + 190,
+                                    "left": position.left + 400
+                              }); 
+                              /**
                                 $("#successPopUp").css({
                                     "position": "absolute",
                                     "top": $("#table11").offset().top - 80 + $("#table11").offset().top/2,
@@ -439,11 +451,15 @@ YUI().use(
                              $('#enviFam').val('');
                              $('#table11').fadeIn(1500);
                              $("#successPopUp").slideUp(1500);**/
+                              $("#successPopUp").html(msg).slideDown("slow");
+                              $("#successPopUp").slideUp("slow");
+                              
                               $('#visit_order').val('');
                               //$('#Pvisit').val('');
                              // $('#PRvisit').val('');
                               $('#enviFam').val('');
-                            $("#menu11").slideUp();                     
+                             
+                            $("#menu11").slideUp(2000);                     
                             $("#menu12").fadeIn();
                           });
                     
@@ -473,22 +489,23 @@ YUI().use(
                           }
                         })
                           .done(function( msg ) 
-                          {/**
-                              $("#successPopUp").css({
+                          {
+                            var p = $( "#menu12" );
+                            var position = p.position();
+                            $("#successPopUp").css({
                                     "position": "absolute",
-                                    "top": $("#table12").offset().top - 120 + $("#table12").offset().top/2,
-                                    "left": $("#table12").offset().left - ($("#table12").offset().left - 550)/2
-                              });**/
-                              
+                                    "top": position.top + 160,
+                                    "left": position.left + 400
+                              }); 
                              
-                             $("#successPopUp").html(msg).slideDown();                             
+                             $("#successPopUp").html(msg).slideDown("slow");                             
                              $('#table12').fadeOut();
                              $('#takecarePoint').val('');
                              $('#takecare').val('');
                              $('#namePD').val('');
                              $('#note2').val('');
                              $('#table12').fadeIn();
-                             $("#successPopUp").slideUp();  
+                             $("#successPopUp").slideUp("slow");  
                           });
                     
                 });
