@@ -24,7 +24,7 @@
         $objDB = mysql_select_db("diabetes");
         mysql_query("SET NAMES UTF8");             
                       
-        $strSQL = "INSERT INTO first_rate (ID, first_rateData, blood_p) 
+        $strSQL = "INSERT INTO first_rate (id, first_rateData, blood_p) 
                              VALUES ('$lastID', '$str1', '$str2')";
                                            
         $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());

@@ -121,3 +121,29 @@
                 
                 
             }
+            
+            .non-immediate-parent-container
+            { 
+                height: 100px; 
+                width: 100px; 
+                display: inline-block;
+                margin-left: 20px;
+                margin-right: 20px;
+                margin-top: 25px;
+                margin-bottom: 1px;
+            }
+            
+            a.fancybox
+            {
+                display: inline;
+            }
+
+            #menu4-55
+            {
+                display: none;
+                margin:auto;
+                margin-top:20px;               
+                text-align: center;
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }

@@ -160,7 +160,7 @@ YUI().use(
                             $("#menu4").height(60);
                             $("#menu4").hide().html(msg).fadeToggle();
                             $("#menu4").slideUp(1500);
-                            $("#menu5").fadeToggle();
+                            $("#menu4-5").fadeToggle();
                            /** $("#menu4").slideToggle("slow");**/
                           });
                     
@@ -615,4 +615,41 @@ YUI().use(
                   });
                 });
 
+
+            $(document).ready(function()
+            {
+                var uploadObj = $("#advancedUpload").uploadFile({
+                url:"./upload/upload_img.php",
+                multiple:true,
+                showStatusAfterSuccess:false,
+                fileName:"myfile",
+                allowedTypes:"jpeg,jpg,png,gif",
+                onSuccess:function(files,data,xhr)
+                {
+                        //$("#eventsmessage").html($("#eventsmessage").html()+"<br/>Success for: "+JSON.stringify(data));
+                        var str = data;
+                        var n = str.lastIndexOf("{\"");
+                        var n2 = str.indexOf("\":\"");                        
+                        var n3 = str.substring(2,n2);
+                        
+                        var p = $( "#menu4-5" );
+                              var position = p.position();
+                              $("#successPopUp").css({
+                                    "position": "absolute",
+                                    "top": position.top + 30,
+                                    "left": position.left + 400
+                              }); 
+                              
+                              $("#successPopUp").text("อัพโหลดภาพสำเร็จ").fadeIn(900);
+                              $("#successPopUp").fadeOut(900);
+
+                },
+                });
+                $("#finishUp").click(function()
+                {
+                        $( "#menu4-5" ).slideUp();
+                        $( "#menu5" ).slideDown();
+                });
+            
+          });
                 

@@ -180,6 +180,35 @@ include_once ( '../connectDB.php' );
     </table>
 </div>
 
+
+
+
+<div id="menu4-55" style="background-color:#2c3e50;height:auto;width:700px; border-radius:25px;color: #ecf0f1;display: inline-block;">
+    <label class="control-label" >ภาพที่เกี่ยวข้องกับผู้ป่วย:</label>
+<!--        <table>-->
+    <?php
+        $strSQL = "SELECT * FROM img WHERE ID = $str1";
+                                           
+        $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+        
+        $vPath = "./upload/uploads/";
+        //echo "<tr>";
+        while($objResuut = mysql_fetch_array($objQuery))
+	{  
+            echo "<div class='non-immediate-parent-container' >";
+            echo "<a class='fancybox' rel='group' href='".$vPath.$objResuut["path"]."'><img src='".$vPath.$objResuut["path"]."' alt='' /></a>";		
+            echo "</div>";
+            
+        }
+         //echo "</tr>";
+?>
+<!--        </table>-->
+        
+    
+</div>
+
+
+
 <?php
         $strSQL = "SELECT * FROM general_info WHERE ID = $str1";
                                            

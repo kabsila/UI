@@ -14,19 +14,24 @@
         <link rel="stylesheet" href="./alloy/build/aui-css/css/bootstrap.css">
         <link rel="stylesheet" href="./alloy/jquery-ui/css/smoothness/jquery-ui-1.10.3.custom.css">
         <link rel="stylesheet" href="./newP_Css.css">
+        <link href="./upload/css/uploadfile.css" rel="stylesheet">
         
         <script src="./alloy/build/aui/aui.js"></script>
         <script src="./alloy/jquery.js"></script>
         <script src="./alloy/jquery-ui/js/jquery-ui-1.10.3.custom.js"></script>
         <script src="./alloy/jquery-ui/development-bundle/ui/i18n/jquery.ui.datepicker-th.js"></script>
         <script src="./newP_script.js"></script>
+        <script src="./upload/js/jquery.uploadfile.min.js"></script>
+
+
+
         <style>
             
 
         </style>
         
         <script>
-            
+          
         </script>
     </head>
     <body>
@@ -186,6 +191,12 @@
                         </table>
                 </div>
                 
+                <div id="menu4-5" style="background-color:#2c3e50;height:auto;width:700px; border-radius:25px;color: #ecf0f1;">
+                    <center><div id="advancedUpload" style="display: none;">เลือกภาพ</div></center> 
+                    <!--                    <div id="startUpload" class="ajax-file-upload-green">Start Upload</div>-->
+                    <button class="btn btn-success" id="finishUp" style="color:#484848; width: 200px;margin-top: 10px;">เสร็จสิ้นการอัพโหลด</button>
+                </div>
+            
                 <div id="menu5" style="background-color:#2c3e50;height:600px;width:700px; border-radius:25px;color: #ecf0f1;">
                     <table class="ex5"  border="0">
                         <tr>
@@ -709,6 +720,12 @@
 
             </div>
 
+            
+            
+            
+            
+            
+            
  
             <div id="footer" style="background-color:#FFA500;clear:both;text-align:center;margin-top: 25px">
                 </div>
