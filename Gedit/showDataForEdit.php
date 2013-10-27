@@ -183,7 +183,7 @@ include_once ( '../connectDB.php' );
 
 
 
-<div id="menu4-55" style="background-color:#2c3e50;height:auto;width:700px; border-radius:25px;color: #ecf0f1;display: inline-block;">
+<div id="menu4-55" style="background-color:#000000;height:auto;width:700px; border-radius:25px;color: #ecf0f1;display: inline-block;">
     <label class="control-label" >ภาพที่เกี่ยวข้องกับผู้ป่วย:</label>
 <!--        <table>-->
     <?php

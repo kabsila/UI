@@ -26,18 +26,19 @@
             
             #menu2
             {
-                height:150px;
-                width:400px;
+                height:auto;
+                width:500px;
                 margin:auto;
                 text-align: center;
                 padding-top: 40px; 
                 margin-top: 25px;
+                padding-bottom: 25px;
             }
             
             #menu3
             {
                 background-color: #FF9900;
-                height: 200px;
+                height: auto;
                 width: 700px; 
                 border-radius: 25px;
                 margin: auto;
@@ -45,6 +46,7 @@
                 text-align: center;
                 padding-top: 47px;
                 display: none;
+                padding-bottom: 35px;
                 
                 
                                
@@ -61,7 +63,7 @@
             
             #menu4-5
             {
-                display: block;
+                display: none;
                 margin:auto;
                 margin-top:20px;               
                 text-align: center;
@@ -247,3 +249,25 @@
                 border-radius: 40px;
                 text-align: center;
             }  
+            
+            .non-immediate-parent-container2
+            { 
+                height: auto; 
+                width: 120px; 
+                display: inline-block;
+                margin-left: 15px;
+                margin-right: 15px;
+                border:4px solid white;
+                margin-bottom: 10px;
+               
+            }
+            
+            a.fancybox
+            {
+                display: inline;
+            }
+            
+            #ok
+            {
+                display: none;
+            }

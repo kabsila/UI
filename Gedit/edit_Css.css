@@ -125,12 +125,13 @@
             .non-immediate-parent-container
             { 
                 height: 100px; 
-                width: 100px; 
+                width: 125px; 
                 display: inline-block;
-                margin-left: 20px;
-                margin-right: 20px;
+                margin-left: 15px;
+                margin-right: 15px;
                 margin-top: 25px;
                 margin-bottom: 1px;
+                border:4px solid white;
             }
             
             a.fancybox

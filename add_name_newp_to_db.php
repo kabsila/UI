@@ -2,7 +2,9 @@
 
         header('Content-Type: text/html; charset=utf-8');
         include_once ( 'connectDB.php' ); 
+        session_start();
         
+        $lastID = $_SESSION['lastid'];
         $strStatus = trim($_POST['tStatus']);
         $strFname = trim($_POST['tFname']);
 	$strSname = trim($_POST['tSname']);
@@ -29,9 +31,12 @@
 	//$objConnect = mysql_connect("localhost","root","root") or die("Error Connect to Database");
         $objDB = mysql_select_db("diabetes");
         mysql_query("SET NAMES UTF8");
-        $strSQL = "INSERT INTO general_info (status, name, sname) VALUES ('$strStatus', '$strFname', '$strSname')";
+        //$strSQL = "INSERT INTO general_info (status, name, sname) VALUES ('$strStatus', '$strFname', '$strSname')";
         
-        //$strSQL = "SELECT * FROM general_info";
+       $strSQL = "UPDATE general_info SET status = '$strStatus', 
+                                           name = '$strFname',
+                                           sname = '$strSname'
+                   WHERE ID = $lastID";
   
         $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
         
@@ -58,7 +63,7 @@
         } 
        // echo $strStatus.$strFname." ".$strSname." ได้ถูกเพิ่มชื่อลงในฐานข้อมูลผู้ป่วยเบาหวานแล้ว";
         
-        mysql_close($objConnect);
+       
         
         echo "</br>";
         echo "<div id='info'>";
@@ -66,10 +71,15 @@
         echo "<button class='btn btn-large btn-primary' id='btninfo' type='button'>เพิ่มข้อมูลของ $staa$strFname  $strSname</button>";
         echo "</div>";
        // btn btn-info
-        session_start();
+        
+        
+        
         $_SESSION['name'] = $strFname;
         $_SESSION['sname'] = $strSname;
         $_SESSION['status'] = $strStatus;
+        
+        
+         mysql_close($objConnect);
         /**
         $con=mysqli_connect("localhost","root","","diabetes");
 

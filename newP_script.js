@@ -33,7 +33,25 @@ YUI().use(
                   
                  
                $(document).ready(function(){
-                $("#ok").click(function(){                    
+                   
+                    var uploadObj2 = $("#advancedUpload2").uploadFile({
+                    url:"./upload/upload_img2.php",
+                    multiple:false,
+                    autoSubmit:true,
+                    showStatusAfterSuccess:true,
+                    fileName:"myfile",
+                    allowedTypes:"jpeg,jpg,png,gif",
+                    onSuccess:function(files,data,xhr)
+                    {
+                           $("#ok").css({
+                                    "display": "block"                                    
+                           }); 
+                           
+                           
+                    }
+                    });
+        
+                $("#ok").click(function(){ 
                   $.ajax({
                     type: "POST",
                     url: "add_name_newp_to_db.php",
@@ -47,10 +65,24 @@ YUI().use(
                     }
                   })
                     .done(function( msg ) 
-                    {  $('#fname').val('');
+                    {  
+                       //uploadObj2.startUpload(); 
+                       
+                       $('#fname').val('');
                        $('#sname').val('');                     
                        $("#menu3").html(msg).fadeIn("slow");
-                       $("#menu2").slideToggle("slow");
+                      
+                       showimg(); 
+                      
+                                            
+                         
+                        
+                       $( "#menu3" ).on('click', '.fancybox', function() {                         
+                           $(".fancybox").fancybox();                            
+                        }); 
+                        
+                       
+                        $("#menu2").slideUp("slow");
                        $("#menu3").on('click', '#btninfo', function() {
                            showadd1();
 
@@ -61,7 +93,32 @@ YUI().use(
                  
        
 
-
+                function showimg()
+                {
+                  $.ajax({
+                    type: "POST",
+                    url: "showImg.php",
+                    dataType: "HTML",
+                    cache: true,
+                    data: 
+                    { 
+                        
+                    }
+                  })
+                    .done(function( msg ) 
+                    {  
+                                          
+                       $("#menu3").prepend(msg);
+                       
+                            $('img.fancybox').imgscale({ 
+                                 parent : '.non-immediate-parent-container2', 
+                                 fade : 1000 
+                               });   
+                         
+                       
+                    });
+                }
+                
                    
                /**
                 $("#ok").on("click",function(){                    
@@ -645,6 +702,8 @@ YUI().use(
 
                 },
                 });
+        
+                
                 $("#finishUp").click(function()
                 {
                         $( "#menu4-5" ).slideUp();

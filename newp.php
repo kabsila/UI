@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="./newP_Css.css">
         <link href="./upload/css/uploadfile.css" rel="stylesheet">
         
+        <script src="./alloy/jquery.min.js"></script>
         <script src="./alloy/build/aui/aui.js"></script>
         <script src="./alloy/jquery.js"></script>
         <script src="./alloy/jquery-ui/js/jquery-ui-1.10.3.custom.js"></script>
@@ -23,7 +24,19 @@
         <script src="./newP_script.js"></script>
         <script src="./upload/js/jquery.uploadfile.min.js"></script>
 
+ <script type="text/javascript" src="./fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
 
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="./fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="./fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet" href="./fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
+<script type="text/javascript" src="./fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="./fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+
+<link rel="stylesheet" href="./fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
+<script type="text/javascript" src="./fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
 
         <style>
             
@@ -94,9 +107,14 @@
                                     <div id="yourDiv"> <input  id="sname"  type="text" style="width:80px;text-align: center;">  </div>
                                 </td>                             
                             </tr>
+                            <tr id="uploadH">
+                                <td colspan="3">
+                                    <div id="advancedUpload2" style="font-size:50%;display: none;">เลือกภาพผู้ป่วย</div>
+                                </td>
+                            </tr>
                             <tr >
                                 <td colspan="3">
-                                    <button class="button" id="ok" style="width:80px;">OK</button>
+                                    <center><button class="button" id="ok" style="margin-top: 20px;width:80px;">OK</button></center>
                                 </td>
                             </tr>
                         </table>
@@ -191,7 +209,7 @@
                         </table>
                 </div>
                 
-                <div id="menu4-5" style="background-color:#2c3e50;height:auto;width:700px; border-radius:25px;color: #ecf0f1;">
+                <div id="menu4-5" style="background-color:#000000;height:auto;width:700px; border-radius:25px;color: #ecf0f1;">
                     <center><div id="advancedUpload" style="display: none;">เลือกภาพ</div></center> 
                     <!--                    <div id="startUpload" class="ajax-file-upload-green">Start Upload</div>-->
                     <button class="btn btn-success" id="finishUp" style="color:#484848; width: 200px;margin-top: 10px;">เสร็จสิ้นการอัพโหลด</button>

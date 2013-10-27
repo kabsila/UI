@@ -105,7 +105,13 @@ YUI().use(
                             parent : '.non-immediate-parent-container', 
                             fade : 1000 
                           });
-                           $(".fancybox").fancybox();
+                           $(".fancybox").fancybox({
+                                'transitionIn'	:	'elastic',
+                                'transitionOut'	:	'elastic',
+                                'speedIn'	:	600, 
+                                'speedOut'	:	200, 
+                                'overlayShow'	:	false
+                            });
                             
                         });
                       
