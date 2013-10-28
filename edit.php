@@ -19,9 +19,9 @@
         
 <!--        <link rel="stylesheet" href="./alloy/pagination/css/jqpagination.css">-->
         
-        <link rel="stylesheet" href="./upload/imgbox/colorbox.css" />
+        
        
-        <script src="./upload/imgbox/jquery.colorbox-min.js"></script>
+        
         <script src="./alloy/jquery.min.js"></script>
         <script src="./alloy/build/aui/aui.js"></script>
         <script src="./alloy/jquery.js"></script>

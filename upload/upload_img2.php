@@ -18,8 +18,9 @@ if(isset($_FILES["myfile"]))
 	if(!is_array($_FILES["myfile"]["name"])) //single file
 	{
  	 	$fileName = $random_digit."face".$_FILES["myfile"]["name"];
- 		move_uploaded_file($_FILES["myfile"]["tmp_name"],$output_dir. $_FILES["myfile"]["name"]);
                 $ret[$fileName]= $output_dir.$fileName;
+ 		move_uploaded_file($_FILES["myfile"]["tmp_name"],$output_dir. $_FILES["myfile"]["name"]);
+                
                 
                 $strSQL = "INSERT INTO general_info (face) VALUES ('$fileName')";
                 $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());

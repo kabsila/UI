@@ -35,8 +35,7 @@ YUI().use(
                $(document).ready(function(){
                    
                     var uploadObj2 = $("#advancedUpload2").uploadFile({
-                    url:"./upload/upload_img2.php",
-                    multiple:false,
+                    url:"./upload/upload_img2.php",                    
                     autoSubmit:true,
                     showStatusAfterSuccess:true,
                     fileName:"myfile",
@@ -110,10 +109,7 @@ YUI().use(
                                           
                        $("#menu3").prepend(msg);
                        
-                            $('img.fancybox').imgscale({ 
-                                 parent : '.non-immediate-parent-container2', 
-                                 fade : 1000 
-                               });   
+                             
                          
                        
                     });
@@ -365,7 +361,7 @@ YUI().use(
                           .done(function( msg ) 
                           {
                             $("#menu8").height(60);
-                            $("#menu8").hide().html(msg).fadeIn(2000,function(){$("#menu8").slideUp(2000);});
+                            $("#menu8").hide().html(msg).fadeIn(400,function(){$("#menu8").slideUp(500);});
                             //
                             //$("#menu8").slideUp(2000);
                             $("#menu9").fadeIn();

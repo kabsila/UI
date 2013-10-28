@@ -1,0 +1,167 @@
+/* 
+    Document   : css_Profile
+    Created on : 27 ต.ค. 2556, 19:35:25
+    Author     : Administrator
+    Description:
+        Purpose of the stylesheet follows.
+*/
+         /** @font-face 
+          {
+            font-family: MyFont;
+            src: url("../font/thaisanslite_r1.eot"); 
+           }
+           @font-face 
+           {
+            font-family: MyFont;
+            src: url("../font/thaisanslite_r1.ttf");
+                  
+           }
+           
+
+           @font-face 
+           {
+            font-family: MyFont;
+            src: url('../font/sr_fahthairegrlar-webfont.eot');
+            src: url('../font/sr_fahthairegrlar-webfont.eot?#iefix') format('embedded-opentype'),
+                 url('../font/sr_fahthairegrlar-webfont.woff') format('woff'),
+                 url('../font/sr_fahthairegrlar-webfont.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+
+           }
+           
+           @font-face 
+           {
+               
+                font-family: MyFont;
+                src: url('../font/AngsanaNew.eot?') format('eot'), 
+                     url('../font/AngsanaNew.woff') format('woff'), 
+                     url('../font/AngsanaNew.ttf')  format('truetype'),
+                     url('../font/AngsanaNew.svg#AngsanaNew') format('svg');
+           }**/
+           
+           @font-face 
+           {
+                font-family: MyFont;
+                src: url('../font/th_k2d_july8-webfont.eot');
+                src: url('../font/th_k2d_july8-webfont.eot?#iefix') format('embedded-opentype'),
+                     url('../font/th_k2d_july8-webfont.woff') format('woff'),
+                     url('../font/th_k2d_july8-webfont.ttf') format('truetype');
+                font-weight: normal;
+                font-style: normal;
+
+            }
+
+        
+        #listPro1
+        {
+             
+            height:auto;
+            margin: 0 auto;
+            margin-top:20px;             
+            text-align: center;
+            padding-top: 25px;
+            padding-bottom: 25px;
+            display: none;
+            
+            
+            
+        }
+        
+        #listPro2
+        {
+             
+            height:auto;
+            margin: 0 auto;
+            margin-top:20px;             
+            text-align: center;
+            padding-top: 25px;
+            padding-bottom: 25px;
+            display: none;
+            
+            
+        }
+        
+        #Pro1
+        {
+                display: block;
+                background-color: #27ae60;
+                height: auto;
+                width: 700px; 
+                border-radius: 25px;
+                margin: auto;
+                margin-top:20px;               
+                text-align: center;
+                padding-top: 47px;
+                color: #ecf0f1;
+                padding-bottom: 35px;
+                
+        }
+        
+        #Pro2
+        {
+                display: block;
+                background-color: #27ae60;
+                height: auto;
+                width: 700px; 
+                border-radius: 25px;
+                margin: auto;
+                margin-top:20px;               
+                text-align: center;
+                padding-top: 47px;
+                color: #ecf0f1;
+                padding-bottom: 35px;
+                
+        }
+        
+        #Pro3
+        {
+                display: block;
+                background-color: #27ae60;
+                height: auto;
+                width: 700px; 
+                border-radius: 25px;
+                margin: auto;
+                margin-top:20px;               
+                text-align: center;
+                padding-top: 47px;
+                color: #ecf0f1;
+                padding-bottom: 35px;
+                
+        }
+        
+        .control-label
+        {
+            display: inline-block;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        
+        #Pro1 label
+        {
+            font-size: 150%;
+            font-family: MyFont;
+        }
+        
+        table.ex-pro1
+        {
+            margin-top: 25px;
+            text-align: left;            
+            word-break: break-all;
+        }
+        
+        .n-label
+        {
+            text-align: center; 
+        }
+        
+        table.ex-pro3
+        {
+            text-align: left;            
+            word-break: break-all;
+            width: 600px;
+        }
+        
+         
+
+        

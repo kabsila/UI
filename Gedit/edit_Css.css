@@ -124,7 +124,7 @@
             
             .non-immediate-parent-container
             { 
-                height: 100px; 
+                height: auto; 
                 width: 125px; 
                 display: inline-block;
                 margin-left: 15px;
