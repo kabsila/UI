@@ -39,12 +39,114 @@
 <script type="text/javascript" src="./fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
 
         <style>
-            
+            html { height: 100%; width: 100%;}    
+            body { height: 100%; width: 100%;} /*margin: 0; padding: 0 }*/      
+            #map-canvas { height: 400px; width: 650px; margin: auto; margin-top: 25px;}
 
         </style>
         
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdvwF7XYm-l-CeqTLrwHQCjDbIxThB1As&sensor=false&libraries=places&language=th"></script>
         <script>
-          
+$(document).ready(function() {
+		$(".fancybox").fancybox();
+	
+        });   
+        
+var map;
+var myCenter=new google.maps.LatLng(15.241127,104.851402);
+
+var markers = [];
+var geocoder;
+var marker;
+function initialize()
+{
+   
+ google.maps.visualRefresh = true;    
+ geocoder = new google.maps.Geocoder();
+var mapProp = {
+  center:myCenter,
+  zoom:10,
+  mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+
+  map = new google.maps.Map(document.getElementById("map-canvas"),mapProp);
+
+  
+
+  google.maps.event.addListener(map, 'click', function(event) {
+      
+    //placeMarker(myCenter);
+    placeMarker(event.latLng);
+  });
+}
+
+function placeMarker(location) {    
+  clearOverlays();
+  markers = [];
+  
+
+  
+   marker = new google.maps.Marker({
+    position: location,
+    animation: google.maps.Animation.DROP,
+    map: map,
+  });
+  markers.push(marker);
+    
+    
+    geocoder.geocode({'latLng': location}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      if (results[1]) {
+        //map.setZoom(10);
+        //marker = new google.maps.Marker({
+        //    position: location,
+        //    map: map
+       // });
+       
+          } else {
+        alert('No results found');
+      }
+    } else {
+      alert('Geocoder failed due to: ' + status);
+    }
+    
+     var infowindow = new google.maps.InfoWindow({
+    content: 'Latitude: ' + location.lat().toFixed(4) + '<br>Longitude: ' + location.lng().toFixed(4) + '<br>' + results[0].formatted_address
+   //content: results[0].formatted_address
+  });
+  //infowindow.setContent(results[1].formatted_address);
+  infowindow.open(map,marker);
+  });
+  
+ 
+  
+ }
+ 
+ function setAllMap(map) {
+  for (var i = 0; i < markers.length; i++) {
+    markers[i].setMap(map);
+  }
+}
+
+// Removes the overlays from the map, but keeps them in the array.
+function clearOverlays() {
+  setAllMap(null);
+}
+
+// Shows any overlays currently in the array.
+function showOverlays() {
+  setAllMap(map);
+}
+
+// Deletes all markers in the array by removing references to them.
+function deleteOverlays() {
+  clearOverlays();
+  markers = [];
+}
+
+//google.maps.event.addDomListener(window, 'load', initialize);
+
+     
         </script>
     </head>
     <body>
@@ -114,7 +216,8 @@
                             </tr>
                             <tr >
                                 <td colspan="3">
-                                    <center><button class="button" id="ok" style="margin-top: 20px;width:80px;">OK</button></center>
+                                    <center><button class="button" id="ok" style="margin-top: 20px;width:80px;">บันทึก</button></center>
+                                    <center><button class="button" id="noPic" style="margin-top: 20px;width:80px;">ไม่มีภาพ</button></center>
                                 </td>
                             </tr>
                         </table>
@@ -207,6 +310,8 @@
                                 </td>
                             </tr>
                         </table>
+                    
+                    <div id="map-canvas"></div>
                 </div>
                 
                 <div id="menu4-5" style="background-color:#000000;height:auto;width:700px; border-radius:25px;color: #ecf0f1;">

@@ -13,6 +13,36 @@ YUI().use(
 var lat;
 var long;
 
+
+
+                $(document).ready(function(){
+
+                   $.extend( $.ui.autocomplete.prototype, {
+                    _renderItem: function( ul, item ) {
+                        var term = this.element.val(),
+                            html = item.label.replace( term, "<b>$&</b>" );
+                        return $( "<li></li>" )
+                            .data( "item.autocomplete", item )
+                            .append( $("<a></a>").html(html) )
+                            .appendTo( ul );
+                    }
+                });  
+                
+                    $('#tags').autocomplete({
+                          source:'./profile/find.php', 
+                          minLength:1,
+                          select: function( event, ui ) 
+                          { 
+                            listProfile(ui.item.id);
+                            $("html,body").animate({scrollTop:$('#listPro2').position().top}, 'slow'); 
+                          },
+                          
+                      });
+             });
+
+
+                 
+
                 $(document).ready(function(){
                 $("#listname").click(function(){                  
                   $.ajax({
@@ -32,15 +62,14 @@ var long;
                        $('#listPro1').html(msg);
                        $('#listPro1').slideDown();
                       
+                      
                        $('#listPro1').on('click', '.inlineTable label', function() {                            
                            listProfile(this.id); 
-                           
-                        });
-                        
-                        $('#listPro1').on('click', '.cursorName', function() {                             
+                       });
+                       
+                       $('#listPro1').on('click', '.cursorName', function() {                             
                               $("html,body").animate({scrollTop:$('#listPro2').position().top}, 'slow');                      
                         });
-                       
                     });
                   });
                  });
@@ -66,6 +95,14 @@ var long;
                       $("#listPro2").html(msg);
                       $("#listPro2").fadeIn(); 
                       
+                      
+                     if($( "#lat" ).text() === '' || $( "#long" ).text() === '')
+                     {
+                         //$( "#mapView" ).css({"display" : "none"});
+                         $("button#mapView").attr("disabled","disabled");
+                     }                           
+                       
+                        
                       $('#listPro2').on('click', '#mapView', function() {
                             lat = $('#lat').text(); 
                             long = $('#long').text(); 
@@ -81,6 +118,8 @@ var long;
                       $( "#listPro2" ).on('click', '.fancybox', function() {                         
                            $(".fancybox").fancybox();                            
                         }); 
+                        
+                      
                        
                     });
                     

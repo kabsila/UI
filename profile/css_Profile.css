@@ -38,7 +38,7 @@
                      url('../font/AngsanaNew.woff') format('woff'), 
                      url('../font/AngsanaNew.ttf')  format('truetype'),
                      url('../font/AngsanaNew.svg#AngsanaNew') format('svg');
-           }**/
+           }
            
            @font-face 
            {
@@ -50,6 +50,16 @@
                 font-weight: normal;
                 font-style: normal;
 
+            }**/
+            
+            
+            @font-face 
+            {
+                font-family: MyFont;
+                src: url('../font/THSarabunNew.eot?') format('eot'), 
+                 url('../font/THSarabunNew.woff') format('woff'), 
+                 url('../font/THSarabunNew.ttf')  format('truetype'),
+                 url('../font/THSarabunNew.svg#THSarabunNew') format('svg');
             }
 
         
@@ -85,7 +95,7 @@
         #Pro1
         {
                 display: block;
-                background-color: #27ae60;
+                background-color: #16a085;
                 height: auto;
                 width: 700px; 
                 border-radius: 25px;
@@ -101,7 +111,7 @@
         #Pro2
         {
                 display: block;
-                background-color: #27ae60;
+                background-color: #3498db;
                 height: auto;
                 width: 700px; 
                 border-radius: 25px;
@@ -117,7 +127,7 @@
         #Pro3
         {
                 display: block;
-                background-color: #27ae60;
+                background-color: #ffffff;
                 height: auto;
                 width: 700px; 
                 border-radius: 25px;
@@ -125,7 +135,7 @@
                 margin-top:20px;               
                 text-align: center;
                 padding-top: 47px;
-                color: #ecf0f1;
+                color: #000000;
                 padding-bottom: 35px;
                 
         }
@@ -139,7 +149,7 @@
         
         #Pro1 label
         {
-            font-size: 150%;
+            font-size: 100%;
             font-family: MyFont;
         }
         

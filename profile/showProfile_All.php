@@ -45,7 +45,10 @@
         $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
         $row2 = mysql_fetch_array($objQuery);
         
-        
+        if($row2['face'] == '')
+        {
+            $row2['face'] = 'noProfile2.jpg';
+        }
         
         echo "<div class='non-immediate-parent-container2' >";
         echo "<a class='fancybox' rel='group' href='".$vPath.$row2['face']."'><img src='".$vPath.$row2['face']."' alt='' /></a>";		
@@ -283,7 +286,7 @@
         while($objResuut = mysql_fetch_array($objQuery))
 	{  
             echo "<div class='non-immediate-parent-container' >";
-            echo "<a class='fancybox' rel='group' href='".$vPath.$objResuut["path"]."'><img src='".$vPath.$objResuut["path"]."' alt='' /></a>";		
+            echo "<a class='fancybox' rel='group1' href='".$vPath.$objResuut["path"]."'><img src='".$vPath.$objResuut["path"]."' alt='' /></a>";		
             echo "</div>";
             
         }
@@ -329,7 +332,7 @@
                         echo "<td class='n-label'>".$objResuut["date"]."</td>";
                         $numCell += 1;
                    }
-                   mysql_data_seek($objQuery, 0);
+                   mysql_data_seek($objQuery, 0) or die ("ไม่มีข้อมูล");
              ?>
         </tr>
         <tr>

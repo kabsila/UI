@@ -65,7 +65,7 @@ $(document).ready(function() {
         });   
         
 var map;
-var myCenter=new google.maps.LatLng(51.508742,-0.120850);
+var myCenter=new google.maps.LatLng(15.241127,104.851402);
 
 var markers = [];
 var geocoder;
@@ -158,7 +158,12 @@ function deleteOverlays() {
 
 //google.maps.event.addDomListener(window, 'load', initialize);
 
-     
+ 
+
+                  
+jQuery(document).ready(function($){
+	//$('#tags').autocomplete({source:'./profile/find.php', minLength:2});
+});
         </script>
     </head>
     <body>
@@ -174,7 +179,13 @@ function deleteOverlays() {
 
             <div id="content" style="background-color:#E6E6E6;height:auto;width:1100px;padding-bottom: 25px;">
                 
-                
+               <div class="ui-widget">
+  <label for="tags">Tags: </label>
+  <input id="tags" />
+  
+
+  
+</div>
                 
                 <div id="menu" style="background-color:#F5A9F2;height:100px;width:400px; border-radius:25px;">
 

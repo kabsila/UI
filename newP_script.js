@@ -50,6 +50,14 @@ YUI().use(
                     }
                     });
         
+        
+                $("#noPic").click(function(){ 
+                    $("#noPic").fadeOut("slow");
+                    $("#ok").fadeIn("slow");
+                    
+                });
+                 
+                 
                 $("#ok").click(function(){ 
                   $.ajax({
                     type: "POST",
@@ -186,6 +194,7 @@ YUI().use(
                       $("#menu3").hide().html(msg).fadeToggle("slow");
                       $("#menu3").slideToggle();
                       $("#menu4").slideToggle("slow");
+                      initialize();
                     });
               }
               
