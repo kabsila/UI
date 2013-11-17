@@ -17,7 +17,9 @@
         <link rel="stylesheet" href="./Gedit/edit_Css.css">
         <link rel="stylesheet" href="./profile/css_profile.css">
         <link rel="stylesheet" href="./alloy/jquery-ui-all/themes/base/jquery-ui.css">
-        
+        <link rel="stylesheet" href="./fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+        <link rel="stylesheet" href="./fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
+        <link rel="stylesheet" href="./fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
 <!--        <link rel="stylesheet" href="./alloy/pagination/css/jqpagination.css">-->
         
        
@@ -38,24 +40,25 @@
         <script type="text/javascript" src="./fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
 
         <!-- Add fancyBox -->
-        <link rel="stylesheet" href="./fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+        
         <script type="text/javascript" src="./fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
         <!-- Optionally add helpers - button, thumbnail and/or media -->
-        <link rel="stylesheet" href="./fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
+        
         <script type="text/javascript" src="./fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
         <script type="text/javascript" src="./fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
 
-        <link rel="stylesheet" href="./fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
+        
         <script type="text/javascript" src="./fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
         
        
         
         
         <style>
-            html { height: 100%; width: 100%;}    
-            body { height: 100%; width: 100%;} /*margin: 0; padding: 0 }*/      
+            /**html { height: 100%; width: 100%;}    
+            body { height: 100%; width: 100%;} /*margin: 0; padding: 0 }**/      
             #map-canvas { height: 400px; width: 700px; margin: auto; }
+           
         </style>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdvwF7XYm-l-CeqTLrwHQCjDbIxThB1As&sensor=false&libraries=places&language=th"></script>
         <script>
@@ -173,19 +176,32 @@ jQuery(document).ready(function($){
             <div id="successPopUp">บันทึกแล้ว</div>
             
             <div id="header" style="background-color:#CEECF5;width:100%;height:100px;">
-                <h1 style="margin-bottom:0; font-size:200%; text-align:center; padding-top:25px; font-family:"Angsana New";>แก้ไขข้อมูลผู้ป่วยเบาหวาน</h1></div>
+                <h1 style="margin-bottom:0; font-size:200%; text-align:center; padding-top:25px; font-family:"Angsana New";>ข้อมูลผู้ป่วยเบาหวาน</h1></div>
 
 
 
             <div id="content" style="background-color:#E6E6E6;height:auto;width:1100px;padding-bottom: 25px;">
                 
-               <div class="ui-widget">
-  <label for="tags">Tags: </label>
-  <input id="tags" />
-  
-
-  
-</div>
+                <div class="ui-widget" style="width: 400px;height: auto;margin: auto;">
+                    <table>
+                        <tr>
+                            <td>
+                                <label for="tags" >ค้นจากชื่อผู้ป่วย: </label>
+                            </td>
+                            <td>
+                                <label for="tags2" >ค้นจากนามสกุลผู้ป่วย: </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input id="tags" type='text'>
+                            </td>
+                            <td>
+                                <input id="tags2" type='text'>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
                 
                 <div id="menu" style="background-color:#F5A9F2;height:100px;width:400px; border-radius:25px;">
 
@@ -204,7 +220,7 @@ jQuery(document).ready(function($){
                 
                
                 
-                <div id="listPro1" style="background-color:#e74c3c;width:400px; border-radius:25px;color: #ecf0f1;"></div>
+                <div id="listPro1" style="background-color:#e74c3c;width:550px; border-radius:25px;color: #ecf0f1;"></div>
                 <div id="listPro2"></div>
                 <div id="map-canvas"></div>
                

@@ -92,7 +92,7 @@ include_once ( '../connectDB.php' );
         $objResuut = mysql_fetch_array($objQuery);
         
 ?>
-<div id="menu4" style="background-color:#2980b9;height:200px;width:700px; border-radius:25px;">   
+<div id="menu4" style="background-color:#2980b9;height:230px;width:900px; border-radius:25px;">   
     <table class="ex1" border="0" >
         <tr>
             <td>
@@ -100,6 +100,14 @@ include_once ( '../connectDB.php' );
                     <label class="control-label" for="name">เลขที่อยู่:</label> 
                     <div class="controls" >
                         <input class="w_input" id="AddNum"  type="text"  value="<?php echo $objResuut["address_num"]; ?>">
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="control-group">
+                    <label class="control-label" for="name">หมู่:</label> 
+                    <div class="controls" >
+                        <input class="w_input" id="moo"  type="text" value="<?php echo $objResuut["moo"]; ?>">
                     </div>
                 </div>
             </td>
@@ -127,6 +135,9 @@ include_once ( '../connectDB.php' );
                     </div>
                 </div>
             </td>
+            
+        </tr>
+        <tr>
             <td>
                 <div class="control-group">
                     <label class="control-label" >จังหวัด:</label>
@@ -135,8 +146,6 @@ include_once ( '../connectDB.php' );
                     </div>
                 </div>
             </td>
-        </tr>
-        <tr>
             <td>
                 <div class="control-group">
 
@@ -215,28 +224,61 @@ include_once ( '../connectDB.php' );
         $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
         $objResuut = mysql_fetch_array($objQuery);
         
-        $ana = $objResuut["analysis"];
-        $oth = $objResuut["other"];
+        //$ana = $objResuut["analysis"];
+        
+        if($objResuut["other"] == "f"){
+            $oth = '';   
+        }else{
+            $oth = $objResuut["other"];
+        }
+        
+        
+        //$med = array();
+        //$eat = array();
+       // $order = array();        
+        $yaa = array();
+        
+        $strSQL1 = "SELECT * FROM ya WHERE id = $str1";
+                                           
+        $objQuery1 = mysql_query($strSQL1) or die ("Error in query: $strSQL1. ".mysql_error());        
+        
+       
+        while($objResuut1 = mysql_fetch_array($objQuery1))
+	{  
+            //$med[] = $objResuut1['ya_name'];
+            //$eat[] = $objResuut1['ya_eat'];
+            //$order[] = $objResuut1['ya_order'];
+            
+            $yaa += array($objResuut1['ya_order'] => array($objResuut1['ya_name'] => $objResuut1['ya_eat']));
+            //$med = array($objResuut1['ya_order'] => array("yaName" => $objResuut1['ya_name'], "eat" => $objResuut1['ya_eat']));
+	}
         
 ?>
 
-<div id="menu5" style="background-color:#2c3e50;height:600px;width:700px; border-radius:25px;color: #ecf0f1;">
+<div id="menu5" style="background-color:#2c3e50;height:auto;width:700px; border-radius:25px;color: #ecf0f1;padding-bottom: 30px;">
     <table class="ex5"  border="0">
         <tr>
-            <td colspan="4">
-                <label class="control-label" >การวินิจฉัย:</label>
-                <div id="yourDiv"> 
-                    <select id="analysis" style="width:140px;text-align: center;">
-                        <option <?php if($ana == 'low_sweet'){echo 'selected ';} ?> value="low_sweet">เบาหวาน</option>
-                        <option <?php if($ana == 'blood_hight'){echo 'selected ';} ?>value="blood_hight">ความดันโลหิตสูง</option>
-                        <option <?php if($ana == 'tai_Y'){echo 'selected ';} ?>value="tai_Y">ไตวาย</option> 
-                        <option <?php if($ana == 'h_fail'){echo 'selected ';} ?>value="h_fail">หัวใจล้มเหลว</option>
-                        <option <?php if($ana == 'other'){echo 'selected ';} ?>value="other" id="other">อื่น ๆ</option>
-                    </select>  
-                </div>
-                <center><input  id='input_other'  placeholder='กรอกกรณีการวินิจฉัยอื่น ๆ' type='text' style="
+            <td colspan="3">
+                <label class="control-label" >การวินิจฉัย:</label><br>
+                
+                <input type="checkbox" id="checkbox1" class="css-checkbox lrg" <?php if($objResuut["low_sweet"] == 't'){echo 'checked ';} ?> value="low_sweet"/>
+		<label style="font-size:1.3em;" for="checkbox1" name="checkbox1_lbl" class="css-label lrg vlad">เบาหวาน</label>
+                                
+                <input type="checkbox" id="checkbox2" class="css-checkbox lrg" <?php if($objResuut["h_blood"] == 't'){echo 'checked ';} ?> value="blood_hight"/>
+		<label style="font-size:1.3em;" for="checkbox2" name="checkbox2_lbl" class="css-label lrg vlad">ความดันโลหิตสูง</label>
+                                
+                <input type="checkbox" id="checkbox3" class="css-checkbox lrg" <?php if($objResuut["tai_y"] == 't'){echo 'checked ';} ?> value="tai_Y"/>
+		<label style="font-size:1.3em;" for="checkbox3" name="checkbox3_lbl" class="css-label lrg vlad">ไตวาย</label>
+                                
+                <input type="checkbox" id="checkbox4" class="css-checkbox lrg" <?php if($objResuut["h_fail"] == 't'){echo 'checked ';} ?> value="h_fail"/>
+		<label style="font-size:1.3em;" for="checkbox4" name="checkbox4_lbl" class="css-label lrg vlad">หัวใจล้มเหลว</label>
+                                
+                <input type="checkbox" id="checkbox5" class="css-checkbox lrg" <?php if($objResuut["other"] != 'f'){echo 'checked ';} ?> value="other"/>
+		<label style="font-size:1.3em;" for="checkbox5" name="checkbox5_lbl" class="css-label lrg vlad">อื่น ๆ</label>
+                
+        <center><input  id='input_other'  placeholder='กรอกกรณีการวินิจฉัยอื่น ๆ' type='text' style="
                     
-                    <?php if($ana == 'other')
+                    <?php if($objResuut["other"] != 'f')
                     {
                         echo 'display:block;';                        
                     }
@@ -247,7 +289,30 @@ include_once ( '../connectDB.php' );
                     }  
                     ?>"
                         
-                    <?php echo " value='".$oth."'"; ?> > </center>
+                    <?php echo " value='".$oth."'"; ?> ></center>
+<!--                <div id="yourDiv"> 
+                    <select id="analysis" style="width:140px;text-align: center;">
+                        <option <?php //if($ana == 'low_sweet'){echo 'selected ';} ?> value="low_sweet">เบาหวาน</option>
+                        <option <?php //if($ana == 'blood_hight'){echo 'selected ';} ?>value="blood_hight">ความดันโลหิตสูง</option>
+                        <option <?php //if($ana == 'tai_Y'){echo 'selected ';} ?>value="tai_Y">ไตวาย</option> 
+                        <option <?php //if($ana == 'h_fail'){echo 'selected ';} ?>value="h_fail">หัวใจล้มเหลว</option>
+                        <option <?php //if($ana == 'other'){echo 'selected ';} ?>value="other" id="other">อื่น ๆ</option>
+                    </select>  
+                </div>
+                <center><input  id='input_other'  placeholder='กรอกกรณีการวินิจฉัยอื่น ๆ' type='text' style="
+                    
+                    <?php //if($ana == 'other')
+                    //{
+                        //echo 'display:block;';                        
+                   // }
+                    //else
+                    //{
+                        //echo 'display:none;';
+                        
+                   // }  
+                    ?>"
+                        
+                    <?php //echo " value='".$oth."'"; ?> > </center>-->
                 
             </td>
         </tr>
@@ -263,7 +328,7 @@ include_once ( '../connectDB.php' );
 
         </tr>
         <tr>
-            <td>
+            <td width="33%">
                 <div class="control-group">
                     <label class="control-label" ><font color="#2c3e50">1</font></label>
                     <div class="controls" > 
@@ -271,7 +336,7 @@ include_once ( '../connectDB.php' );
                     </div>
                 </div>
             </td>
-            <td>
+            <td width="33%">
                 <div class="control-group">
                     <label class="control-label">โรงพยาบาลที่รับการรักษา:</label>
                     <div class="controls" > 
@@ -279,7 +344,7 @@ include_once ( '../connectDB.php' );
                     </div>
                 </div>
             </td>
-            <td colspan="2">
+            <td width="33%">
                 <div class="control-group">
                     <label class="control-label" ><font color="#2c3e50">3</font></label>
                     <div class="controls" > 
@@ -288,20 +353,90 @@ include_once ( '../connectDB.php' );
                 </div>
             </td>
         </tr>
-        <tr colspan="2">                            
-            <td>
+        <tr>                            
+            <td colspan="3">
                 <div class="control-group">
-                    <label class="control-label" >ยาที่ได้รับ:</label>
-                    <div class="controls" > 
-                        <input name="with" id="med"  type="text" value="<?php echo $objResuut["medicine"]; ?>">
-                    </div>
+                    <label class="control-label" >ยาที่ได้รับ:</label>                                    
                 </div>
             </td>
-            <td colspan="2">
+        </tr>
+        <tr>
+            <td>
+                <div class="control-group">
+                    <label class="control-label" >ชื่อยา:</label>                                    
+                </div>
+                <div class="controls" > 
+                    
+                    <?php 
+                    $i = 1;
+                        foreach($yaa as $key => $value) 
+                        {
+                            foreach($value as $yaname => $yaeat) 
+                            {
+                                
+                                echo "<input id='med$i' type='text' value='{$yaname}'><label id='lm$i' style='visibility:hidden;display: inline-block;width: 1px;'>{$key}</label>";
+                            }
+                            $i++;
+                        }
+                        
+                        for($k = $i;$k <= 10;$k++){
+                            echo "<input id='med$k' type='text' value=''><label id='lm$k' style='visibility:hidden;display: inline-block;width: 1px;'></label>";
+                        }
+                        
+                    ?>
+<!--                    <input  id="med1"  type="text" value="<?php //if($med[0] != NULL){echo $med[0];} ?>"><label id="lm1" style="visibility:hidden;display: inline-block;width: 1px;"><?php echo $order[0]; ?></label>
+                    <input  id="med2"  type="text" value="<?php //if($med[1] != NULL){echo $med[1];}  ?>"><label id="lm2" style="visibility:hidden;display: inline-block;width: 1px;"><?php echo $order[1]; ?></label>
+                    <input  id="med3"  type="text" value="<?php //if($med[2] != NULL){echo $med[2];}  ?>"><label id="lm3" style="visibility:hidden;display: inline-block;width: 1px;"><?php echo $order[2]; ?></label>
+                    <input  id="med4"  type="text" value="<?php //if($med[3] != NULL){echo $med[3];}  ?>"><label id="lm4" style="visibility:hidden;display: inline-block;width: 1px;"><?php echo $order[3]; ?></label>
+                    <input  id="med5"  type="text" value="<?php //if($med[4] != NULL){echo $med[4];}  ?>"><label id="lm5" style="visibility:hidden;display: inline-block;width: 1px;"><?php echo $order[4]; ?></label>
+                    <input  id="med6"  type="text" value="<?php //if($med[5] != NULL){echo $med[5];}  ?>"><label id="lm6" style="visibility:hidden;display: inline-block;width: 1px;"><?php echo $order[5]; ?></label>
+                    <input  id="med7"  type="text" value="<?php //if($med[6] != NULL){echo $med[6];}  ?>"><label id="lm7" style="visibility:hidden;display: inline-block;width: 1px;"><?php echo $order[6]; ?></label>
+                    <input  id="med8"  type="text" value="<?php //if($med[7] != NULL){echo $med[7];} ; ?>"><label id="lm8" style="visibility:hidden;display: inline-block;width: 1px;"><?php echo $order[7]; ?></label>
+                    <input  id="med9"  type="text" value="<?php //if($med[8] != NULL){echo $med[8];} ; ?>"><label id="lm9" style="visibility:hidden;display: inline-block;width: 1px;"><?php echo $order[8]; ?></label>
+                    <input  id="med10"  type="text" value="<?php //if($med[9] != NULL){echo $med[9];}  ?>"><label id="lm10" style="visibility:hidden;display: inline-block;width: 1px;"><?php echo $order[9]; ?></label>-->
+                </div>
+            </td>
+            <td  colspan="2">
+                <div class="control-group">
+                    <label class="control-label" >วิธีการรับประทาน:</label>                                    
+                </div>
+                <div class="controls" > 
+                    
+                    <?php 
+                    $i = 1;
+                        foreach($yaa as $key => $value) 
+                        {
+                            foreach($value as $yaname => $yaeat) 
+                            {
+                                echo "<input id='eat$i' type='text' value='{$yaeat}'>";
+                            }
+                            $i++;
+                        }
+                        
+                        for($k = $i;$k <= 10;$k++){
+                            echo "<input id='eat$k' type='text' value=''>";
+                        }
+                        
+                    ?>
+<!--                    <input  id="eat1"  type="text" value="<?php //if($eat[0] != NULL){echo $eat[0];} ?>">
+                    <input  id="eat2"  type="text" value="<?php //if($eat[1] != NULL){echo $eat[1];} ?>">
+                    <input  id="eat3"  type="text" value="<?php //if($eat[2] != NULL){echo $eat[2];} ?>">
+                    <input  id="eat4"  type="text" value="<?php //if($eat[3] != NULL){echo $eat[3];} ?>">
+                    <input  id="eat5"  type="text" value="<?php //if($eat[4] != NULL){echo $eat[4];} ?>">
+                    <input  id="eat6"  type="text" value="<?php //if($eat[5] != NULL){echo $eat[5];} ?>">
+                    <input  id="eat7"  type="text" value="<?php //if($eat[6] != NULL){echo $eat[6];} ?>">
+                    <input  id="eat8"  type="text" value="<?php //if($eat[7] != NULL){echo $eat[7];} ?>">
+                    <input  id="eat9"  type="text" value="<?php //if($eat[8] != NULL){echo $eat[8];} ?>">
+                    <input  id="eat10"  type="text" value="<?php //if($eat[9] != NULL){echo $eat[9];} ?>">-->
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
                 <div class="control-group">
                     <label class="control-label" >ประวัติการแพ้ยา:</label>
                     <div class="controls" > 
-                        <input name="with" id="med_history"  type="text" style="width: 85%;" value="<?php echo $objResuut["anti_medicine"]; ?>">
+                        <input name="with" id="med_history"  type="text"  value="<?php echo $objResuut["anti_medicine"]; ?>">
                     </div>
                 </div>
             </td>
@@ -377,7 +512,7 @@ include_once ( '../connectDB.php' );
 
 
 
-<div id="menu7" style="background-color:#16a085;height:550px;width:700px; border-radius:25px;color: #ecf0f1;">
+<div id="menu7" style="background-color:#16a085;height:auto;width:700px; border-radius:25px;color: #ecf0f1;padding-bottom: 30px;">
 
     <table class="ex5" id="table7" border="0">
         <tr>
@@ -416,6 +551,11 @@ include_once ( '../connectDB.php' );
             <td class="order">2.3</td>
             <td>Cholesterol</td>
             <td><input  class="slideData" id="Cholesterol"  type="text" style=""></td>
+        </tr>
+        <tr>
+            <td class="order">2.4</td>
+            <td>Triglyceride</td>
+            <td><input  class="slideData" id="Triglyceride"  type="text" style=""></td>
         </tr>
         <tr>
             <td class="order">3</td>
@@ -719,18 +859,16 @@ include_once ( '../connectDB.php' );
 </div>
 
 
-<div id="menu11" style="background-color:#3498db;height:350px;width:700px; border-radius:25px;">
+<div id="menu11" style="background-color:#3498db;height:auto;width:700px; border-radius:25px;padding-bottom: 30px;">
 
     <table class="ex5" id="table11" border="0">
         <tr>
             <th colspan="3">การเยี่ยมบ้าน</th>
         </tr>
         <tr>
-            <td>
+            <td colspan="3">
                 
                     <label class="control-label" >การเยี่ยมครั้งที่:</label>
-
-
                     <div class="pagination" id="page4" style="width:auto">
                         <a href="#" class="previous" data-action="previous" style="width:auto;">
                             <button class="btn btn-success"  style="color:#484848; width: 40px;margin-bottom: 10px;"><</button>
@@ -744,28 +882,59 @@ include_once ( '../connectDB.php' );
                     </div>
                
             </td>
-            <td>
+        </tr>
+        <tr>
+            <td colspan="3">
                 <div class="control-group">
                     <label class="control-label" >ผู้เยี่ยม:</label>
-                    <select id="Pvisit" class="slide4" style="width: 60%; text-align: center;">
+<!--                    <select id="Pvisit" class="slide4" style="width: 60%; text-align: center;">
                         <option value="n">พยาบาล</option>
                         <option value="osm">อสม.</option>
                         <option value="staff">เจ้าหน้าที่</option>
-                    </select> 
+                    </select> -->
                 </div>
             </td>
+        </tr>
+        
             <td>
-                <div class="control-group">
-                    <label class="control-label" >บุคคลที่ได้รับการเยี่ยม:</label>
-                    <select id="PRvisit" class="slide4" style="width: 60%; text-align: center;">
-                        <option value="pp">ผู้ป่วย</option>
-                        <option value="pd">ผู้ดูแล.</option>
-
-                    </select>
-                </div> 
+                <input type="checkbox" id="c1" class="css-checkbox lrg" />
+                <label for="c1" name="c1_lbl" class="css-label lrg vlad">พยาบาล</label>
+                <input id="input_c1"  placeholder="กรอกชื่อพยาบาล" type="text" style="" >                                
             </td>
+            <td>
+
+                <input type="checkbox" id="c2" class="css-checkbox lrg" />
+                <label for="c2" name="c2_lbl" class="css-label lrg vlad">อสม.</label>
+                <input id="input_c2"  placeholder="กรอกชื่ออสม." type="text" style="" >
+            </td>
+            <td>
+                <input type="checkbox" id="c3" class="css-checkbox lrg" />
+                <label for="c3" name="c3_lbl" class="css-label lrg vlad">เจ้าหน้าที่</label>
+                <input id="input_c3"  placeholder="กรอกชื่อเจ้าหน้าที่" type="text" style="" >
+            </td>
+            <!--                               <div class="control-group">
+                                                <label class="control-label" >ผู้เยี่ยม:</label>
+                                                <select id="Pvisit" style="width: 60%; text-align: center;">
+                                                    <option value="n">พยาบาล</option>
+                                                    <option value="osm">อสม.</option>
+                                                    <option value="staff">เจ้าหน้าที่</option>
+                                                </select> 
+                                            </div>-->
 
         </tr>
+
+        <tr>
+            <td colspan="3">
+                <div class="control-group">
+                    <label class="control-label" >บุคคลที่ได้รับการเยี่ยม:</label>
+                    <select id="PRvisit" class="slide4" style="width: 20%; text-align: center;">
+                        <option value="pp">ผู้ป่วย</option>
+                        <option value="pd" id="pd">ผู้ดูแล</option>
+                    </select><br>
+                    <input id="pdl" placeholder="กรอกชื่อผู้ดูแล" type="text" style="display:none;">
+                </div> 
+            </td>
+        <tr>
         <tr>
             <td colspan="3">
                 <div class="control-group">
@@ -802,7 +971,7 @@ include_once ( '../connectDB.php' );
                         <a href="#" class="previous" data-action="previous" style="width:auto;">
                             <button class="btn btn-success"  style="color:#484848; width: 40px;margin-bottom: 10px;"><</button>
                         </a>
-                    <label  id="visit_order_table" style="width: 30px;display: inline-block;"><B>1</B></label>
+                    <label  id="visit_order_table" style="width: 50px;;display: inline-block;"><B>1</B></label>
 
                         <a href="#" class="next" data-action="next" style="width:auto;">
                             <button class="btn btn-success"  style="color:#484848; width: 40px;margin-bottom: 10px;">></button>

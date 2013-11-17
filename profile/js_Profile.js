@@ -38,6 +38,17 @@ var long;
                           },
                           
                       });
+              
+                    $('#tags2').autocomplete({
+                          source:'./profile/findSurname.php', 
+                          minLength:1,
+                          select: function( event, ui ) 
+                          { 
+                            listProfile(ui.item.id);
+                            $("html,body").animate({scrollTop:$('#listPro2').position().top}, 'slow'); 
+                          },
+                          
+                      });
              });
 
 
@@ -63,12 +74,13 @@ var long;
                        $('#listPro1').slideDown();
                       
                       
-                       $('#listPro1').on('click', '.inlineTable label', function() {                            
+                       $('#listPro1').on('click', '.inlineTable label', function() {                           
                            listProfile(this.id); 
                        });
                        
                        $('#listPro1').on('click', '.cursorName', function() {                             
-                              $("html,body").animate({scrollTop:$('#listPro2').position().top}, 'slow');                      
+                              $("html,body").animate({scrollTop:$('#listPro2').position().top}, 'slow'); 
+                              //initialize();
                         });
                     });
                   });
@@ -115,8 +127,15 @@ var long;
                       });
                       
                       
-                      $( "#listPro2" ).on('click', '.fancybox', function() {                         
-                           $(".fancybox").fancybox();                            
+                      $( "#listPro2" ).on('click', '#menu4-5', function() {                         
+                           $(".fancybox").fancybox({
+                                'transitionIn'	:	'elastic',
+                                'transitionOut'	:	'elastic',
+                                'speedIn'	:	600, 
+                                'speedOut'	:	200, 
+                                'overlayShow'	:	false
+                            });  
+                           
                         }); 
                         
                       

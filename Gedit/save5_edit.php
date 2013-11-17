@@ -13,6 +13,7 @@ include_once ( '../connectDB.php' );
         $str6 = trim($_POST['t6']);
         $str7 = trim($_POST['t7']);
         $str8 = trim($_POST['t8']);
+        $str9 = trim($_POST['t9']);
         
         
      
@@ -23,6 +24,7 @@ include_once ( '../connectDB.php' );
                                          LDL = '$str3',
                                          HDL = '$str4',
                                          cholesterol = '$str5',
+                                         tg = '$str9',
                                          creatinine = '$str6',
                                          BUN = '$str7',
                                          HbA1C = '$str8' WHERE id = $str0 AND date = '$str1'";

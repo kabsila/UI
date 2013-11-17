@@ -50,7 +50,7 @@
                 font-weight: normal;
                 font-style: normal;
 
-            }**/
+            }
             
             
             @font-face 
@@ -60,8 +60,33 @@
                  url('../font/THSarabunNew.woff') format('woff'), 
                  url('../font/THSarabunNew.ttf')  format('truetype'),
                  url('../font/THSarabunNew.svg#THSarabunNew') format('svg');
-            }
+            }**/
 
+      @media print
+    {
+    	 body{
+            visibility: hidden;
+          }
+          #Pro1, #Pro2, #Pro3, #menu4-55{
+            visibility: visible;
+          }
+          #Pro2 , #Pro2, #Pro3, #menu4-55{
+            position: relative;
+            left: 0;
+            top: 0;
+          }
+          
+    }
+        
+        .ui-widget
+        {
+            margin: 0 auto;
+            margin-top:20px;             
+            
+            padding-top: 25px;
+            padding-bottom: 25px;    
+        }      
+        
         
         #listPro1
         {
@@ -78,6 +103,7 @@
             
         }
         
+        
         #listPro2
         {
              
@@ -91,7 +117,7 @@
             
             
         }
-        
+      
         #Pro1
         {
                 display: block;
@@ -108,10 +134,12 @@
                 
         }
         
+      
+        
         #Pro2
         {
                 display: block;
-                background-color: #3498db;
+                background-color: #9b59b6;
                 height: auto;
                 width: 700px; 
                 border-radius: 25px;
@@ -127,7 +155,7 @@
         #Pro3
         {
                 display: block;
-                background-color: #ffffff;
+                background-color: #F1C40F;
                 height: auto;
                 width: 700px; 
                 border-radius: 25px;
@@ -135,7 +163,8 @@
                 margin-top:20px;               
                 text-align: center;
                 padding-top: 47px;
-                color: #000000;
+                
+                color: #ecf0f1;
                 padding-bottom: 35px;
                 
         }
@@ -149,7 +178,7 @@
         
         #Pro1 label
         {
-            font-size: 100%;
+            font-size: 1.3em;
             font-family: MyFont;
         }
         
@@ -171,6 +200,15 @@
             word-break: break-all;
             width: 600px;
         }
+        
+        label
+        {
+            font-size: 1.3em;
+        }
+        
+        
+        
+        
         
          
 

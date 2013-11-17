@@ -11,10 +11,14 @@
     <head>
         <meta charset="UTF-8">
         <title></title>
+        
+        
+        
         <link rel="stylesheet" href="./alloy/build/aui-css/css/bootstrap.css">
         <link rel="stylesheet" href="./alloy/jquery-ui/css/smoothness/jquery-ui-1.10.3.custom.css">
         <link rel="stylesheet" href="./newP_Css.css">
         <link href="./upload/css/uploadfile.css" rel="stylesheet">
+        <link rel="stylesheet" href="./CSS_checkbox/style.css">
         
         <script src="./alloy/jquery.min.js"></script>
         <script src="./alloy/build/aui/aui.js"></script>
@@ -110,6 +114,7 @@ function placeMarker(location) {
       alert('Geocoder failed due to: ' + status);
     }
     
+    
      var infowindow = new google.maps.InfoWindow({
     content: 'Latitude: ' + location.lat().toFixed(4) + '<br>Longitude: ' + location.lng().toFixed(4) + '<br>' + results[0].formatted_address
    //content: results[0].formatted_address
@@ -118,7 +123,8 @@ function placeMarker(location) {
   infowindow.open(map,marker);
   });
   
- 
+ $("#Latitude").val(location.lat().toFixed(4));
+ $("#Longitude").val(location.lng().toFixed(4));
   
  }
  
@@ -217,6 +223,7 @@ function deleteOverlays() {
                             <tr >
                                 <td colspan="3">
                                     <center><button class="button" id="ok" style="margin-top: 20px;width:80px;">บันทึก</button></center>
+                                    <center><button class="button" id="ok_nopic" style="margin-top: 20px;width:80px;">บันทึก</button></center>
                                     <center><button class="button" id="noPic" style="margin-top: 20px;width:80px;">ไม่มีภาพ</button></center>
                                 </td>
                             </tr>
@@ -224,7 +231,7 @@ function deleteOverlays() {
              </div>
                 <div id="myDiv"></div>               
                 <div id="menu3"></div>
-                <div id="menu4" style="background-color:#2980b9;height:200px;width:700px; border-radius:25px;">   
+                <div id="menu4" style="background-color:#2980b9;height:230px;width:900px; border-radius:25px;">   
                         <table class="ex1" border="0" >
                             <tr>
                                 <td>
@@ -232,6 +239,14 @@ function deleteOverlays() {
                                         <label class="control-label" for="name">เลขที่อยู่:</label> 
                                         <div class="controls" >
                                             <input class="w_input" id="AddNum"  type="text"  title="Three letter country code" style="">
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="control-group">
+                                        <label class="control-label" for="name">หมู่:</label> 
+                                        <div class="controls" >
+                                            <input class="w_input" id="moo"  type="text" >
                                         </div>
                                     </div>
                                 </td>
@@ -259,6 +274,9 @@ function deleteOverlays() {
                                         </div>
                                     </div>
                                 </td>
+                                
+                            </tr>
+                            <tr>
                                 <td>
                                     <div class="control-group">
                                         <label class="control-label" >จังหวัด:</label>
@@ -267,8 +285,6 @@ function deleteOverlays() {
                                         </div>
                                     </div>
                                 </td>
-                            </tr>
-                            <tr>
                                 <td>
                                     <div class="control-group">
 
@@ -320,12 +336,29 @@ function deleteOverlays() {
                     <button class="btn btn-success" id="finishUp" style="color:#484848; width: 200px;margin-top: 10px;">เสร็จสิ้นการอัพโหลด</button>
                 </div>
             
-                <div id="menu5" style="background-color:#2c3e50;height:600px;width:700px; border-radius:25px;color: #ecf0f1;">
+                <div id="menu5" style="background-color:#2c3e50;height:auto;width:700px; border-radius:25px;color: #ecf0f1;padding-bottom: 20px;">
                     <table class="ex5"  border="0">
                         <tr>
                             <td colspan="4">
-                                <label class="control-label" >การวินิจฉัย:</label>
-                                <div id="yourDiv"> 
+                                <label class="control-label" >การวินิจฉัย:</label><br>
+                                
+                                <input type="checkbox" id="checkbox1" class="css-checkbox lrg" checked="checked" value="low_sweet"/>
+				<label style="font-size:1.3em;" for="checkbox1" name="checkbox1_lbl" class="css-label lrg vlad">เบาหวาน</label>
+                                
+                                <input type="checkbox" id="checkbox2" class="css-checkbox lrg" value="blood_hight"/>
+				<label style="font-size:1.3em;" for="checkbox2" name="checkbox2_lbl" class="css-label lrg vlad">ความดันโลหิตสูง</label>
+                                
+                                <input type="checkbox" id="checkbox3" class="css-checkbox lrg" value="tai_Y"/>
+				<label style="font-size:1.3em;" for="checkbox3" name="checkbox3_lbl" class="css-label lrg vlad">ไตวาย</label>
+                                
+                                <input type="checkbox" id="checkbox4" class="css-checkbox lrg" value="h_fail"/>
+				<label style="font-size:1.3em;" for="checkbox4" name="checkbox4_lbl" class="css-label lrg vlad">หัวใจล้มเหลว</label>
+                                
+                                <input type="checkbox" id="checkbox5" class="css-checkbox lrg" value="other"/>
+				<label style="font-size:1.3em;" for="checkbox5" name="checkbox5_lbl" class="css-label lrg vlad">อื่น ๆ</label>
+                                
+                                
+<!--                                <div id="yourDiv" style="display:none;"> 
                                     <select id="analysis" style="width:140px;text-align: center;">
                                         <option value="low_sweet">เบาหวาน</option>
                                         <option value="blood_hight">ความดันโลหิตสูง</option>
@@ -333,8 +366,8 @@ function deleteOverlays() {
                                         <option value="h_fail">หัวใจล้มเหลว</option>
                                         <option value="other" id="other">อื่น ๆ</option>
                                     </select>  
-                                </div>
-                                <input name="with" id="input_other"  placeholder="กรอกกรณีการวินิจฉัยอื่น ๆ" type="text" style="display: none;">
+                                </div>-->
+                                <input  id="input_other"  placeholder="กรอกกรณีการวินิจฉัยอื่น ๆ" type="text" style="display: none;">
                             </td>
                         </tr>
                         <tr>
@@ -349,51 +382,86 @@ function deleteOverlays() {
                             
                         </tr>
                         <tr>
-                            <td>
+                            <td colspan="1" width="33%">
                                 <div class="control-group">
                                     <label class="control-label" ><font color="#2c3e50">1</font></label>
                                     <div class="controls" > 
-                                        <input name="with" placeholder="โรงพยาบาลที่ 1" id="Hospital1"  type="text" style="">
+                                        <input  placeholder="โรงพยาบาลที่ 1" id="Hospital1"  type="text" style="">
                                     </div>
                                 </div>
                             </td>
-                            <td>
+                            <td colspan="1" width="35%">
                                 <div class="control-group">
                                     <label class="control-label">โรงพยาบาลที่รับการรักษา:</label>
                                     <div class="controls" > 
-                                        <input name="with" placeholder="โรงพยาบาลที่ 2" id="Hospital2"  type="text" style="">
+                                        <input  placeholder="โรงพยาบาลที่ 2" id="Hospital2"  type="text" style="">
                                     </div>
                                 </div>
                             </td>
-                            <td colspan="2">
+                            <td colspan="1" width="33%">
                                 <div class="control-group">
                                     <label class="control-label" ><font color="#2c3e50">3</font></label>
                                     <div class="controls" > 
-                                        <input name="with" placeholder="โรงพยาบาลที่ 3" id="Hospital3"  type="text" style="">
+                                        <input  placeholder="โรงพยาบาลที่ 3" id="Hospital3"  type="text" style="">
                                     </div>
                                 </div>
                             </td>
                         </tr>
-                        <tr colspan="2">                            
-                            <td>
+                        <tr>                            
+                            <td colspan="3">
                                 <div class="control-group">
-                                    <label class="control-label" >ยาที่ได้รับ:</label>
-                                    <div class="controls" > 
-                                        <input name="with" id="med"  type="text" style="">
-                                    </div>
-                                </div>
-                            </td>
-                            <td colspan="2">
-                                <div class="control-group">
-                                    <label class="control-label" >ประวัติการแพ้ยา:</label>
-                                    <div class="controls" > 
-                                        <input name="with" id="med_history"  type="text" style="width: 85%;">
-                                    </div>
+                                    <label class="control-label" >ยาที่ได้รับ:</label>                                    
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td>
+                                <div class="control-group">
+                                    <label class="control-label" >ชื่อยา:</label>                                    
+                                </div>
+                                <div class="controls" > 
+                                    <input  id="med1"  type="text" style="">
+                                    <input  id="med2"  type="text" style="">
+                                    <input  id="med3"  type="text" style="">
+                                    <input  id="med4"  type="text" style="">
+                                    <input  id="med5"  type="text" style="">
+                                    <input  id="med6"  type="text" style="">
+                                    <input  id="med7"  type="text" style="">
+                                    <input  id="med8"  type="text" style="">
+                                    <input  id="med9"  type="text" style="">
+                                    <input  id="med10"  type="text" style="">
+                                </div>
+                            </td>
+                            <td  colspan="2">
+                                <div class="control-group">
+                                    <label class="control-label" >วิธีการรับประทาน:</label>                                    
+                                </div>
+                                <div class="controls" > 
+                                    <input  id="eat1"  type="text" style="">
+                                    <input  id="eat2"  type="text" style="">
+                                    <input  id="eat3"  type="text" style="">
+                                    <input  id="eat4"  type="text" style="">
+                                    <input  id="eat5"  type="text" style="">
+                                    <input  id="eat6"  type="text" style="">
+                                    <input  id="eat7"  type="text" style="">
+                                    <input  id="eat8"  type="text" style="">
+                                    <input  id="eat9"  type="text" style="">
+                                    <input  id="eat10"  type="text" style="">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <div class="control-group">
+                                    <label class="control-label" >ประวัติการแพ้ยา:</label>
+                                    <div class="controls" > 
+                                        <input name="with" id="med_history"  type="text" style="">
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
                                 <div class="control-group">
                                     <label class="control-label" >อาหารเฉพาะ:</label>
                                     <div class="controls" > 
@@ -401,14 +469,14 @@ function deleteOverlays() {
                                     </div>
                                 </div>
                             </td>
-                            <td colspan="3">
+<!--                            <td colspan="3">
                                 <div class="control-group">
                                     <label class="control-label" >การใช้สมุนไพรหรือการปฎิบัติเฉพาะที่ใช้:</label>
                                     <div class="controls" > 
                                         <input name="with" id="smpai"  type="text" style="width: 85%;">
                                     </div>
                                 </div>
-                            </td>
+                            </td>-->
                         </tr>
                         <tr>
                             <td colspan="4">
@@ -499,6 +567,11 @@ function deleteOverlays() {
                             <td>2.3</td>
                             <td>Cholesterol</td>
                             <td><input id="Cholesterol"  type="text" style=""></td>
+                        </tr>
+                        <tr>
+                            <td>2.4</td>
+                            <td>Triglyceride</td>
+                            <td><input id="Triglyceride"  type="text" style=""></td>
                         </tr>
                         <tr>
                             <td>3</td>
@@ -715,7 +788,7 @@ function deleteOverlays() {
                     
             </div>
                 
-            <div id="menu11" style="background-color:#3498db;height:350px;width:700px; border-radius:25px;">
+            <div id="menu11" style="background-color:#3498db;height:auto;width:700px; border-radius:25px;padding-bottom: 30px;">
 
                     <table class="ex5" id="table11" border="0">
                         <tr>
@@ -723,32 +796,52 @@ function deleteOverlays() {
                             
                         </tr>
                         <tr>
-                            <td>
+                            <td colspan="3" >
                                <div class="control-group">
                                     <label class="control-label" >การเยี่ยมครั้งที่:</label>
                                     <div class="controls" >                                         
-                                        <input   type="text" id="visit_order" style="width:30px;">
+                                        <input   type="text" id="visit_order" style="width:30px;"><br>
+                                        <label style="padding-top: 15px;">ผู้เยี่ยม</label>
                                     </div>
                                 </div>
                             </td>
+                        </tr>
+                        <tr>
                             <td>
-                               <div class="control-group">
+                                <input type="checkbox" id="c1" class="css-checkbox lrg" />
+				<label for="c1" name="c1_lbl" class="css-label lrg vlad">พยาบาล</label>
+                                <input id="input_c1"  placeholder="กรอกชื่อพยาบาล" type="text" style="" disabled>                                
+                            </td>
+                            <td>
+                                
+                                <input type="checkbox" id="c2" class="css-checkbox lrg" />
+				<label for="c2" name="c2_lbl" class="css-label lrg vlad">อสม.</label>
+                                <input id="input_c2"  placeholder="กรอกชื่ออสม." type="text" style="" disabled>
+                            </td>
+                            <td>
+                                <input type="checkbox" id="c3" class="css-checkbox lrg" />
+				<label for="c3" name="c3_lbl" class="css-label lrg vlad">เจ้าหน้าที่</label>
+                                <input id="input_c3"  placeholder="กรอกชื่อเจ้าหน้าที่" type="text" style="" disabled>
+                            </td>
+<!--                               <div class="control-group">
                                     <label class="control-label" >ผู้เยี่ยม:</label>
                                     <select id="Pvisit" style="width: 60%; text-align: center;">
                                         <option value="n">พยาบาล</option>
                                         <option value="osm">อสม.</option>
                                         <option value="staff">เจ้าหน้าที่</option>
                                     </select> 
-                                </div>
-                            </td>
-                            <td>
+                                </div>-->
+                            
+                        </tr>
+                        <tr>
+                            <td colspan="3">
                                <div class="control-group">
                                     <label class="control-label" >บุคคลที่ได้รับการเยี่ยม:</label>
-                                    <select id="PRvisit" style="width: 60%; text-align: center;">
+                                    <select id="PRvisit" style="width: 20%; text-align: center;">
                                         <option value="pp">ผู้ป่วย</option>
-                                        <option value="pd">ผู้ดูแล.</option>
-                                        
-                                    </select>
+                                        <option value="pd" id="pd">ผู้ดูแล</option>                                        
+                                    </select><br>
+                                    <input id="pdl" placeholder="กรอกชื่อผู้ดูแล" type="text" style="display:none;">
                                 </div> 
                             </td>
                                                        

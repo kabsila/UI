@@ -3,6 +3,12 @@
                
                 text-align: center;
             }
+            
+            label
+        {
+            font-size:1.3em;
+            
+        }
 
            /* #menu label
             {display:inline;
@@ -39,7 +45,7 @@
             {
                 background-color: #FF9900;
                 height: auto;
-                width: 700px; 
+                width: 900px; 
                 border-radius: 25px;
                 margin: auto;
                 margin-top:20px;               
@@ -97,6 +103,7 @@
                 text-align: center;
                 padding-top: 47px;
                 display: none;
+                font-size:1.3em;
                 
             }
             #menu8
@@ -268,6 +275,11 @@
             }
             
             #ok
+            {
+                display: none;
+            }
+            
+            #ok_nopic
             {
                 display: none;
             }

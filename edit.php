@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="./newP_Css.css">
         <link rel="stylesheet" href="./Gedit/edit_Css.css">
         <link rel="stylesheet" href="./alloy/jquery-ui-all/themes/base/jquery-ui.css">
-        
+        <link rel="stylesheet" href="./CSS_checkbox/style.css">
 <!--        <link rel="stylesheet" href="./alloy/pagination/css/jqpagination.css">-->
         
         
@@ -51,7 +51,10 @@
         
         
         <style>
-           
+           label.css-checkbox lrg
+        {
+            font-size:1.3em;
+        }
         </style>
         
         <script>
@@ -73,7 +76,26 @@ $(document).ready(function() {
 
             <div id="content" style="background-color:#E6E6E6;height:auto;width:1100px;padding-bottom: 25px;">
                 
-                
+                <div class="ui-widget" style="width: 400px;height: auto;margin: auto;">
+                    <table>
+                        <tr>
+                            <td>
+                                <label for="tags" >ค้นจากชื่อผู้ป่วย: </label>
+                            </td>
+                            <td>
+                                <label for="tags2" >ค้นจากนามสกุลผู้ป่วย: </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input id="tags" type='text'>
+                            </td>
+                            <td>
+                                <input id="tags2" type='text'>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
                 
                 <div id="menu" style="background-color:#F5A9F2;height:100px;width:400px; border-radius:25px;">
 
@@ -92,7 +114,7 @@ $(document).ready(function() {
                 
                
                 
-                <div id="listName2" style="background-color:#e74c3c;width:400px; border-radius:25px;color: #ecf0f1;"></div>
+                <div id="listName2" style="background-color:#e74c3c;width:500px; border-radius:25px;color: #ecf0f1;"></div>
                 <div id="listName3"></div>
                 
              

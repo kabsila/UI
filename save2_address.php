@@ -4,6 +4,7 @@
         session_start();
 
         $strAddNum = trim($_POST['tAddNum']);
+        $strMoo = trim($_POST['tMoo']);
         $strRoad = trim($_POST['tRoad']);
         $strAumphor = trim($_POST['tAumphor']);
         $strTumbol = trim($_POST['tTumbol']);
@@ -19,8 +20,8 @@
         $objDB = mysql_select_db("diabetes");
         mysql_query("SET NAMES UTF8");             
                       
-        $strSQL = "INSERT INTO address (ID, address_num, road, aumphor, tumbol, city, zipcode, latitude, longitude, date_accp) 
-                                     VALUES ('$lastID', '$strAddNum', '$strRoad', '$strAumphor', '$strTumbol', '$strCity', '$strZipcode', '$strLatitude', '$strLongitude', '$strDateAcc')";
+        $strSQL = "INSERT INTO address (ID, address_num, moo, road, aumphor, tumbol, city, zipcode, latitude, longitude, date_accp) 
+                                     VALUES ('$lastID', '$strAddNum', '$strMoo', '$strRoad', '$strAumphor', '$strTumbol', '$strCity', '$strZipcode', '$strLatitude', '$strLongitude', '$strDateAcc')";
                                            
         $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
        

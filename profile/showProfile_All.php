@@ -35,7 +35,7 @@
       
 ?>
 
-<div id="Pro1" style="font-size: large;">
+<div id="Pro1" style="">
     
     <?php
         $vPath = "./upload/uploads/";
@@ -161,62 +161,56 @@
             $objResuut = mysql_fetch_array($objQuery);
         
        
-            $ana = $objResuut["analysis"];
-            $oth = $objResuut["other"];
+            //$ana = $objResuut["analysis"];
+            //$oth = $objResuut["other"];
         ?>
         
         <tr>
+            
+        <?php
+
+        
+            $strSQL2 = "SELECT * FROM ya WHERE id = $str0";
+
+            $objQuery2 = mysql_query($strSQL2) or die ("Error in query: $strSQL2. ".mysql_error());
+
+            $yaa = array();
+            while($objResuut2 = mysql_fetch_array($objQuery2))
+            {
+                $yaa += array($objResuut2['ya_name'] => $objResuut2['ya_eat']);
+            }
+            
+        
+        ?>
             <td>
                 <div class='control-group'>
                     <label class='control-label' ><b>การวินิจฉัย</b></label> 
-                    <label type='text' class='control-label' style="
-                    
-                    <?php if($ana == 'other')
-                    {
-                        echo 'display:none;';                        
-                    }
-                    else
-                    {
-                        echo 'display:block;';
-                        echo 'display: inline-block;';
-                        
-                    }  
-                    ?>">
+                    <label type='text' class='control-label' style="display:inline-block;">
                         <?php 
-                            if($ana == 'low_sweet') 
+                            if($objResuut["low_sweet"] == 't') 
                             {
-                                echo "เบาหวาน";
+                                echo "เบาหวาน, ";
                             }
-                            elseif ($ana == 'h_fail') 
+                            elseif ($objResuut["h_blood"] == 't') 
                             {
-                                echo "หัวใจล้มเหลว";
+                                echo "ความดันโลหิตสูง, ";
                             }
-                            elseif ($ana == 'blood_hight') 
+                            elseif ($objResuut["tai_y"] == 't') 
                             {
-                                echo "ความดันโลหิตสูง";
+                                echo "ไตวาย, ";
                             }
-                            elseif ($ana == 'tai_Y') 
+                            elseif ($objResuut["h_fail"] == 't') 
                             {
-                                echo "ไตวาย";
+                                echo "หัวใจล้มเหลว, ";
+                            }
+                            elseif ($objResuut["other"] != 'f') 
+                            {
+                                echo $objResuut["other"];
                             }
                         ?>
                         
                     </label>
-                    <label  class='control-label'  placeholder='กรอกกรณีการวินิจฉัยอื่น ๆ' type='text' style="
                     
-                    <?php if($ana == 'other')
-                    {
-                        echo 'display:block;';
-                        echo 'display: inline-block;';                        
-                    }
-                    else
-                    {
-                        echo 'display:none;';
-                        
-                    }  
-                    ?>"
-                        
-                     ><?php echo "$oth"; ?></label>
                     
                     <label class='control-label' ><b>ชื่อแพทย์ผู้ดูแล</b></label> 
                     <label type='text' class='control-label'><?php echo $objResuut["drname"]; ?></label><br>
@@ -229,10 +223,45 @@
                     
                     <label class='control-label' ><b>โรงยาบาลที่รับการรักษา 3:</b></label> 
                     <label type='text' class='control-label'><?php echo $objResuut["hospital3"]; ?></label><br>
+              </div> 
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label class='control-label' ><b>ยาที่ได้รับ</b></label>
+                <table>
+                    <tr>
+                        <td>
+                           <label class='control-label' ><b>ชื่อยา</b></label><br>
+                            <?php
+                           
+                                  foreach ($yaa as $yan => $yae)
+                                  {
+                                      echo "<label class='control-label' >{$yan}</label><br>";
+                                      
+                                  }
+                            ?>
+                           
+                        </td>
+                        <td>
+                            <label class='control-label' ><b>วิธีการรับประทาน</b></label><br>
+                            <?php
+                                  foreach ($yaa as $yan => $yae)
+                                  {
+                                      echo "<label class='control-label' >{$yae}</label><br>";
+                                  }
+                            ?>
+                             
+                        </td>
+                    </tr>
+                </table>
                     
-                    <label class='control-label' ><b>ยาที่ได้รับ</b></label> 
+                    
                     <label type='text' class='control-label'><?php echo $objResuut["medicine"]; ?></label>
-                    
+            </td>     
+        </tr>
+        <tr>
+            <td>
                     <label class='control-label' ><b>ประวัติการแพ้ยา</b></label> 
                     <label type='text' class='control-label'><?php echo $objResuut["anti_medicine"]; ?></label><br>
                     
@@ -241,9 +270,9 @@
                     
                     <label class='control-label' ><b>ข้อมูลครอบครัวและผู้ดูแล </b></label> 
                     <label type='text' class='control-label' ><?php echo $objResuut["family_info"]; ?></label>
-                </div>
             </td>
-        </tr>
+         </tr>       
+           
         
         <?php
 
@@ -314,11 +343,11 @@
         
         ?>
 
-<div id="Pro2" style="font-size: large;">
+<div id="Pro2" style="">
     
-    <label type='text' class='n-label' style="font-size: 100%;margin-bottom: 12px;">ผลการตรวจจากห้องทดลอง</label>
+    <label type='text' class='n-label' style="margin-bottom: 12px;">ผลการตรวจจากห้องทดลอง</label>
     
-    <center><table class='ex-pro2' border='1' >
+    <center><table class='ex-pro2' border='3'style="border: 2px solid #ecf0f1;" >
         <tr>
             <td>
                 <label type='text' class='control-label' >ลำดับ</label>
@@ -409,7 +438,21 @@
                    mysql_data_seek($objQuery, 0);
              ?>
         </tr>
-        
+        <tr>
+            <td>
+                <label type='text' class='control-label' >2.4</label>
+            </td>
+            <td>
+                <label type='text' class='control-label' >ไตรกลีเซอไรด์ (Triglyceride)</label>
+            </td>
+             <?php
+                    while($objResuut = mysql_fetch_array($objQuery))
+                   {
+                        echo "<td class='n-label'>".$objResuut["tg"]."</td>";
+                   }
+                   mysql_data_seek($objQuery, 0);
+             ?>
+        </tr>
         <tr>
             <td>
                 <label type='text' class='control-label' >3</label>
@@ -492,9 +535,9 @@
         ?>
 
 
-<div id="Pro3" style="font-size: large;">
-    <label type='text' class='n-label' style="font-size: 100%;margin-bottom: 12px;">การตรวจเฉพาะ</label>
-    <center><table table class='ex-pro2' border='1' >
+<div id="Pro3" style="background-color: #2980b9">
+    <label type='text' class='n-label' style="margin-bottom: 12px;">การตรวจเฉพาะ</label>
+    <center><table table class='ex-pro2' border='0' >
         <tr>
             <td>
                 <label class='control-label' ><b>วันที่ตรวจ</b></label> 
@@ -542,10 +585,10 @@
         
         ?>
 
-<div id="Pro3" style="font-size: large;">
-    <label type='text' class='n-label' style="font-size: 100%;margin-bottom: 12px;">การเตรียมผู้ดูแล</label>
+<div id="Pro3" style="background-color: #16a085;">
+    <label type='text' class='n-label' style="margin-bottom: 12px;">การเตรียมผู้ดูแล</label>
     <center>
-        <table table class='ex-pro2' border='1' >
+        <table table class='ex-pro2' border='1' style="border: 2px solid #ecf0f1;">
             <tr>
                 <th>
                     <label type='text' class='control-label'>ลำดับ</label>
@@ -609,10 +652,10 @@
         ?>
 
 
-<div id="Pro3" style="font-size: large;">
-    <label type='text' class='n-label' style="font-size: 100%;margin-bottom: 12px;">แผนการดุแลที่บ้าน</label>
+<div id="Pro3" style=" background-color: #2980b9;">
+    <label type='text' class='n-label' style="margin-bottom: 12px;">แผนการดุแลที่บ้าน</label>
     <center>
-        <table class='ex-pro2' border='1' >
+        <table class='ex-pro2' border='1' style="border: 2px solid #ecf0f1;">
             <tr>
                 <th>
                     <label type='text' class='control-label'>ประเด็นที่ดูแล</label>
@@ -676,27 +719,18 @@
         
         ?>
 
-<div id="Pro3" style="font-size: large;">
+<div id="Pro3" style="background-color: #c0392b">
     
     <?php
-            $visiter_type = '';
+            $visiter_type1 = '';
+            $visiter_type2 = '';
+            $visiter_type3 = '';
             $rub_type = '';
             
             
             while($objResuut = mysql_fetch_array($objQuery))
             {
-                if($objResuut["visiter_type"] == 'n')
-                {
-                    $visiter_type = 'พยาบาล';
-                }
-                elseif ($objResuut["visiter_type"] == 'osm') 
-                {
-                    $visiter_type = 'อสม.';
-                }
-                elseif ($objResuut["visiter_type"] == 'staff') 
-                {
-                    $visiter_type = 'เจ้าหน้าที่';
-                }
+                
                 
                 if($objResuut["rub_type"] == 'pd')
                 {
@@ -712,13 +746,35 @@
                         <table class='ex-pro3' border='0'>
                             <tr>
                                 <td>
-                                    <label type='text' class='control-label'><b>ผู้เยี่ยม</b></label>
-                                    <label type='text' class='control-label'>".$visiter_type."</label>
+                                    <label type='text' class='control-label'><b>ผู้เยี่ยม</b></label>";
+                
+                if($objResuut["n"] != 'f')
+                {
+                    echo "<label type='text' class='control-label'>พยาบาล: ".$objResuut['n']."</label>";
+                }
+                if($objResuut["osm"] != 'f')
+                {
+                    echo "<label type='text' class='control-label'>อสม.: ".$objResuut['osm']."</label>";
+                }
+                if($objResuut["staff"] != 'f')
+                {
+                    echo "<label type='text' class='control-label'>เจ้าหน้าที่: ".$objResuut['staff']."</label>";
+                }
+                                   
                                         
-                                    <label type='text' class='control-label'><b>บุคคลที่ได้รับการเยี่ยม</b></label>
-                                    <label type='text' class='control-label'>".$rub_type."</label><br>
+                           echo         "<label type='text' class='control-label'><b>บุคคลที่ได้รับการเยี่ยม</b></label>";
+                           
+                if($objResuut["rub_type"] != 'pp')
+                {
+                    echo "<label type='text' class='control-label'>ผู้ดูแล: ".$objResuut["rub_type"]."</label><br>";
+                }
+                else
+                {
+                    echo "<label type='text' class='control-label'>ผู้ป่วย</label><br>";
+                }
+                                    
                                         
-                                    <label type='text' class='control-label'><b>สภาวะแวดล้อมของครอบครัว</b></label>
+                    echo               "<label type='text' class='control-label'><b>สภาวะแวดล้อมของครอบครัว</b></label>
                                     <label type='text' class='control-label'>".$objResuut["family_envi"]."</label>
                                 </td>
                             </tr>
@@ -734,7 +790,7 @@
 
                 //$objResuut2 = mysql_fetch_array($objQuery2);
                 echo "<center>
-                            <table class='ex-pro3' border='1' >
+                            <table class='ex-pro3' border='1' style='border: 2px solid #ecf0f1;'>
                                 <tr>
                                     <th>
                                         <label type='text' class='n-label'>ประเด็นที่ดูแล</label>

@@ -9,6 +9,41 @@ YUI().use(
                     }
             );
                 
+                $(document).ready(function(){
+
+                   $.extend( $.ui.autocomplete.prototype, {
+                    _renderItem: function( ul, item ) {
+                        var term = this.element.val(),
+                            html = item.label.replace( term, "<b>$&</b>" );
+                        return $( "<li></li>" )
+                            .data( "item.autocomplete", item )
+                            .append( $("<a></a>").html(html) )
+                            .appendTo( ul );
+                    }
+                });  
+                
+                    $('#tags').autocomplete({
+                          source:'./profile/find.php', 
+                          minLength:1,
+                          select: function( event, ui ) 
+                          { 
+                            showEdit(ui.item.id);
+                            $("html,body").animate({scrollTop:$('#menu3').position().top}, 'slow'); 
+                          },
+                          
+                      });
+              
+                    $('#tags2').autocomplete({
+                          source:'./profile/findSurname.php', 
+                          minLength:1,
+                          select: function( event, ui ) 
+                          { 
+                            showEdit(ui.item.id);
+                            $("html,body").animate({scrollTop:$('#menu3').position().top}, 'slow'); 
+                          },
+                          
+                      });
+             });
               
                     $(document).ready(function(){          
                     $("select#analysis").change(function () {
@@ -23,6 +58,8 @@ YUI().use(
 
                   });
                 });
+                
+                 
                 
                 
                $(document).ready(function(){
@@ -72,6 +109,20 @@ YUI().use(
                         $('#listName2').on('click', '.cursorName', function() {                            
                               $("html,body").animate({scrollTop:$('#listName3').position().top}, 'slow');                      
                         });
+                        
+                        
+                        $('#listName3').on('change', 'input[type=checkbox]', function() {                            
+                              if ($("#checkbox5").is(":checked"))
+                                {
+                                    $("#input_other").slideDown();                            
+                                }
+                                else
+                                {
+                                    $("#input_other").slideUp();
+                                }                     
+                        });
+                        
+                       
                         
                         
                        // $("#listname").click(function(){
@@ -281,6 +332,52 @@ YUI().use(
                         });
                         
                         
+                        $( "#listName3" ).on('change', 'input[type=checkbox]', function() {                 
+                                 if ($("#c1").is(":checked"))
+                                 {
+                                     $("#input_c1").prop('disabled', false);                          
+                                 }
+                                 else
+                                 {
+                                     $("#input_c1").val('');
+                                     $("#input_c1").prop('disabled', true) 
+                                 }
+
+                                 if ($("#c2").is(":checked"))
+                                 {
+                                     $("#input_c2").prop('disabled', false);                            
+                                 }
+                                 else
+                                 {
+                                     $("#input_c2").val('');
+                                     $("#input_c2").prop('disabled', true)
+                                 }
+
+                                 if ($("#c3").is(":checked"))
+                                 {
+                                     $("#input_c3").prop('disabled', false);                            
+                                 }
+                                 else
+                                 {
+                                     $("#input_c3").val('');
+                                     $("#input_c3").prop('disabled', true)
+                                 }                          
+                        });
+                        
+                        $( "#listName3" ).on('change', 'select#PRvisit', function() { 
+                                if( $("option#pd:selected").length )
+                                {
+                                  $("#pdl").slideDown("slow");
+                                }
+                                else
+                                {
+                                  $("#pdl").slideUp("slow"); 
+
+                                }
+                                                     
+                        });
+                        
+                        
                        
                     });
                   
@@ -314,9 +411,10 @@ YUI().use(
                           $("#ldl").val(str1[2]);
                           $("#hdl").val(str1[3]);
                           $("#Cholesterol").val(str1[4]);
-                          $("#Creatinine").val(str1[5]);
-                          $("#BUN").val(str1[6]);
-                          $("#HbA1C").val(str1[7]); 
+                          $("#Triglyceride").val(str1[5]);
+                          $("#Creatinine").val(str1[6]);
+                          $("#BUN").val(str1[7]);
+                          $("#HbA1C").val(str1[8]); 
                      
                     
                     });
@@ -402,11 +500,57 @@ YUI().use(
                       
                       var mys = msg;
                       str1 = mys.split(' ');
-                    
+                      
+                      if(str1[1] == "f")
+                      {
+                          str1[1] = '';
+                          $("#input_c1").prop('disabled',true);
+                      }
+                      else
+                      {
+                          $('#c1').prop('checked', true);
+                          $("#input_c1").prop('disabled',false);
+                      }
+                      
+                      if(str1[2] == "f")
+                      {
+                          str1[2] = '';
+                          $("#input_c2").prop('disabled',true);
+                      }
+                      else
+                      {
+                          $('#c2').prop('checked', true);
+                          $("#input_c2").prop('disabled',false);
+                      }
+                      
+                      if(str1[3] == "f")
+                      {
+                          str1[3] = '';
+                          $("#input_c3").prop('disabled',true);
+                      }
+                      else
+                      {
+                          $('#c3').prop('checked', true);
+                          $("#input_c3").prop('disabled',false);
+                      }
+                      
+                      if(str1[4] == "pp")
+                      {
+                          $("#PRvisit").val("pp");
+                          $("#pdl").fadeOut();
+                      }
+                      else
+                      {
+                          $("#PRvisit").val("pd");
+                          $("#pdl").fadeIn().val(str1[4]);
+                      }
+                      
                           $("#visit_order").text(str1[0]); 
-                          $("#Pvisit").val(str1[1]);
-                          $("#PRvisit").val(str1[2]); 
-                          $("#enviFam").val(str1[3]);
+                          $("#input_c1").val(str1[1]);
+                          $("#input_c2").val(str1[2]);
+                          $("#input_c3").val(str1[3]);
+                         // $("#PRvisit").val(str1[4]); 
+                          $("#enviFam").val(str1[5]);
                      
                     
                     });
@@ -475,15 +619,15 @@ YUI().use(
                     if(page == 1){
                         index = 0;
                     }else if(page == 2){
-                        index = 8;
+                        index = 9;
                     }else if(page == 3){
-                        index = 16;
+                        index = 18;
                     }else if(page == 4){
-                        index = 24;
+                        index = 27;
                     }else if(page == 5){
-                        index = 32;
+                        index = 36;
                     }else if(page == 6){
-                        index = 40;
+                        index = 45;
                     }
                     
                           $("#lab_date").val(str1[0+index]); //8 , 16 ,24
@@ -491,9 +635,10 @@ YUI().use(
                           $("#ldl").val(str1[2+index]);
                           $("#hdl").val(str1[3+index]);
                           $("#Cholesterol").val(str1[4+index]);
-                          $("#Creatinine").val(str1[5+index]);
-                          $("#BUN").val(str1[6+index]);
-                          $("#HbA1C").val(str1[7+index]); 
+                          $("#Triglyceride").val(str1[5+index]);
+                          $("#Creatinine").val(str1[6+index]);
+                          $("#BUN").val(str1[7+index]);
+                          $("#HbA1C").val(str1[8+index]); 
                        
                     });
                     
@@ -622,15 +767,64 @@ YUI().use(
                     if(page == 1){
                         index4 = 0;
                     }else if(page == 2){
-                        index4 = 4;
+                        index4 = 6;
                     }else if(page == 3){
-                        index4 = 8;
+                        index4 = 12;
                     }
                     
+                    if(str1[1+index4] == "f")
+                      {
+                          str1[1+index4] = '';
+                          $("#input_c1").prop('disabled',true);
+                          $('#c1').prop('checked', false);
+                      }
+                      else
+                      {
+                          $('#c1').prop('checked', true);
+                          $("#input_c1").prop('disabled',false);
+                      }
+                      
+                      if(str1[2+index4] == "f")
+                      {
+                          str1[2+index4] = '';
+                          $("#input_c2").prop('disabled',true);
+                          $('#c2').prop('checked', false);
+                      }
+                      else
+                      {
+                          $('#c2').prop('checked', true);
+                          $("#input_c2").prop('disabled',false);
+                      }
+                      
+                      if(str1[3+index4] == "f")
+                      {
+                          str1[3+index4] = '';
+                          $("#input_c3").prop('disabled',true);
+                          $('#c3').prop('checked', false);
+                      }
+                      else
+                      {
+                          $('#c3').prop('checked', true);
+                          $("#input_c3").prop('disabled',false);
+                      }
+                      
+                      if(str1[4+index4] == "pp")
+                      {
+                          $("#PRvisit").val("pp");
+                          $("#pdl").fadeOut();
+                      }
+                      else
+                      {
+                          $("#PRvisit").val("pd");
+                          $("#pdl").fadeIn().val(str1[4+index4]);
+                      }
+                    
                           $("#visit_order").text(str1[0+index4]); 
-                          $("#Pvisit").val(str1[1+index4]);
-                          $("#PRvisit").val(str1[2+index4]); 
-                          $("#enviFam").val(str1[3+index4]);
+                          $("#input_c1").val(str1[1+index4]);
+                          $("#input_c2").val(str1[2+index4]);
+                          $("#input_c3").val(str1[3+index4]);
+                          //$("#PRvisit").val(str1[4+index4]); 
+                          $("#enviFam").val(str1[5+index4]);
                          
                     });
                     
@@ -795,6 +989,51 @@ YUI().use(
              
              function save3_Edit(gId)
              {
+                 
+                 if ($("#checkbox1").is(":checked"))
+                        {
+                            var c1 = 't';                        
+                        }
+                        else
+                        {
+                            var c1 = 'f';
+                        }
+                        
+                        if ($("#checkbox2").is(":checked"))
+                        {
+                            var c2 = 't';                        
+                        }
+                        else
+                        {
+                            var c2 = 'f';
+                        }
+                        if ($("#checkbox3").is(":checked"))
+                        {
+                            var c3 = 't';                        
+                        }
+                        else
+                        {
+                            var c3 = 'f';
+                        }
+                        if ($("#checkbox4").is(":checked"))
+                        {
+                            var c4 = 't';                        
+                        }
+                        else
+                        {
+                            var c4 = 'f';
+                        }
+                        if ($("#checkbox5").is(":checked"))
+                        {
+                            var c5 = 't';                        
+                        }
+                        else
+                        {
+                            var c5 = 'f';
+                        }
+                        
+                   
+                   
                    $.ajax({
                     type: "POST",
                     url: "./Gedit/save3_edit.php",
@@ -803,13 +1042,48 @@ YUI().use(
                     data: 
                     { 
                         tId: gId,
-                        t1:$('#analysis').val(),
+                       // t1:$('#analysis').val(),
+                        tCheckbox1:c1,
+                        tCheckbox2:c2,
+                        tCheckbox3:c3,
+                        tCheckbox4:c4,
+                        tCheckbox5:c5,
                         t2:$('#input_other').val(),
                         t3:$('#DrName').val(),                        
                         t4:$('#Hospital1').val(),
                         t5:$('#Hospital2').val(),
                         t6:$('#Hospital3').val(),
-                        t7:$('#med').val(),
+                                                tmed1: $('#med1').val(),
+                                                tmed2: $('#med2').val(),
+                                                tmed3: $('#med3').val(),
+                                                tmed4: $('#med4').val(),
+                                                tmed5: $('#med5').val(),
+                                                tmed6: $('#med6').val(),
+                                                tmed7: $('#med7').val(),
+                                                tmed8: $('#med8').val(),
+                                                tmed9: $('#med9').val(),
+                                                tmed10: $('#med10').val(),
+                                                teat1: $('#eat1').val(),
+                                                teat2: $('#eat2').val(),
+                                                teat3: $('#eat3').val(),
+                                                teat4: $('#eat4').val(),
+                                                teat5: $('#eat5').val(),
+                                                teat6: $('#eat6').val(),
+                                                teat7: $('#eat7').val(),
+                                                teat8: $('#eat8').val(),
+                                                teat9: $('#eat9').val(),
+                                                teat10: $('#eat10').val(),
+                                                tlm1: $('#lm1').text(),
+                                                tlm2: $('#lm2').text(),
+                                                tlm3: $('#lm3').text(),
+                                                tlm4: $('#lm4').text(),
+                                                tlm5: $('#lm5').text(),
+                                                tlm6: $('#lm6').text(),
+                                                tlm7: $('#lm7').text(),
+                                                tlm8: $('#lm8').text(),
+                                                tlm9: $('#lm9').text(),
+                                                tlm10: $('#lm10').text(),
+                                                
                         t8:$('#med_history').val(),
                         t9:$('#spec_food').val(),
                         t10:$('#family_info').val()
@@ -863,7 +1137,8 @@ YUI().use(
                         t5:$('#Cholesterol').val(),
                         t6:$('#Creatinine').val(),
                         t7:$('#BUN').val(),
-                        t8:$('#HbA1C').val()
+                        t8:$('#HbA1C').val(),
+                        t9:$('#Triglyceride').val()
                     }
                   })
                     .done(function( msg ) 
@@ -990,7 +1265,10 @@ YUI().use(
                     { 
                         tId: gId,
                         t1:$('#visit_order').text(),
-                        t2:$('#Pvisit').val(),
+                        n:$('#input_c1').val(),
+                        osm:$('#input_c2').val(),
+                        staff:$('#input_c3').val(),
+                        input_pd:$('#pdl').val(),
                         t3:$('#PRvisit').val(),
                         t4:$('#enviFam').val()
                                              

@@ -46,6 +46,10 @@ YUI().use(
                                     "display": "block"                                    
                            }); 
                            
+                           $("#noPic").css({
+                                    "display": "none"                                    
+                           }); 
+                           
                            
                     }
                     });
@@ -53,7 +57,7 @@ YUI().use(
         
                 $("#noPic").click(function(){ 
                     $("#noPic").fadeOut("slow");
-                    $("#ok").fadeIn("slow");
+                    $("#ok_nopic").fadeIn("slow");
                     
                 });
                  
@@ -96,7 +100,46 @@ YUI().use(
                         });
                     });
                   });
+                  
+                  $("#ok_nopic").click(function(){ 
+                  $.ajax({
+                    type: "POST",
+                    url: "add_name_newp_to_db2.php",
+                    dataType: "HTML",
+                    cache: true,
+                    data: 
+                    { 
+                        tStatus: $('#sta').val(),
+                        tFname:$('#fname').val(),
+                        tSname:$('#sname').val()
+                    }
+                  })
+                    .done(function( msg ) 
+                    {  
+                       //uploadObj2.startUpload(); 
+                       
+                       $('#fname').val('');
+                       $('#sname').val('');                     
+                       $("#menu3").html(msg).fadeIn("slow");
+                      
+                       showimg(); 
+                      
+                       $( "#menu3" ).on('click', '.fancybox', function() {                         
+                           $(".fancybox").fancybox();                            
+                        }); 
+                        
+                       
+                        $("#menu2").slideUp("slow");
+                       $("#menu3").on('click', '#btninfo', function() {
+                           showadd1();
+
+                        });
+                    });
+                  });
                  });
+                 
+                 
+                 
                  
        
 
@@ -207,6 +250,7 @@ YUI().use(
                           data: 
                           { 
                               tAddNum:$('#AddNum').val(),
+                              tMoo:$('#moo').val(),
                               tRoad:$('#Road').val(),
                               tAumphor:$('#Aumphor').val(),
                               tTumbol:$('#Tumbol').val(),
@@ -232,20 +276,169 @@ YUI().use(
                 
                  /** save3 **/
               $(document).ready(function(){
-                $("#save3").click(function(){  
+                $("#save3").click(function(){ 
+                    
+                        if ($("#checkbox1").is(":checked"))
+                        {
+                            var c1 = 't';                        
+                        }
+                        else
+                        {
+                            var c1 = 'f';
+                        }
+                        
+                        if ($("#checkbox2").is(":checked"))
+                        {
+                            var c2 = 't';                        
+                        }
+                        else
+                        {
+                            var c2 = 'f';
+                        }
+                        if ($("#checkbox3").is(":checked"))
+                        {
+                            var c3 = 't';                        
+                        }
+                        else
+                        {
+                            var c3 = 'f';
+                        }
+                        if ($("#checkbox4").is(":checked"))
+                        {
+                            var c4 = 't';                        
+                        }
+                        else
+                        {
+                            var c4 = 'f';
+                        }
+                        if ($("#checkbox5").is(":checked"))
+                        {
+                            var c5 = 't';                        
+                        }
+                        else
+                        {
+                            var c5 = 'f';
+                        }
+                        
+                        if($('#med1').val() == '')
+                        {
+                            $('#med1').val('-1');
+                        }
+                        if($('#med2').val() == '')
+                        {
+                            $('#med2').val('-2');
+                        }
+                        if($('#med3').val() == '')
+                        {
+                            $('#med3').val('-3');
+                        }
+                        if($('#med4').val() == '')
+                        {
+                            $('#med4').val('-4');
+                        }
+                        if($('#med5').val() == '')
+                        {
+                            $('#med5').val('-5');
+                        }
+                        if($('#med6').val() == '')
+                        {
+                            $('#med6').val('-6');
+                        }
+                        if($('#med7').val() == '')
+                        {
+                            $('#med7').val('-7');
+                        }
+                        if($('#med8').val() == '')
+                        {
+                            $('#med8').val('-8');
+                        }
+                        if($('#med9').val() == '')
+                        {
+                            $('#med9').val('-9');
+                        }
+                        if($('#med10').val() == '')
+                        {
+                            $('#med10').val('-10');
+                        }
+                        
+                        
+                       /** if($('#eat1').val() == '')
+                        {
+                            $('#eat1').val('-');
+                        }
+                        if($('#eat2').val() == '')
+                        {
+                            $('#eat2').val('-');
+                        }
+                        if($('#eat3').val() == '')
+                        {
+                            $('#eat3').val('-');
+                        }
+                        if($('#eat4').val() == '')
+                        {
+                            $('#eat4').val('-');
+                        }
+                        if($('#eat5').val() == '')
+                        {
+                            $('#eat5').val('-');
+                        }
+                        if($('#eat6').val() == '')
+                        {
+                            $('#eat6').val('-');
+                        }
+                        if($('#eat7').val() == '')
+                        {
+                            $('#eat7').val('-');
+                        }
+                        if($('#eat8').val() == '')
+                        {
+                            $('#eat8').val('-');
+                        }
+                        if($('#eat9').val() == '')
+                        {
+                            $('#eat9').val('-');
+                        }
+                        if($('#eat10').val() == '')
+                        {
+                            $('#eat10').val('-');
+                        }**/
                                          $.ajax({
 
                                             type: "POST",
                                             url: "save3_vinich.php",
                                             data: 
                                             {                       
-                                                tAnalysis:$('#analysis').val(),
+                                                //tAnalysis:$('#analysis').val(),
+                                                tCheckbox1:c1,
+                                                tCheckbox2:c2,
+                                                tCheckbox3:c3,
+                                                tCheckbox4:c4,
+                                                tCheckbox5:c5,
                                                 tInput_other:$('#input_other').val(),
                                                 tDrName:$('#DrName').val(),
                                                 tHospital1:$('#Hospital1').val(),
                                                 tHospital2:$('#Hospital2').val(),
                                                 tHospital3:$('#Hospital3').val(),
-                                                tmed: $('#med').val(),                               
+                                                tmed1: $('#med1').val(),
+                                                tmed2: $('#med2').val(),
+                                                tmed3: $('#med3').val(),
+                                                tmed4: $('#med4').val(),
+                                                tmed5: $('#med5').val(),
+                                                tmed6: $('#med6').val(),
+                                                tmed7: $('#med7').val(),
+                                                tmed8: $('#med8').val(),
+                                                tmed9: $('#med9').val(),
+                                                tmed10: $('#med10').val(),
+                                                teat1: $('#eat1').val(),
+                                                teat2: $('#eat2').val(),
+                                                teat3: $('#eat3').val(),
+                                                teat4: $('#eat4').val(),
+                                                teat5: $('#eat5').val(),
+                                                teat6: $('#eat6').val(),
+                                                teat7: $('#eat7').val(),
+                                                teat8: $('#eat8').val(),
+                                                teat9: $('#eat9').val(),
+                                                teat10: $('#eat10').val(),
                                                 tmed_history:$('#med_history').val(),
                                                 tspec_food:$('#spec_food').val(),
                                                 //tsmpai:$('#smpai').val(),
@@ -304,6 +497,7 @@ YUI().use(
                               tldl:$('#ldl').val(),
                               thdl:$('#hdl').val(),
                               tCholesterol:$('#Cholesterol').val(),
+                              ttg:$('#Triglyceride').val(),
                               tCreatinine:$('#Creatinine').val(),
                               tBUN:$('#BUN').val(),
                               tHbA1C: $('#HbA1C').val()                               
@@ -330,6 +524,7 @@ YUI().use(
                              $('#ldl').val('');
                              $('#hdl').val('');
                              $('#Cholesterol').val('');
+                             $('#Triglyceride').val('');
                              $('#Creatinine').val('');
                              $('#BUN').val('');
                              $('#HbA1C').val('');
@@ -474,15 +669,54 @@ YUI().use(
                
                /** save9 **/
                $(document).ready(function(){
-                $("#save9").click(function(){  
+                $("#save9").click(function(){
+                    
+                    if ($("#c1").is(":checked"))
+                        {
+                            var cc1 = $("#input_c1").val();                        
+                        }
+                        else
+                        {
+                            var cc1 = 'f';
+                        }
+                        
+                        if ($("#c2").is(":checked"))
+                        {
+                            var cc2 = $("#input_c1").val();;                        
+                        }
+                        else
+                        {
+                            var cc2 = 'f';
+                        }
+                        if ($("#c3").is(":checked"))
+                        {
+                            var cc3 = $("#input_c1").val();;                        
+                        }
+                        else
+                        {
+                            var cc3 = 'f';
+                        }
+                        
+                        if( $("option#pd:selected").length )
+                        {
+                          var cc4 = $("#pdl").val();
+                        }
+                        else
+                        {
+                          var cc4 = "pp";
+                        }
+                        
                       $.ajax({
                           type: "POST",
                           url: "save9_visit_home.php",
                           data: 
                           { 
                               tvisit_order:$('#visit_order').val(),
-                              tPvisit:$('#Pvisit').val(),
-                              tPRvisit:$('#PRvisit').val(),
+                              n:cc1,
+                              osm:cc2,
+                              staff:cc3,
+                              //tPvisit:$('#Pvisit').val(),
+                              tPRvisit:cc4,
                               tenviFam:$('#enviFam').val()
                                                          
                           }
@@ -515,7 +749,7 @@ YUI().use(
                              $("#successPopUp").slideUp(1500);**/
                               $("#successPopUp").html(msg).slideDown("slow");
                               $("#successPopUp").slideUp("slow");
-                              
+                              //$("#menu11").html(msg);
                               $('#visit_order').val('');
                               //$('#Pvisit').val('');
                              // $('#PRvisit').val('');
@@ -673,10 +907,72 @@ YUI().use(
                           $("#input_other").slideUp("slow"); 
                                  
                         }
+                });
+              });
+                
+                $(document).ready(function(){          
+                 $("select#PRvisit").change(function () {
+                        
+                        if( $("option#pd:selected").length )
+                        {
+                          $("#pdl").slideDown("slow");
+                        }
+                        else
+                        {
+                          $("#pdl").slideUp("slow"); 
+                                 
+                        }
+                  });
+                });
+                
+                
+                $(document).ready(function(){ 
+                    $("input[type=checkbox]").change(function () {
+                        if ($("#checkbox5").is(":checked"))
+                        {
+                            $("#input_other").slideDown();                            
+                        }
+                        else
+                        {
+                            $("#input_other").slideUp();
+                        }
+                    });
+                });
+
+                $(document).ready(function(){ 
+                    
+                    //$("#input_c1").prop('disabled', true);
+                    
+                    $("input[type=checkbox]").change(function () {
+                        if ($("#c1").is(":checked"))
+                        {
+                            $("#input_c1").prop('disabled', false);                          
+                        }
+                        else
+                        {
+                            $("#input_c1").prop('disabled', true) 
+                        }
+                        
+                        if ($("#c2").is(":checked"))
+                        {
+                            $("#input_c2").prop('disabled', false);                            
+                        }
+                        else
+                        {
+                            $("#input_c2").prop('disabled', true)
+                        }
+                        
+                        if ($("#c3").is(":checked"))
+                        {
+                            $("#input_c3").prop('disabled', false);                            
+                        }
+                        else
+                        {
+                            $("#input_c3").prop('disabled', true)
+                        }
 
                   });
                 });
-
 
             $(document).ready(function()
             {

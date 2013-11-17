@@ -14,7 +14,10 @@
         $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
         $row2 = mysql_fetch_array($objQuery);
         
-        
+        if($row2['face'] == '')
+        {
+            $row2['face'] = 'noProfile2.jpg';
+        }
         
         echo "<div class='non-immediate-parent-container2' >";
         echo "<a class='fancybox' rel='group' href='".$vPath.$row2['face']."'><img src='".$vPath.$row2['face']."' alt='' /></a>";		

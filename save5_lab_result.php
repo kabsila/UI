@@ -12,6 +12,7 @@
         $str6 = trim($_POST['tCreatinine']);
         $str7 = trim($_POST['tBUN']);
         $str8 = trim($_POST['tHbA1C']);
+        $str9 = trim($_POST['ttg']);
        
  
         if($str1 == "")
@@ -46,6 +47,10 @@
 	{
 		$str8 = "-";
 	}
+        if($str9 == "")
+	{
+		$str9 = "-";
+	}
         
         $lastID = $_SESSION["lastid"];
         
@@ -53,8 +58,8 @@
         $objDB = mysql_select_db("diabetes");
         mysql_query("SET NAMES UTF8");             
                       
-        $strSQL = "INSERT INTO lab_result (id, date, FBS, LDL, HDL, cholesterol, creatinine, BUN, HbA1C) 
-                             VALUES ('$lastID', '$str1', '$str2', '$str3', '$str4', '$str5', '$str6', '$str7', '$str8')";
+        $strSQL = "INSERT INTO lab_result (id, date, FBS, LDL, HDL, cholesterol, tg, creatinine, BUN, HbA1C) 
+                             VALUES ('$lastID', '$str1', '$str2', '$str3', '$str4', '$str5', '$str9', '$str6', '$str7', '$str8')";
                                            
         $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
        
