@@ -61,23 +61,86 @@
                  url('../font/THSarabunNew.ttf')  format('truetype'),
                  url('../font/THSarabunNew.svg#THSarabunNew') format('svg');
             }**/
+         
+         
 
       @media print
     {
-    	 body{
-            visibility: hidden;
-          }
-          #Pro1, #Pro2, #Pro3, #menu4-55{
+    
+         /** #Pro1{
             visibility: visible;
           }
-          #Pro2 , #Pro2, #Pro3, #menu4-55{
-            position: relative;
-            left: 0;
-            top: 0;
-          }
+          #Pro1{
+            position: absolute;
+            left: 200px;
+            top: 0px;
+          }**/
+          
+          a, a:after { content: normal !important; }
+          
+        #listPro1
+        {
+         display: none !important;
+        }
+        
+        #menu
+        {
+            display: none;
+        }
+        
+        #Pro1
+        {
+             padding-top: 0px;
+             padding-bottom: 0px;
+             page-break-after:always
+        }
+       
+        #Pro2
+        {
+             padding-top: 0px;
+             padding-bottom: 0px;
+        }
+        #Pro4
+        {
+                 padding-top: 0px;
+             padding-bottom: 0px;
+                page-break-after:always
+        }
+        
+        #Pro3
+        {
+             padding-top: 0px;
+             padding-bottom: 0px;
+            
+            
+        }
+        #menu4-55
+        {
+            
+             padding-bottom: 0px;
+            padding-top: 50px;
+        }
+        
+       #forPrint
+       {
+           display: none !important;
+       }
+        
+        .ui-widget
+        {
+            display: none;
+        }     
           
     }
         
+    
+    
+    
+    
+    
+    
+    
+    /**------------------------------------------------------------------------------**/
         .ui-widget
         {
             margin: 0 auto;
@@ -169,6 +232,23 @@
                 
         }
         
+         #Pro4
+        {
+                display: block;
+                background-color: #F1C40F;
+                height: auto;
+                width: 700px; 
+                border-radius: 25px;
+                margin: auto;
+                margin-top:20px;               
+                text-align: center;
+                padding-top: 47px;
+                
+                color: #ecf0f1;
+                padding-bottom: 35px;
+                
+        }
+        
         .control-label
         {
             display: inline-block;
@@ -204,6 +284,11 @@
         label
         {
             font-size: 1.3em;
+        }
+        
+        #forPrint
+        {
+            display: none;
         }
         
         

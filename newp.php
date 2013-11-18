@@ -57,14 +57,14 @@ $(document).ready(function() {
         });   
         
 var map;
-var myCenter=new google.maps.LatLng(15.241127,104.851402);
+//var myCenter=new google.maps.LatLng(15.241127,104.851402);
 
 var markers = [];
 var geocoder;
 var marker;
 function initialize()
 {
-   
+ var myCenter=new google.maps.LatLng(15.241127,104.851402);  
  google.maps.visualRefresh = true;    
  geocoder = new google.maps.Geocoder();
 var mapProp = {

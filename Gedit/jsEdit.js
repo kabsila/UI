@@ -1091,7 +1091,7 @@ YUI().use(
                   })
                     .done(function( msg ) 
                     {
-                      $("#menu5").html(msg)
+                      $("#menu5").html(msg);
                       $("#menu5").slideUp(2000);                    
                        
                     });

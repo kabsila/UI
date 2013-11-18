@@ -1,13 +1,14 @@
 YUI().use(
-                    'aui-form-validator',
-                    function(Y) {
-                        new Y.FormValidator(
-                                {
-                                    boundingBox: '#myForm'
-                                }
-                        );
+        'aui-form-validator',
+        function(Y) {
+            new Y.FormValidator(
+                    {
+                        boundingBox: '#myForm'
                     }
             );
+        }
+);
+
                 
                 
 var lat;
@@ -107,13 +108,24 @@ var long;
                       $("#listPro2").html(msg);
                       $("#listPro2").fadeIn(); 
                       
-                      
+                      var p = $( "#Pro1" );
+                      var position = p.position();
+                      $("#forPrint").css({
+                                    "display": "block",
+                                    "position": "absolute",
+                                    "top": position.top + 50,
+                                    "left": position.left + 800
+                              }); 
+                              
                      if($( "#lat" ).text() === '' || $( "#long" ).text() === '')
                      {
                          //$( "#mapView" ).css({"display" : "none"});
                          $("button#mapView").attr("disabled","disabled");
                      }                           
-                       
+                     
+                        $('#forPrint').on('click', '#print', function() {
+                            window.print();
+                      });
                         
                       $('#listPro2').on('click', '#mapView', function() {
                             lat = $('#lat').text(); 

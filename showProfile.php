@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="./newP_Css.css">
         <link rel="stylesheet" href="./Gedit/edit_Css.css">
         <link rel="stylesheet" href="./profile/css_profile.css">
+<!--        <link rel="stylesheet" href="./alloy/build/aui-css/css/bootstrap.min.css">-->
         <link rel="stylesheet" href="./alloy/jquery-ui-all/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="./fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
         <link rel="stylesheet" href="./fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
@@ -26,7 +27,8 @@
        
         
         <script src="./alloy/jquery.min.js"></script>
-        <script src="./alloy/build/aui/aui.js"></script>
+        <script src="./alloy/build/aui/aui.js"></script>        
+<!--        <script src="./alloy/build/aui/aui-min.js"></script>-->
         <script src="./alloy/jquery.js"></script>
         <script src="./alloy/jquery-ui/js/jquery-ui-1.10.3.custom.js"></script>
         <script src="./alloy/jquery-ui/development-bundle/ui/i18n/jquery.ui.datepicker-th.js"></script>
@@ -68,14 +70,14 @@ $(document).ready(function() {
         });   
         
 var map;
-var myCenter=new google.maps.LatLng(15.241127,104.851402);
+//var myCenter=new google.maps.LatLng(15.241127,104.851402);
 
 var markers = [];
 var geocoder;
 var marker;
 function initialize()
 {
-   
+ var myCenter=new google.maps.LatLng(15.241127,104.851402);  
  google.maps.visualRefresh = true;    
  geocoder = new google.maps.Geocoder();
 var mapProp = {
@@ -174,6 +176,7 @@ jQuery(document).ready(function($){
         <div id="container" style="width:100%;">
             
             <div id="successPopUp">บันทึกแล้ว</div>
+            <div id="forPrint"><button class="btn btn-large" type="button" id="print">Print</button></div>
             
             <div id="header" style="background-color:#CEECF5;width:100%;height:100px;">
                 <h1 style="margin-bottom:0; font-size:200%; text-align:center; padding-top:25px; font-family:"Angsana New";>ข้อมูลผู้ป่วยเบาหวาน</h1></div>
