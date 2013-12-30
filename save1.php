@@ -14,6 +14,8 @@ include_once ( 'connectDB.php' );
         $strtNameD = trim($_POST['tNameD']);
         $strtSnameD = trim($_POST['tSnameD']);
         $strtWithD = trim($_POST['tWithD']);
+        $strHN = trim($_POST['tHN']);
+        $strKum = trim($_POST['tKum']);
         //$strtJobD = trim($_POST['tJobD']);
         //$strtTelD = trim($_POST['tTelD']);
         
@@ -47,7 +49,8 @@ include_once ( 'connectDB.php' );
         
         $strSQL = "UPDATE general_info SET status = '$strStatus', 
                                            age = '$strtAge',
-                                        
+                                           hn = '$strHN',
+                                           kum = '$strKum',
                                            name_d = '$strtNameD',
                                            sname_d = '$strtSnameD',
                                            relation = '$strtWithD'

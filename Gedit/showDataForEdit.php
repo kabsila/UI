@@ -258,7 +258,7 @@ include_once ( '../connectDB.php' );
 <div id="menu5" style="background-color:#2c3e50;height:auto;width:700px; border-radius:25px;color: #ecf0f1;padding-bottom: 30px;">
     <table class="ex5"  border="0">
         <tr>
-            <td colspan="3">
+            <td colspan="6">
                 <label class="control-label" >การวินิจฉัย:</label><br>
                 
                 <input type="checkbox" id="checkbox1" class="css-checkbox lrg" <?php if($objResuut["low_sweet"] == 't'){echo 'checked ';} ?> value="low_sweet"/>
@@ -317,7 +317,7 @@ include_once ( '../connectDB.php' );
             </td>
         </tr>
         <tr>
-            <td colspan="3">
+            <td colspan="6">
                 <div class="control-group">
                     <label class="control-label" >ชื่อแพทย์ผู้ดูแล:</label>
                     <div class="controls" > 
@@ -328,7 +328,7 @@ include_once ( '../connectDB.php' );
 
         </tr>
         <tr>
-            <td width="33%">
+            <td colspan="2">
                 <div class="control-group">
                     <label class="control-label" ><font color="#2c3e50">1</font></label>
                     <div class="controls" > 
@@ -336,7 +336,7 @@ include_once ( '../connectDB.php' );
                     </div>
                 </div>
             </td>
-            <td width="33%">
+            <td colspan="2">
                 <div class="control-group">
                     <label class="control-label">โรงพยาบาลที่รับการรักษา:</label>
                     <div class="controls" > 
@@ -344,7 +344,7 @@ include_once ( '../connectDB.php' );
                     </div>
                 </div>
             </td>
-            <td width="33%">
+            <td colspan="2">
                 <div class="control-group">
                     <label class="control-label" ><font color="#2c3e50">3</font></label>
                     <div class="controls" > 
@@ -354,14 +354,14 @@ include_once ( '../connectDB.php' );
             </td>
         </tr>
         <tr>                            
-            <td colspan="3">
+            <td colspan="6">
                 <div class="control-group">
                     <label class="control-label" >ยาที่ได้รับ:</label>                                    
                 </div>
             </td>
         </tr>
         <tr>
-            <td>
+            <td colspan="3">
                 <div class="control-group">
                     <label class="control-label" >ชื่อยา:</label>                                    
                 </div>
@@ -374,13 +374,13 @@ include_once ( '../connectDB.php' );
                             foreach($value as $yaname => $yaeat) 
                             {
                                 
-                                echo "<input id='med$i' type='text' value='{$yaname}'><label id='lm$i' style='visibility:hidden;display: inline-block;width: 1px;'>{$key}</label>";
+                                echo "<input id='med$i' class='list_ya' type='text' value='{$yaname}'><label id='lm$i' style='visibility:hidden;display: inline-block;width: 1px;'>{$key}</label>";
                             }
                             $i++;
                         }
                         
                         for($k = $i;$k <= 10;$k++){
-                            echo "<input id='med$k' type='text' value=''><label id='lm$k' style='visibility:hidden;display: inline-block;width: 1px;'></label>";
+                            echo "<input id='med$k' class='list_ya' type='text' value=''><label id='lm$k' style='visibility:hidden;display: inline-block;width: 1px;'></label>";
                         }
                         
                     ?>
@@ -396,7 +396,7 @@ include_once ( '../connectDB.php' );
                     <input  id="med10"  type="text" value="<?php //if($med[9] != NULL){echo $med[9];}  ?>"><label id="lm10" style="visibility:hidden;display: inline-block;width: 1px;"><?php echo $order[9]; ?></label>-->
                 </div>
             </td>
-            <td  colspan="2">
+            <td  colspan="3">
                 <div class="control-group">
                     <label class="control-label" >วิธีการรับประทาน:</label>                                    
                 </div>
@@ -408,13 +408,13 @@ include_once ( '../connectDB.php' );
                         {
                             foreach($value as $yaname => $yaeat) 
                             {
-                                echo "<input id='eat$i' type='text' value='{$yaeat}'>";
+                                echo "<input id='eat$i' type='text' value='{$yaeat}' style='width:90%'>";
                             }
                             $i++;
                         }
                         
                         for($k = $i;$k <= 10;$k++){
-                            echo "<input id='eat$k' type='text' value=''>";
+                            echo "<input id='eat$k' type='text' value='' style='width:90%'>";
                         }
                         
                     ?>
@@ -432,7 +432,7 @@ include_once ( '../connectDB.php' );
             </td>
         </tr>
         <tr>
-            <td colspan="3">
+            <td colspan="6">
                 <div class="control-group">
                     <label class="control-label" >ประวัติการแพ้ยา:</label>
                     <div class="controls" > 
@@ -442,7 +442,7 @@ include_once ( '../connectDB.php' );
             </td>
         </tr>
         <tr>
-            <td colspan="4">
+            <td colspan="6">
                 <div class="control-group">
                     <label class="control-label" >อาหารเฉพาะ:</label>
                     <div class="controls" > 
@@ -452,7 +452,7 @@ include_once ( '../connectDB.php' );
             </td>            
         </tr>
         <tr>
-            <td colspan="4">
+            <td colspan="6">
                 <div class="control-group">
                     <label class="control-label" >ข้อมูลครอบครัวและผู้ดูแล (อาชีพ รายได้ ภาระ การจัดการเพื่อดูแล):</label>
                     <div class="controls" > 
@@ -462,7 +462,7 @@ include_once ( '../connectDB.php' );
             </td>
         </tr>
         <tr>
-            <td colspan="4">
+            <td colspan="6">
                 <button class="btn btn-success" id="save3" style="color:#484848; width: 150px">บันทึกการแก้ไขข้อมูล</button>
             </td>
         </tr>
@@ -524,7 +524,9 @@ include_once ( '../connectDB.php' );
             <td class="order">ลำดับ</td>
             <td>ผลการตรวจ</td>
 
-            <td class="slideData" ><label>วันที่: </label><input type="text"   id="lab_date" placeholder="เลือกวันที่" class="-datepicker" style="width: 70%;" readonly/></td>
+            <td class="slideData" ><label>วันที่: </label><input type="text"   id="lab_date" placeholder="เลือกวันที่" class="datepicker" style="width: 70%;"/>
+                <label id="date_id" style="visibility:hidden;display: inline-block;width: 1px;"></label>
+            </td>
 
         </tr>
         <tr>
@@ -730,7 +732,8 @@ include_once ( '../connectDB.php' );
                 <div class="control-group">
                     <label class="control-label" >วันที่เตรียม:</label>
                     <div class="slide2" > 
-                        <input class="-datepicker" id="dateTrain" type="text" readonly>
+                        <input class="datepicker" id="dateTrain" type="text">
+                        <label id="date_id2" style="visibility:hidden;display: inline-block;width: 1px;"></label>
                     </div>
                 </div> 
             </td>
@@ -738,7 +741,7 @@ include_once ( '../connectDB.php' );
                 <div class="control-group">
                     <label class="control-label" >ผู้เตรียม:</label>
                     <div class="controls" > 
-                        <input class="slide2"  id="nameTrain" type="text" style="">
+                        <input class="slide2"  id="nameTrain" type="text">
                     </div>
                 </div> 
             </td>

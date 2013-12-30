@@ -16,7 +16,7 @@
         
         while($objResuut = mysql_fetch_array($objQuery))
 	{  
-            	echo $objResuut["date"]." ".$objResuut["FBS"]." ".$objResuut["LDL"]." ".$objResuut["HDL"]." ".$objResuut["cholesterol"]." ".$objResuut["tg"]." ".$objResuut["creatinine"]." ".$objResuut["BUN"]." ".$objResuut["HbA1C"]." ";		
+            	echo $objResuut["date_id"]." ".$objResuut["date"]." ".$objResuut["FBS"]." ".$objResuut["LDL"]." ".$objResuut["HDL"]." ".$objResuut["cholesterol"]." ".$objResuut["tg"]." ".$objResuut["creatinine"]." ".$objResuut["BUN"]." ".$objResuut["HbA1C"]." ";		
 	}
         
         

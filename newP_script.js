@@ -9,6 +9,54 @@ YUI().use(
                     }
             );
                 
+                $(document).ready(function(){
+
+                   $.extend( $.ui.autocomplete.prototype, {
+                    _renderItem: function( ul, item ) {
+                        var term = this.element.val(),
+                            html = item.label.replace( term, "<b>$&</b>" );
+                        return $( "<li></li>" )
+                            .data( "item.autocomplete", item )
+                            .append( $("<a></a>").html(html) )
+                            .appendTo( ul );
+                    }
+                });  
+                
+                    $('.Hospital').autocomplete({
+                          source:'./Gedit/findHospital.php', 
+                          minLength:1,
+                          select: function( event, ui ) 
+                          { 
+                            
+                          },
+                          
+                      });
+              
+                    $('.train').autocomplete({
+                          source:'./Gedit/findTrain.php', 
+                          minLength:1,
+                          select: function( event, ui ) 
+                          { 
+                            
+                          },
+                          
+                      });
+              
+                    $('.list_ya').autocomplete({
+                          source:'./Gedit/findYa.php', 
+                          minLength:1,
+                          select: function( event, ui ) 
+                          { 
+                            //showEdit(ui.item.id);
+                            //$("html,body").animate({scrollTop:$('#menu3').position().top}, 'slow'); 
+                          },
+                          
+                      });
+              
+                    
+              
+                    
+             }); 
                               
                $(document).ready(function(){
                     $("#addP").click(function(){
@@ -17,7 +65,7 @@ YUI().use(
                     });
                   });
                   
-                  
+              
 
                /**
                $.post("add_name_newp_to_db.php",
@@ -228,6 +276,8 @@ YUI().use(
                         tNameD:$('#named').val(),
                         tSnameD:$('#snamed').val(),
                         tWithD:$('#with').val(),
+                        tHN:$('#hn').val(),
+                        tKum:$('#kum').val(),
                        // tJobD: $('#jobd').val(),                               
                        // tTelD:$('#teld').val()
                     }
@@ -893,7 +943,9 @@ YUI().use(
                 }
                 
                 $(function() {
+                $( ".datepicker" ).datepicker({changeMonth: true,changeYear: true});
 		$( ".datepicker" ).datepicker($.datepicker.regional[ "th" ] );
+                
 		
                 });
         
@@ -905,6 +957,21 @@ YUI().use(
                         }else
                         {
                           $("#input_other").slideUp("slow"); 
+                                 
+                        }
+                });
+              });
+              
+              $(document).ready(function(){          
+                    $("select#pya").change(function () {
+                        if( $("option#paa:selected").length )
+                        {
+                          $("#med_history").val("");  
+                          $("#med_history").slideDown("slow");
+                        }else
+                        {
+                          $("#med_history").slideUp("slow");
+                          $("#med_history").val("ไม่เคยแพ้ยา"); 
                                  
                         }
                 });
@@ -1012,4 +1079,6 @@ YUI().use(
                 });
             
           });
+          
+             
                 

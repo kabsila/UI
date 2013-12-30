@@ -5,7 +5,7 @@ include_once ( '../connectDB.php' );
            
 
         $str0 = trim($_POST['tId']);
-        $str00 = trim($_POST['t0']);
+        
         $str1 = trim($_POST['t1']);
         $str2 = trim($_POST['t2']);
         $str3 = trim($_POST['t3']);
@@ -21,7 +21,7 @@ include_once ( '../connectDB.php' );
         $objDB = mysql_select_db("diabetes");
         mysql_query("SET NAMES UTF8");
         
-        $strSQL = "UPDATE lab_result SET
+       /** $strSQL = "UPDATE lab_result SET
                                          date = '$str1',
                                          FBS = '$str2',
                                          LDL = '$str3',
@@ -30,7 +30,10 @@ include_once ( '../connectDB.php' );
                                          tg = '$str9',
                                          creatinine = '$str6',
                                          BUN = '$str7',
-                                         HbA1C = '$str8' WHERE id = $str0 AND date_id = '$str00'";
+                                         HbA1C = '$str8' WHERE id = $str0 AND date_id = '$str00'";**/
+        
+        $strSQL = "INSERT INTO lab_result (id, date, FBS, LDL, HDL, cholesterol, tg, creatinine, BUN, HbA1C)
+                                    VALUE ($str0, '$str1', '$str2', '$str3', '$str4', '$str5', '$str9', '$str6', '$str7', '$str8')";
                                            
         $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
         

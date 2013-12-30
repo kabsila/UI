@@ -16,10 +16,13 @@ include_once ( '../connectDB.php' );
         $objDB = mysql_select_db("diabetes");
         mysql_query("SET NAMES UTF8");
         
-        $strSQL = "UPDATE train_d SET    date = '$str2',
+       /** $strSQL = "UPDATE train_d SET    date = '$str2',
                                          main_d = '$str1',
                                          trainer_name = '$str3'
-                                         WHERE id = '$str0' AND date_id = '$str00'";
+                                         WHERE id = '$str0' AND date_id = '$str00'";**/
+        
+        $strSQL = "INSERT INTO train_d (id, date, main_d, trainer_name)
+                                    VALUE ($str0, '$str2', '$str1', '$str3')";
                                            
         $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
         

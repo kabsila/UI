@@ -43,6 +43,7 @@ YUI().use(
                           },
                           
                       });
+              
              });
               
                     $(document).ready(function(){          
@@ -147,7 +148,110 @@ YUI().use(
                   })
                     .done(function( msg ) 
                     {
-                      $( "#listName3" ).on('mouseover', '#menu4', function() {                 
+                        
+                        $("#listName3").on('keypress', 'input[type=text].list_ya', function() {
+                            
+                            $.extend($.ui.autocomplete.prototype, {
+                                _renderItem: function(ul, item) {
+                                    var term = this.element.val(),
+                                            html = item.label.replace(term, "<b>$&</b>");
+                                    return $("<li></li>")
+                                            .data("item.autocomplete", item)
+                                            .append($("<a></a>").html(html))
+                                            .appendTo(ul);
+                                }
+                            });
+                            
+                                $('.list_ya').autocomplete({
+                                source: './Gedit/findYa.php',
+                                minLength: 1,
+                                select: function(event, ui)
+                                {
+                                    
+                                },
+                            });
+                    
+                             
+                    });
+                    
+                    
+                    $("#listName3").on('keypress', 'input[type=text]#nameTrain', function() {
+                            
+                            $.extend($.ui.autocomplete.prototype, {
+                                _renderItem: function(ul, item) {
+                                    var term = this.element.val(),
+                                            html = item.label.replace(term, "<b>$&</b>");
+                                    return $("<li></li>")
+                                            .data("item.autocomplete", item)
+                                            .append($("<a></a>").html(html))
+                                            .appendTo(ul);
+                                }
+                            });
+                            
+                                $('#nameTrain').autocomplete({
+                                source: './Gedit/findTrain.php',
+                                minLength: 0,                                
+                                select: function(event, ui)
+                                {
+                                    
+                                },
+                            });
+                    
+                             
+                    });
+                    
+                    $("#listName3").on('keypress', 'input[type=text]#namedd', function() {
+                            
+                            $.extend($.ui.autocomplete.prototype, {
+                                _renderItem: function(ul, item) {
+                                    var term = this.element.val(),
+                                            html = item.label.replace(term, "<b>$&</b>");
+                                    return $("<li></li>")
+                                            .data("item.autocomplete", item)
+                                            .append($("<a></a>").html(html))
+                                            .appendTo(ul);
+                                }
+                            });
+                            
+                                $('#namedd').autocomplete({
+                                source: './Gedit/findTrain.php',
+                                minLength: 0,                                
+                                select: function(event, ui)
+                                {
+                                    
+                                },
+                            });
+                    
+                             
+                    });
+                    
+                     $("#listName3").on('keypress', 'input[type=text]#namePD', function() {
+                            
+                            $.extend($.ui.autocomplete.prototype, {
+                                _renderItem: function(ul, item) {
+                                    var term = this.element.val(),
+                                            html = item.label.replace(term, "<b>$&</b>");
+                                    return $("<li></li>")
+                                            .data("item.autocomplete", item)
+                                            .append($("<a></a>").html(html))
+                                            .appendTo(ul);
+                                }
+                            });
+                            
+                                $('#namePD').autocomplete({
+                                source: './Gedit/findTrain.php',
+                                minLength: 0,                                
+                                select: function(event, ui)
+                                {
+                                    
+                                },
+                            });
+                    
+                             
+                    });
+                        
+                      $( "#listName3" ).on('mouseover', '#menu4', function() { 
+                           $( ".datepicker" ).datepicker({changeMonth: true,changeYear: true});
                            $( ".datepicker" ).datepicker($.datepicker.regional[ "th" ] );                           
                         });
                         
@@ -285,11 +389,17 @@ YUI().use(
                          $( "#listName3" ).on('click', '#save5', function() {                 
                            save5_Edit(gId);                           
                         });
+                        $( "#listName3" ).on('click', '#save5-insert', function() {                 
+                           save5_insert(gId);                           
+                        });
                          $( "#listName3" ).on('click', '#save6', function() {                 
                            save6_Edit(gId);                           
                         });
                          $( "#listName3" ).on('click', '#save7', function() {                 
                            save7_Edit(gId);                           
+                        });
+                        $( "#listName3" ).on('click', '#save7-insert', function() {                 
+                           save7_insert(gId);                           
                         });
                          $( "#listName3" ).on('click', '#save8', function() {                 
                            save8_Edit(gId);                           
@@ -406,15 +516,16 @@ YUI().use(
                       var mys = msg;
                       str1 = mys.split(' ');
                     
-                          $("#lab_date").val(str1[0]); //8 , 16 ,24
-                          $("#fbs").val(str1[1]);
-                          $("#ldl").val(str1[2]);
-                          $("#hdl").val(str1[3]);
-                          $("#Cholesterol").val(str1[4]);
-                          $("#Triglyceride").val(str1[5]);
-                          $("#Creatinine").val(str1[6]);
-                          $("#BUN").val(str1[7]);
-                          $("#HbA1C").val(str1[8]); 
+                          $("#date_id").text(str1[0]);
+                          $("#lab_date").val(str1[1]); //8 , 16 ,24
+                          $("#fbs").val(str1[2]);
+                          $("#ldl").val(str1[3]);
+                          $("#hdl").val(str1[4]);
+                          $("#Cholesterol").val(str1[5]);
+                          $("#Triglyceride").val(str1[6]);
+                          $("#Creatinine").val(str1[7]);
+                          $("#BUN").val(str1[8]);
+                          $("#HbA1C").val(str1[9]); 
                      
                     
                     });
@@ -441,9 +552,10 @@ YUI().use(
                       var mys = msg;
                       str1 = mys.split(' ');
                     
-                          $("#trianPoint").val(str1[0]); 
-                          $("#dateTrain").val(str1[1]);
-                          $("#nameTrain").val(str1[2]); 
+                          $("#date_id2").text(str1[0]);
+                          $("#trianPoint").val(str1[1]); 
+                          $("#dateTrain").val(str1[2]);
+                          $("#nameTrain").val(str1[3]); 
                      
                     
                     });
@@ -619,29 +731,40 @@ YUI().use(
                     if(page == 1){
                         index = 0;
                     }else if(page == 2){
-                        index = 9;
+                        index = 10;
                     }else if(page == 3){
-                        index = 18;
+                        index = 20;
                     }else if(page == 4){
-                        index = 27;
+                        index = 30;
                     }else if(page == 5){
-                        index = 36;
+                        index = 40;
                     }else if(page == 6){
-                        index = 45;
+                        index = 50;
                     }
                     
-                          $("#lab_date").val(str1[0+index]); //8 , 16 ,24
-                          $("#fbs").val(str1[1+index]);
-                          $("#ldl").val(str1[2+index]);
-                          $("#hdl").val(str1[3+index]);
-                          $("#Cholesterol").val(str1[4+index]);
-                          $("#Triglyceride").val(str1[5+index]);
-                          $("#Creatinine").val(str1[6+index]);
-                          $("#BUN").val(str1[7+index]);
-                          $("#HbA1C").val(str1[8+index]); 
+                          $("#date_id").text(str1[0+index]);
+                          $("#lab_date").val(str1[1+index]); //8 , 16 ,24
+                          $("#fbs").val(str1[2+index]);
+                          $("#ldl").val(str1[3+index]);
+                          $("#hdl").val(str1[4+index]);
+                          $("#Cholesterol").val(str1[5+index]);
+                          $("#Triglyceride").val(str1[6+index]);
+                          $("#Creatinine").val(str1[7+index]);
+                          $("#BUN").val(str1[8+index]);
+                          $("#HbA1C").val(str1[9+index]); 
+                          
+                           if ($("#lab_date").val() == '' && $("#Cholesterol").val() == '' && $("#HbA1C").val() == '') 
+                           {
+                                $("#save5").attr('id', 'save5-insert');
+                           } 
+                           else 
+                           {
+                                $("#save5-insert").attr('id', 'save5');
+                           }
                        
                     });
                     
+                   
                     index = 0;
              }
               
@@ -670,23 +793,32 @@ YUI().use(
                     if(page == 1){
                         index2 = 0;
                     }else if(page == 2){
-                        index2 = 3;
+                        index2 = 4;
                     }else if(page == 3){
-                        index2 = 6;
+                        index2 = 8;
                     }else if(page == 4){
-                        index2 = 9;
-                    }else if(page == 5){
                         index2 = 12;
+                    }else if(page == 5){
+                        index2 = 16;
                     }else if(page == 6){
-                        index2 = 15;
+                        index2 = 20;
                     }else if(page == 7){
-                        index2 = 18;
+                        index2 = 24;
                     }
                     
-                          $("#trianPoint").val(str1[0+index2]); 
-                          $("#dateTrain").val(str1[1+index2]);
-                          $("#nameTrain").val(str1[2+index2]);
+                          $("#date_id2").text(str1[0+index2]);
+                          $("#trianPoint").val(str1[1+index2]); 
+                          $("#dateTrain").val(str1[2+index2]);
+                          $("#nameTrain").val(str1[3+index2]);                          
                           
+                           if ($("#trianPoint").val() == '' && $("#dateTrain").val() == '' && $("#nameTrain").val() == '') 
+                           {
+                                $("#save7").attr('id', 'save7-insert');
+                           } 
+                           else 
+                           {
+                                $("#save7-insert").attr('id', 'save7');
+                           }
                         
                     });
                     
@@ -1092,7 +1224,7 @@ YUI().use(
                     .done(function( msg ) 
                     {
                       $("#menu5").html(msg);
-                      $("#menu5").slideUp(2000);                    
+                      //$("#menu5").slideUp(2000);                    
                        
                     });
              }
@@ -1122,6 +1254,7 @@ YUI().use(
         
              function save5_Edit(gId)
              {
+                
                    $.ajax({
                     type: "POST",
                     url: "./Gedit/save5_edit.php",
@@ -1130,6 +1263,48 @@ YUI().use(
                     data: 
                     { 
                         tId: gId,
+                        t0:$('#date_id').text(),
+                        t1:$('#lab_date').val(),
+                        t2:$('#fbs').val(),
+                        t3:$('#ldl').val(),                        
+                        t4:$('#hdl').val(),
+                        t5:$('#Cholesterol').val(),
+                        t6:$('#Creatinine').val(),
+                        t7:$('#BUN').val(),
+                        t8:$('#HbA1C').val(),
+                        t9:$('#Triglyceride').val()
+                    }
+                  })
+                    .done(function( msg ) 
+                    {
+                      
+                      var p = $( "#menu7" );
+                      var position = p.position();
+                      $("#successPopUp2").css({
+                                    "position": "absolute",
+                                    "top": position.top + 250,
+                                    "left": position.left + 400
+                              }); 
+                       
+                      //$("#menu7").html(msg)
+                      $("#successPopUp2").fadeIn("slow");
+                      $("#successPopUp2").fadeOut("slow");
+                      //$("#menu4").slideUp(2000);                    
+                       
+                    });
+             }
+             
+             function save5_insert(gId)
+             {
+                 $.ajax({
+                    type: "POST",
+                    url: "./Gedit/save5_insert.php",
+                    dataType: "HTML",
+                    cache: true,
+                    data: 
+                    { 
+                        tId: gId,
+                        //t0:$('#date_id').text(),
                         t1:$('#lab_date').val(),
                         t2:$('#fbs').val(),
                         t3:$('#ldl').val(),                        
@@ -1197,6 +1372,39 @@ YUI().use(
                     data: 
                     { 
                         tId: gId,
+                        t0:$('#date_id2').text(),
+                        t1:$('#trianPoint').val(),
+                        t2:$('#dateTrain').val(),
+                        t3:$('#nameTrain').val(),                        
+                    }
+                  })
+                    .done(function( msg ) 
+                    {
+                      var p = $( "#menu9" );
+                      var position = p.position();
+                      $("#successPopUp2").css({
+                                    "position": "absolute",
+                                    "top": position.top + 100,
+                                    "left": position.left + 400
+                              }); 
+                      //$("#menu9").html(msg);
+                      //$("#menu9").slideUp(2000);บันทึกการแก้ไขแล้ว
+                      $("#successPopUp2").fadeIn("slow");
+                      $("#successPopUp2").fadeOut("slow");
+                       
+                    });
+             }
+             
+             function save7_insert(gId)
+             {
+                   $.ajax({
+                    type: "POST",
+                    url: "./Gedit/save7_insert.php",
+                    dataType: "HTML",
+                    cache: true,
+                    data: 
+                    { 
+                        tId: gId,                        
                         t1:$('#trianPoint').val(),
                         t2:$('#dateTrain').val(),
                         t3:$('#nameTrain').val(),                        

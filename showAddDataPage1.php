@@ -39,9 +39,26 @@ echo "<table class='ex1' border='0' >
                                         </div>
                                     </div>
                                 </td>
+                                <td>
+                                    <div class='control-group'>
+                                        <label class='control-label' >HN:</label> 
+                                        <div class='controls' >
+                                            <input class='w_input' name='hn' id='hn'  type='text' style=''>
+                                        </div>
+                                    </div>
+                                </td>
                                 
                             </tr>
                             <tr>
+                                <td>
+                                    <div class='control-group'>
+
+                                        <label class='control-label' >คุ้ม อสม.:</label>
+                                        <div class='controls' > 
+                                            <input class='w_input' name='kum' id='kum'  type='text' style=''>
+                                        </div>
+                                    </div>
+                                </td>
                                 <td>
                                     <div class='control-group'>
 

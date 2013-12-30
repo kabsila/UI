@@ -236,7 +236,16 @@
                 width:80%;
                 text-align: center;
             }
-            
+            input.list_ya
+            {
+                width:90%;
+                text-align: center;
+            }
+            input.eat_ya
+            {
+                width:90%;
+                text-align: center;
+            }
             #successPopUp
             {  
                 display:none;  
