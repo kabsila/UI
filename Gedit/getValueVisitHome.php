@@ -17,7 +17,7 @@
         
         while($objResuut = mysql_fetch_array($objQuery))
 	{  
-            	echo $objResuut["visit_order"]." ".$objResuut["n"]." ".$objResuut["osm"]." ".$objResuut["staff"]." ".$objResuut["rub_type"]." ".$objResuut["family_envi"]." ";		
+            	echo $objResuut["visit_order"]."textForSplit".$objResuut["n"]."textForSplit".$objResuut["osm"]."textForSplit".$objResuut["staff"]."textForSplit".$objResuut["rub_type"]."textForSplit".$objResuut["family_envi"]."textForSplit";		
 	}
         
         

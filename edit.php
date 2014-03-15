@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="./Gedit/edit_Css.css">
         <link rel="stylesheet" href="./alloy/jquery-ui-all/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="./CSS_checkbox/style.css">
+         <link href="./upload/css/uploadfile.css" rel="stylesheet">
 <!--        <link rel="stylesheet" href="./alloy/pagination/css/jqpagination.css">-->
         
         
@@ -28,7 +29,8 @@
         <script src="./alloy/jquery-ui/js/jquery-ui-1.10.3.custom.js"></script>
         <script src="./alloy/jquery-ui/development-bundle/ui/i18n/jquery.ui.datepicker-th.js"></script>
         <script src="./alloy/jquery-ui-all/ui/jquery-ui.js"></script>
-        <script src="./Gedit/jsEdit.js"></script>        
+        <script src="./Gedit/jsEdit.js"></script>    
+        <script src="./upload/js/jquery.uploadfile.min.js"></script>
         
         <script src="./alloy/pagination/js/jquery.jqpagination.js"></script>
         

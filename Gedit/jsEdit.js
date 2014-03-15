@@ -33,6 +33,8 @@ YUI().use(
                           
                       });
               
+              
+              
                     $('#tags2').autocomplete({
                           source:'./profile/findSurname.php', 
                           minLength:1,
@@ -44,8 +46,34 @@ YUI().use(
                           
                       });
               
+              $('#listName3').on('click', '#finishUp', function() { 
+                  $("#finishUp").fadeOut();
+                    var uploadObj2 = $("#advancedUpload2").uploadFile({
+                    url:"./upload/upload_img2.php",                    
+                    autoSubmit:true,
+                    showStatusAfterSuccess:true,
+                    fileName:"myfile",
+                    allowedTypes:"jpeg,jpg,png,gif",
+                    onSuccess:function(files,data,xhr)
+                    {
+                           $("#ok").css({
+                                    "display": "block"                                    
+                           }); 
+                           
+                           $("#noPic").css({
+                                    "display": "none"                                    
+                           }); 
+                           
+                           
+                    }
+                    });                  
+              });
+              
+              
+              
              });
               
+            
                     $(document).ready(function(){          
                     $("select#analysis").change(function () {
                         if( $("option#other:selected").length )
@@ -61,7 +89,9 @@ YUI().use(
                 });
                 
                  
-                
+                $(document).ready(function(){
+                   
+                });
                 
                $(document).ready(function(){
                     $("#addP").click(function(){
@@ -83,7 +113,7 @@ YUI().use(
                     alert(data);
                   });**/
                   
-                 
+               
                $(document).ready(function(){
                 $("#listname").click(function(){                  
                   $.ajax({
@@ -103,14 +133,19 @@ YUI().use(
                        $('#listName2').html(msg);
                        $('#listName2').slideDown();
                        //rightToLeft( '#listName2' );
-                       $('#listName2').on('click', '.inlineTable label', function() {                            
-                           showEdit(this.id);                           
+                       $('#listName2').on('click', '.inlineTable label', function() {                           
+                           showEdit(this.id); 
+                           
+                             
                         });
                         
                         $('#listName2').on('click', '.cursorName', function() {                            
                               $("html,body").animate({scrollTop:$('#listName3').position().top}, 'slow');                      
                         });
                         
+                        $('#listName3').on('load', '#menu4-55', function() {                            
+                                               
+                        });
                         
                         $('#listName3').on('change', 'input[type=checkbox]', function() {                            
                               if ($("#checkbox5").is(":checked"))
@@ -123,13 +158,7 @@ YUI().use(
                                 }                     
                         });
                         
-                       
-                        
-                        
-                       // $("#listname").click(function(){
-                        //    $('#listName2').slideToggle();
-                       // });
-                        
+                      
                     });
                   });
                  });
@@ -149,6 +178,44 @@ YUI().use(
                     .done(function( msg ) 
                     {
                         
+                        
+                        $("#listName3").on('click', '#del', function() {
+                            if(confirm("ต้องการลบข้อมูลของวันที่ " + $("#lab_date").val() + " หรือไม่"))
+                            {
+                                $.ajax({
+                            type: "POST",
+                            url: "./Gedit/deleteLabByDate.php",
+                            dataType: "HTML",
+                            cache: true,
+                            data: 
+                            { 
+                                tId: gId,
+                                str1: $("#lab_date").val(),                               
+
+                            }
+                          })
+                            .done(function( msg ) 
+                            {                            
+                                    var p = $( "#menu7" );
+                                    var position = p.position();
+                                    $("#successPopUp2").css({
+                                                  "position": "absolute",
+                                                  "top": position.top + 100,
+                                                  "left": position.left + 400
+                                            }); 
+                                    //$("#menu9").html(msg);
+                                    //$("#menu9").slideUp(2000);บันทึกการแก้ไขแล้ว
+                                    $("#successPopUp2").html(msg).fadeIn("slow");
+                                    $("#successPopUp2").fadeOut("slow");
+                             });
+                            }else
+                            {
+                                
+                            }
+                            
+
+                        });
+                    
                         $("#listName3").on('keypress', 'input[type=text].list_ya', function() {
                             
                             $.extend($.ui.autocomplete.prototype, {
@@ -162,7 +229,7 @@ YUI().use(
                                 }
                             });
                             
-                                $('.list_ya').autocomplete({
+                               $('.list_ya').autocomplete({
                                 source: './Gedit/findYa.php',
                                 minLength: 1,
                                 select: function(event, ui)
@@ -170,6 +237,33 @@ YUI().use(
                                     
                                 },
                             });
+                  
+                             
+                    });
+                    
+                    $("#listName3").on('keypress', 'input[type=text].Hospital', function() {
+                            
+                            $.extend($.ui.autocomplete.prototype, {
+                                _renderItem: function(ul, item) {
+                                    var term = this.element.val(),
+                                            html = item.label.replace(term, "<b>$&</b>");
+                                    return $("<li></li>")
+                                            .data("item.autocomplete", item)
+                                            .append($("<a></a>").html(html))
+                                            .appendTo(ul);
+                                }
+                            });
+                           
+                    
+                    $('.Hospital').autocomplete({
+                          source:'./Gedit/findHospital.php', 
+                          minLength:1,
+                          select: function( event, ui ) 
+                          { 
+                            
+                          },
+                          
+                      });
                     
                              
                     });
@@ -404,6 +498,9 @@ YUI().use(
                          $( "#listName3" ).on('click', '#save8', function() {                 
                            save8_Edit(gId);                           
                         });
+                        $( "#listName3" ).on('click', '#save8-insert', function() {                 
+                           save8_insert(gId);                           
+                        });
                          $( "#listName3" ).on('click', '#save9', function() {                 
                            save9_Edit(gId);                           
                         });
@@ -514,7 +611,7 @@ YUI().use(
                       var str1;
                       
                       var mys = msg;
-                      str1 = mys.split(' ');
+                      str1 = mys.split('textForSplit');
                     
                           $("#date_id").text(str1[0]);
                           $("#lab_date").val(str1[1]); //8 , 16 ,24
@@ -550,7 +647,7 @@ YUI().use(
                       var str1;
                       
                       var mys = msg;
-                      str1 = mys.split(' ');
+                      str1 = mys.split('textForSplit');
                     
                           $("#date_id2").text(str1[0]);
                           $("#trianPoint").val(str1[1]); 
@@ -580,7 +677,7 @@ YUI().use(
                       var str1;
                       
                       var mys = msg;
-                      str1 = mys.split(' ');
+                      str1 = mys.split('textForSplit');
                     
                           $("#orderPlanD").text(str1[0]); 
                           $("#planPoint").val(str1[1]); 
@@ -611,7 +708,7 @@ YUI().use(
                       var str1;
                       
                       var mys = msg;
-                      str1 = mys.split(' ');
+                      str1 = mys.split('textForSplit');
                       
                       if(str1[1] == "f")
                       {
@@ -688,7 +785,7 @@ YUI().use(
                       var str1;
                       
                       var mys = msg;
-                      str1 = mys.split(' ');
+                      str1 = mys.split('textForSplit');
                     
                             
                           $('#idTable').text(str1[0]);
@@ -726,7 +823,7 @@ YUI().use(
                       var str1;
                       
                       var mys = msg;
-                      str1 = mys.split(' ');
+                      str1 = mys.split('textForSplit');
                     
                     if(page == 1){
                         index = 0;
@@ -788,7 +885,7 @@ YUI().use(
                       var str1;
                       
                       var mys = msg;
-                      str1 = mys.split(' ');
+                      str1 = mys.split('textForSplit');
                     
                     if(page == 1){
                         index2 = 0;
@@ -845,7 +942,7 @@ YUI().use(
                       var str1;
                       
                       var mys = msg;
-                      str1 = mys.split(' ');
+                      str1 = mys.split('textForSplit');
                     
                     if(page == 1){
                         index3 = 0;
@@ -869,6 +966,14 @@ YUI().use(
                           $("#namedd").val(str1[3+index3]); 
                           $("#mark").val(str1[4+index3]);
                          
+                         if ($("#planPoint").val() == '' && $("#wayD").val() == '' && $("#namedd").val() == '') 
+                           {
+                                $("#save8").attr('id', 'save8-insert');
+                           } 
+                           else 
+                           {
+                                $("#save8-insert").attr('id', 'save8');
+                           }
                     });
                     
                     index3 = 0;
@@ -894,7 +999,7 @@ YUI().use(
                       var str1;
                       
                       var mys = msg;
-                      str1 = mys.split(' ');
+                      str1 = mys.split('textForSplit');
                     
                     if(page == 1){
                         index4 = 0;
@@ -985,7 +1090,7 @@ YUI().use(
                       var str1;
                       
                       var mys = msg;
-                      str1 = mys.split(' ');
+                      str1 = mys.split('textForSplit');
                     
                     if(page == 1){
                         index5 = 0;
@@ -1028,7 +1133,7 @@ YUI().use(
                       var str1;
                       
                       var mys = msg;
-                      str1 = mys.split(' ');
+                      str1 = mys.split('textForSplit');
                     
                     if(page == 1){
                         index6 = 0;
@@ -1432,6 +1537,41 @@ YUI().use(
                    $.ajax({
                     type: "POST",
                     url: "./Gedit/save8_edit.php",
+                    dataType: "HTML",
+                    cache: true,
+                    data: 
+                    { 
+                        tId: gId,
+                        t1:$('#orderPlanD').text(),
+                        t2:$('#planPoint').val(),
+                        t3:$('#wayD').val(),
+                        t4:$('#namedd').val(), 
+                        t5:$('#mark').val()                       
+                    }
+                  })
+                    .done(function( msg ) 
+                    {
+                      //$("#menu10").html(msg);
+                      //$("#menu10").slideUp(2000);บันทึกการแก้ไขแล้ว
+                      
+                      var p = $( "#menu10" );
+                      var position = p.position();
+                      $("#successPopUp2").css({
+                                    "position": "absolute",
+                                    "top": position.top + 150,
+                                    "left": position.left + 400
+                              }); 
+                      $("#successPopUp2").fadeIn("slow");
+                      $("#successPopUp2").fadeOut("slow");
+                       
+                    });
+             }
+             
+             function save8_insert(gId)
+             {
+                   $.ajax({
+                    type: "POST",
+                    url: "./Gedit/save8_insert.php",
                     dataType: "HTML",
                     cache: true,
                     data: 

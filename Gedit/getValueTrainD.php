@@ -16,7 +16,7 @@
         
         while($objResuut = mysql_fetch_array($objQuery))
 	{  
-            	echo $objResuut["date_id"]." ".$objResuut["main_d"]." ".$objResuut["date"]." ".$objResuut["trainer_name"]." ";		
+            	echo $objResuut["date_id"]."textForSplit".$objResuut["main_d"]."textForSplit".$objResuut["date"]."textForSplit".$objResuut["trainer_name"]."textForSplit";		
 	}
         
         

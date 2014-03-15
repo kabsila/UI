@@ -212,7 +212,9 @@ include_once ( '../connectDB.php' );
          //echo "</tr>";
 ?>
 <!--        </table>-->
-        
+<center><div id="advancedUpload2" style="font-size:50%;display: block;">เลือกภาพผู้ป่วย</div></center> 
+                    <!--                    <div id="startUpload" class="ajax-file-upload-green">Start Upload</div>-->
+                    <button class="btn btn-success" id="finishUp" style="color:#484848; width: 200px;margin-top: 10px;">เพิ่มรูปภาพ</button>        
     
 </div>
 
@@ -332,7 +334,7 @@ include_once ( '../connectDB.php' );
                 <div class="control-group">
                     <label class="control-label" ><font color="#2c3e50">1</font></label>
                     <div class="controls" > 
-                        <input name="with" placeholder="โรงพยาบาลที่ 1" id="Hospital1"  type="text" value="<?php echo $objResuut["hospital1"]; ?>">
+                        <input  name="with" placeholder="โรงพยาบาลที่ 1" id="Hospital1"  class="Hospital" type="text" value="<?php echo $objResuut["hospital1"]; ?>">
                     </div>
                 </div>
             </td>
@@ -340,7 +342,7 @@ include_once ( '../connectDB.php' );
                 <div class="control-group">
                     <label class="control-label">โรงพยาบาลที่รับการรักษา:</label>
                     <div class="controls" > 
-                        <input name="with" placeholder="โรงพยาบาลที่ 2" id="Hospital2"  type="text" value="<?php echo $objResuut["hospital2"]; ?>">
+                        <input  name="with" placeholder="โรงพยาบาลที่ 2" id="Hospital2" class="Hospital"  type="text" value="<?php echo $objResuut["hospital2"]; ?>">
                     </div>
                 </div>
             </td>
@@ -348,7 +350,7 @@ include_once ( '../connectDB.php' );
                 <div class="control-group">
                     <label class="control-label" ><font color="#2c3e50">3</font></label>
                     <div class="controls" > 
-                        <input name="with" placeholder="โรงพยาบาลที่ 3" id="Hospital3"  type="text" value="<?php echo $objResuut["hospital3"]; ?>">
+                        <input   id="Hospital3" class="Hospital" type="text" placeholder="โรงพยาบาลที่ 3" value="<?php echo $objResuut["hospital3"]; ?>">
                     </div>
                 </div>
             </td>
@@ -524,7 +526,7 @@ include_once ( '../connectDB.php' );
             <td class="order">ลำดับ</td>
             <td>ผลการตรวจ</td>
 
-            <td class="slideData" ><label>วันที่: </label><input type="text"   id="lab_date" placeholder="เลือกวันที่" class="datepicker" style="width: 70%;"/>
+            <td class="slideData" ><label>วันที่: <button id="del" class="btn btn-danger">ลบ</button></label><input type="text"   id="lab_date" placeholder="เลือกวันที่" class="datepicker" style="width: 70%;"/>
                 <label id="date_id" style="visibility:hidden;display: inline-block;width: 1px;"></label>
             </td>
 
