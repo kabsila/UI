@@ -1,3 +1,4 @@
+var iddt = 0;
 YUI().use(
                     'aui-form-validator',
                     function(Y) {
@@ -49,10 +50,11 @@ YUI().use(
               $('#listName3').on('click', '#finishUp', function() { 
                   $("#finishUp").fadeOut();
                     var uploadObj2 = $("#advancedUpload2").uploadFile({
-                    url:"./upload/upload_img2.php",                    
+                    url:"./upload/upload_img3.php",                    
                     autoSubmit:true,
                     showStatusAfterSuccess:true,
                     fileName:"myfile",
+                    formData: {"id":iddt},
                     allowedTypes:"jpeg,jpg,png,gif",
                     onSuccess:function(files,data,xhr)
                     {
@@ -135,8 +137,7 @@ YUI().use(
                        //rightToLeft( '#listName2' );
                        $('#listName2').on('click', '.inlineTable label', function() {                           
                            showEdit(this.id); 
-                           
-                             
+                           iddt = this.id;
                         });
                         
                         $('#listName2').on('click', '.cursorName', function() {                            
@@ -177,6 +178,8 @@ YUI().use(
                   })
                     .done(function( msg ) 
                     {
+                        
+               
                         
                         
                         $("#listName3").on('click', '#del', function() {
@@ -459,9 +462,9 @@ YUI().use(
                        $('.pagination#page6').jqPagination({                               
                                 max_page	: 7,                          
                                 paged: function(page) {                             
-                                //$('.slide5').fadeToggle();
+                                $('.slide5').fadeToggle();
                                 $('.slide5').val("");
-                               // $('.slide5').fadeToggle();
+                                $('.slide5').fadeToggle();
                                 getValue6(gId,kpage,page);
                                 
                            }

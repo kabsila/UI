@@ -204,15 +204,20 @@ include_once ( '../connectDB.php' );
         //echo "<tr>";
         while($objResuut = mysql_fetch_array($objQuery))
 	{  
-            echo "<div class='non-immediate-parent-container' >";
-            echo "<a class='fancybox' rel='group' href='".$vPath.$objResuut["path"]."'><img src='".$vPath.$objResuut["path"]."' alt='' /></a>";		
-            echo "</div>";
+            if($objResuut["path"] == ''){
+                //$objResuut["path"] = "noimg.png";
+            }
+            
+                echo "<div class='non-immediate-parent-container' >";
+                echo "<a class='fancybox' rel='group' href='".$vPath.$objResuut["path"]."'><img src='".$vPath.$objResuut["path"]."' alt='' /></a>";		
+                echo "</div>";
+            
             
         }
          //echo "</tr>";
 ?>
 <!--        </table>-->
-<center><div id="advancedUpload2" style="font-size:50%;display: block;">เลือกภาพผู้ป่วย</div></center> 
+<br><center><div id="advancedUpload2" style="font-size:50%;display: block;"></div></center> 
                     <!--                    <div id="startUpload" class="ajax-file-upload-green">Start Upload</div>-->
                     <button class="btn btn-success" id="finishUp" style="color:#484848; width: 200px;margin-top: 10px;">เพิ่มรูปภาพ</button>        
     
@@ -964,8 +969,16 @@ include_once ( '../connectDB.php' );
 
 </div>
 
+<?php
+        $strSQL = "SELECT * FROM visit_table WHERE ID = $str1";
+                                           
+        $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+        $objResuut = mysql_fetch_array($objQuery);        
+        
+?>
+
 <div id="menu12" style="background-color:#27ae60;height:300px;width:700px; border-radius:25px;">
-<label id="idTable" style="display: inline-table;opacity: 0.0;"></label>
+<label id="idTable" style="display: inline-table;opacity: 0.0;">88</label>
     <table class="ex5" id="table12" border="0">
         <tr>
             <th colspan="4">

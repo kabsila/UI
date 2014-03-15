@@ -93,8 +93,8 @@
        $strSQL = "INSERT INTO first_rate (id) VALUE ($lastID)";
        $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
        
-       $strSQL = "INSERT INTO img (id) VALUE ($lastID)";
-       $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+       //$strSQL = "INSERT INTO img (id) VALUE ($lastID)";
+       //$objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
        
        $strSQL = "INSERT INTO lab_result (id) VALUE ($lastID)";
        $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
