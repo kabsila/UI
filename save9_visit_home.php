@@ -36,9 +36,17 @@
         $objDB = mysql_select_db("diabetes");
         mysql_query("SET NAMES UTF8");             
                       
-        $strSQL = "INSERT INTO visit_home (id, visit_order, n, osm, staff, rub_type, family_envi) 
-                             VALUES ('$lastID', '$str1', '$n', '$osm','$staff', '$str3', '$str4')";
-                                           
+        //$strSQL = "INSERT INTO visit_home (id, visit_order, n, osm, staff, rub_type, family_envi) 
+                            // VALUES ('$lastID', '$str1', '$n', '$osm','$staff', '$str3', '$str4')";
+          
+       $strSQL = "UPDATE visit_home SET visit_order = '$str1',
+                                           n = '$n',
+                                           osm = '$osm',
+                                           staff = '$staff',
+                                           rub_type = '$str3',
+                                           family_envi = '$str4'
+                  WHERE id = $lastID";
+        
         $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
        
         echo "<label>บันทึกข้อมูลเรียบร้อยแล้ว</label>";

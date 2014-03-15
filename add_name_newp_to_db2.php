@@ -85,6 +85,55 @@
         $row2 = mysql_fetch_array($objQuery);
         $_SESSION['lastid'] = $row2["ID"];
         
+        $lastID = $_SESSION['lastid'];
+                
+        $strSQL = "INSERT INTO address (id) VALUE ($lastID)";
+       $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+       
+       $strSQL = "INSERT INTO first_rate (id) VALUE ($lastID)";
+       $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+       
+       $strSQL = "INSERT INTO img (id) VALUE ($lastID)";
+       $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+       
+       $strSQL = "INSERT INTO lab_result (id) VALUE ($lastID)";
+       $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+       
+       $strSQL = "INSERT INTO plan_d (id) VALUE ($lastID)";
+       $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+       
+       $strSQL = "INSERT INTO spec_check (id) VALUE ($lastID)";
+       $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+       
+       $strSQL = "INSERT INTO train_d (id) VALUE ($lastID)";
+       $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+       
+       $strSQL = "INSERT INTO visit_home (id) VALUE ($lastID)";
+       $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+       
+       $strSQL = "INSERT INTO visit_table (id) VALUE ($lastID)";
+       $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+       
+       $strSQL = "INSERT INTO ya (id) VALUE ($lastID)";
+       $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+       $strSQL = "INSERT INTO ya (id) VALUE ($lastID)";
+       $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+       $strSQL = "INSERT INTO ya (id) VALUE ($lastID)";
+       $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+       $strSQL = "INSERT INTO ya (id) VALUE ($lastID)";
+       $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+       $strSQL = "INSERT INTO ya (id) VALUE ($lastID)";
+       $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+       $strSQL = "INSERT INTO ya (id) VALUE ($lastID)";
+       $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+       $strSQL = "INSERT INTO ya (id) VALUE ($lastID)";
+       $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+       $strSQL = "INSERT INTO ya (id) VALUE ($lastID)";
+       $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+       $strSQL = "INSERT INTO ya (id) VALUE ($lastID)";
+       $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+       $strSQL = "INSERT INTO ya (id) VALUE ($lastID)";
+       $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
          mysql_close($objConnect);
         /**
         $con=mysqli_connect("localhost","root","","diabetes");

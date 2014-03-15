@@ -25,9 +25,14 @@
         $objDB = mysql_select_db("diabetes");
         mysql_query("SET NAMES UTF8");             
                       
-        $strSQL = "INSERT INTO train_d (id, main_d, date, trainer_name) 
-                             VALUES ('$lastID', '$str1', '$str2', '$str3')";
-                                           
+        //$strSQL = "INSERT INTO train_d (id, main_d, date, trainer_name) 
+                             //VALUES ('$lastID', '$str1', '$str2', '$str3')";
+        
+        $strSQL = "UPDATE spec_check SET main_d = '$str1',
+                                           date = '$str2',
+                                           trainer_name = '$str3'                                         
+                  WHERE id = $lastID";
+        
         $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
        
         echo "<label>บันทึกข้อมูลเรียบร้อยแล้ว</label>";

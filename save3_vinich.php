@@ -94,7 +94,7 @@
                          trim($_POST['tmed10']) => trim($_POST['teat10'])
                         );**/
         
-        $strmed[$_POST['tmed1']] = $_POST['teat1'];
+        /**$strmed[$_POST['tmed1']] = $_POST['teat1'];
         $strmed[$_POST['tmed2']] = $_POST['teat2'];
         $strmed[$_POST['tmed3']] = $_POST['teat3'];
         $strmed[$_POST['tmed4']] = $_POST['teat4'];
@@ -103,9 +103,19 @@
         $strmed[$_POST['tmed7']] = $_POST['teat7'];
         $strmed[$_POST['tmed8']] = $_POST['teat8'];
         $strmed[$_POST['tmed9']] = $_POST['teat9'];
-        $strmed[$_POST['tmed10']] = $_POST['teat10'];
+        $strmed[$_POST['tmed10']] = $_POST['teat10'];**/
         
-        
+        $strmed = array( trim($_POST['tlm1']) => array(trim($_POST['tmed1']) => trim($_POST['teat1'])), 
+                         trim($_POST['tlm2']) => array(trim($_POST['tmed2']) => trim($_POST['teat2'])),
+                         trim($_POST['tlm3']) => array(trim($_POST['tmed3']) => trim($_POST['teat3'])),
+                         trim($_POST['tlm4']) => array(trim($_POST['tmed4']) => trim($_POST['teat4'])),
+                         trim($_POST['tlm5']) => array(trim($_POST['tmed5']) => trim($_POST['teat5'])),
+                         trim($_POST['tlm6']) => array(trim($_POST['tmed6']) => trim($_POST['teat6'])),
+                         trim($_POST['tlm7']) => array(trim($_POST['tmed7']) => trim($_POST['teat7'])),
+                         trim($_POST['tlm8']) => array(trim($_POST['tmed8']) => trim($_POST['teat8'])),
+                         trim($_POST['tlm9']) => array(trim($_POST['tmed9']) => trim($_POST['teat9'])),
+                         trim($_POST['tlm10']) => array(trim($_POST['tmed10']) => trim($_POST['teat10']))
+                        );
          
         /**
         $strmed[] = trim($_POST['tmed1']);
@@ -172,16 +182,15 @@
         $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
        
        
-       foreach($strmed as $yaName => $yaEat) 
+      foreach($strmed as $orDer => $value) 
        {
-           if(substr($yaName,0,1) == '-')
-           {
-               $yaName = '';
-           }
-        
-            $strSQL = "INSERT INTO ya (id, ya_name, ya_eat) VALUE ($lastID, '$yaName', '$yaEat')";
-            $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
-            
+            foreach($value as $yaName => $yaEat) 
+            {
+                $strSQL = "UPDATE ya SET ya_name = '$yaName', ya_eat = '$yaEat' WHERE id = $lastID AND ya_order = $orDer";
+                $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+            }
+            //$strSQL = "UPDATE ya SET ya_name = '$yaName', ya_eat = '$yaEat' WHERE id = $str0 AND ";
+            //$objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
             //echo "{$key} <br>";
        }
         echo "<label>บันทึกข้อมูลเรียบร้อยแล้ว</label>";

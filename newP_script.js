@@ -146,6 +146,187 @@ YUI().use(
                            showadd1();
 
                         });
+                        
+                        
+                        $.ajax({
+                          type: "POST",
+                          url: "showMenu5.php",
+                          data: 
+                          { 
+                              
+                                                         
+                          }
+                        })
+                          .done(function( msg ) 
+                          {
+                            
+                             $("#menu5").html(msg).slideDown("slow").hide();
+                             
+                             $("#menu5").on('keypress', 'input[type=text].list_ya', function() {
+                            
+                            $.extend($.ui.autocomplete.prototype, {
+                                _renderItem: function(ul, item) {
+                                    var term = this.element.val(),
+                                            html = item.label.replace(term, "<b>$&</b>");
+                                    return $("<li></li>")
+                                            .data("item.autocomplete", item)
+                                            .append($("<a></a>").html(html))
+                                            .appendTo(ul);
+                                }
+                            });
+                            
+                               $('.list_ya').autocomplete({
+                                source: './Gedit/findYa.php',
+                                minLength: 1,
+                                select: function(event, ui)
+                                {
+                                    
+                                },
+                            });
+                  
+                             
+                    });
+                    
+                    $("#menu5").on('keypress', 'input[type=text].Hospital', function() {
+                            
+                            $.extend($.ui.autocomplete.prototype, {
+                                _renderItem: function(ul, item) {
+                                    var term = this.element.val(),
+                                            html = item.label.replace(term, "<b>$&</b>");
+                                    return $("<li></li>")
+                                            .data("item.autocomplete", item)
+                                            .append($("<a></a>").html(html))
+                                            .appendTo(ul);
+                                }
+                            });
+                           
+                    
+                    $('.Hospital').autocomplete({
+                          source:'./Gedit/findHospital.php', 
+                          minLength:1,
+                          select: function( event, ui ) 
+                          { 
+                            
+                          },
+                          
+                      });
+                    
+                             
+                    });
+                                $( "#menu5" ).on('click', '#save3', function() {                 
+                                            if ($("#checkbox1").is(":checked"))
+                                         {
+                                             var c1 = 't';                        
+                                         }
+                                         else
+                                         {
+                                             var c1 = 'f';
+                                         }
+
+                                         if ($("#checkbox2").is(":checked"))
+                                         {
+                                             var c2 = 't';                        
+                                         }
+                                         else
+                                         {
+                                             var c2 = 'f';
+                                         }
+                                         if ($("#checkbox3").is(":checked"))
+                                         {
+                                             var c3 = 't';                        
+                                         }
+                                         else
+                                         {
+                                             var c3 = 'f';
+                                         }
+                                         if ($("#checkbox4").is(":checked"))
+                                         {
+                                             var c4 = 't';                        
+                                         }
+                                         else
+                                         {
+                                             var c4 = 'f';
+                                         }
+                                         if ($("#checkbox5").is(":checked"))
+                                         {
+                                             var c5 = 't';                        
+                                         }
+                                         else
+                                         {
+                                             var c5 = 'f';
+                                         }
+
+                                         
+                        
+                        
+                       
+                                         $.ajax({
+
+                                            type: "POST",
+                                            url: "save3_vinich.php",
+                                            data: 
+                                            {                       
+                                                //tAnalysis:$('#analysis').val(),
+                                                tCheckbox1:c1,
+                                                tCheckbox2:c2,
+                                                tCheckbox3:c3,
+                                                tCheckbox4:c4,
+                                                tCheckbox5:c5,
+                                                tInput_other:$('#input_other').val(),
+                                                tDrName:$('#DrName').val(),
+                                                tHospital1:$('#Hospital1').val(),
+                                                tHospital2:$('#Hospital2').val(),
+                                                tHospital3:$('#Hospital3').val(),
+                                                tmed1: $('#med1').val(),
+                                                tmed2: $('#med2').val(),
+                                                tmed3: $('#med3').val(),
+                                                tmed4: $('#med4').val(),
+                                                tmed5: $('#med5').val(),
+                                                tmed6: $('#med6').val(),
+                                                tmed7: $('#med7').val(),
+                                                tmed8: $('#med8').val(),
+                                                tmed9: $('#med9').val(),
+                                                tmed10: $('#med10').val(),
+                                                teat1: $('#eat1').val(),
+                                                teat2: $('#eat2').val(),
+                                                teat3: $('#eat3').val(),
+                                                teat4: $('#eat4').val(),
+                                                teat5: $('#eat5').val(),
+                                                teat6: $('#eat6').val(),
+                                                teat7: $('#eat7').val(),
+                                                teat8: $('#eat8').val(),
+                                                teat9: $('#eat9').val(),
+                                                teat10: $('#eat10').val(),
+                                                
+                                                tlm1: $('#lm1').text(),
+                                                tlm2: $('#lm2').text(),
+                                                tlm3: $('#lm3').text(),
+                                                tlm4: $('#lm4').text(),
+                                                tlm5: $('#lm5').text(),
+                                                tlm6: $('#lm6').text(),
+                                                tlm7: $('#lm7').text(),
+                                                tlm8: $('#lm8').text(),
+                                                tlm9: $('#lm9').text(),
+                                                tlm10: $('#lm10').text(),
+                                                
+                                                tmed_history:$('#med_history').val(),
+                                                tspec_food:$('#spec_food').val(),
+                                                //tsmpai:$('#smpai').val(),
+                                                tfamily_info:$('#family_info').val()
+
+                                            }
+                                          })
+                                            .done(function( msg ) 
+                                            {
+                                              $("#menu5").height(60);
+                                              $("#menu5").hide().html(msg).fadeToggle("slow");
+                                              $("#menu5").slideUp();
+                                              $("#menu6").fadeIn();
+                                             /**  $("#menu5").fadeToggle("slow");
+                                             $("#menu4").slideToggle("slow");**/
+                                            });                        
+                                });  
+                          });
                     });
                   });
                   
@@ -182,6 +363,186 @@ YUI().use(
                            showadd1();
 
                         });
+                        
+                        $.ajax({
+                          type: "POST",
+                          url: "showMenu5.php",
+                          data: 
+                          { 
+                              
+                                                         
+                          }
+                        })
+                          .done(function( msg ) 
+                          {
+                            
+                             $("#menu5").html(msg).slideDown("slow").hide();
+                             
+                             $("#menu5").on('keypress', 'input[type=text].list_ya', function() {
+                            
+                            $.extend($.ui.autocomplete.prototype, {
+                                _renderItem: function(ul, item) {
+                                    var term = this.element.val(),
+                                            html = item.label.replace(term, "<b>$&</b>");
+                                    return $("<li></li>")
+                                            .data("item.autocomplete", item)
+                                            .append($("<a></a>").html(html))
+                                            .appendTo(ul);
+                                }
+                            });
+                            
+                               $('.list_ya').autocomplete({
+                                source: './Gedit/findYa.php',
+                                minLength: 1,
+                                select: function(event, ui)
+                                {
+                                    
+                                },
+                            });
+                  
+                             
+                    });
+                    
+                    $("#menu5").on('keypress', 'input[type=text].Hospital', function() {
+                            
+                            $.extend($.ui.autocomplete.prototype, {
+                                _renderItem: function(ul, item) {
+                                    var term = this.element.val(),
+                                            html = item.label.replace(term, "<b>$&</b>");
+                                    return $("<li></li>")
+                                            .data("item.autocomplete", item)
+                                            .append($("<a></a>").html(html))
+                                            .appendTo(ul);
+                                }
+                            });
+                           
+                    
+                    $('.Hospital').autocomplete({
+                          source:'./Gedit/findHospital.php', 
+                          minLength:1,
+                          select: function( event, ui ) 
+                          { 
+                            
+                          },
+                          
+                      });
+                    
+                             
+                    });
+                                $( "#menu5" ).on('click', '#save3', function() {                 
+                                            if ($("#checkbox1").is(":checked"))
+                                         {
+                                             var c1 = 't';                        
+                                         }
+                                         else
+                                         {
+                                             var c1 = 'f';
+                                         }
+
+                                         if ($("#checkbox2").is(":checked"))
+                                         {
+                                             var c2 = 't';                        
+                                         }
+                                         else
+                                         {
+                                             var c2 = 'f';
+                                         }
+                                         if ($("#checkbox3").is(":checked"))
+                                         {
+                                             var c3 = 't';                        
+                                         }
+                                         else
+                                         {
+                                             var c3 = 'f';
+                                         }
+                                         if ($("#checkbox4").is(":checked"))
+                                         {
+                                             var c4 = 't';                        
+                                         }
+                                         else
+                                         {
+                                             var c4 = 'f';
+                                         }
+                                         if ($("#checkbox5").is(":checked"))
+                                         {
+                                             var c5 = 't';                        
+                                         }
+                                         else
+                                         {
+                                             var c5 = 'f';
+                                         }
+
+                                         
+                        
+                        
+                       
+                                         $.ajax({
+
+                                            type: "POST",
+                                            url: "save3_vinich.php",
+                                            data: 
+                                            {                       
+                                                //tAnalysis:$('#analysis').val(),
+                                                tCheckbox1:c1,
+                                                tCheckbox2:c2,
+                                                tCheckbox3:c3,
+                                                tCheckbox4:c4,
+                                                tCheckbox5:c5,
+                                                tInput_other:$('#input_other').val(),
+                                                tDrName:$('#DrName').val(),
+                                                tHospital1:$('#Hospital1').val(),
+                                                tHospital2:$('#Hospital2').val(),
+                                                tHospital3:$('#Hospital3').val(),
+                                                tmed1: $('#med1').val(),
+                                                tmed2: $('#med2').val(),
+                                                tmed3: $('#med3').val(),
+                                                tmed4: $('#med4').val(),
+                                                tmed5: $('#med5').val(),
+                                                tmed6: $('#med6').val(),
+                                                tmed7: $('#med7').val(),
+                                                tmed8: $('#med8').val(),
+                                                tmed9: $('#med9').val(),
+                                                tmed10: $('#med10').val(),
+                                                teat1: $('#eat1').val(),
+                                                teat2: $('#eat2').val(),
+                                                teat3: $('#eat3').val(),
+                                                teat4: $('#eat4').val(),
+                                                teat5: $('#eat5').val(),
+                                                teat6: $('#eat6').val(),
+                                                teat7: $('#eat7').val(),
+                                                teat8: $('#eat8').val(),
+                                                teat9: $('#eat9').val(),
+                                                teat10: $('#eat10').val(),
+                                                
+                                                tlm1: $('#lm1').text(),
+                                                tlm2: $('#lm2').text(),
+                                                tlm3: $('#lm3').text(),
+                                                tlm4: $('#lm4').text(),
+                                                tlm5: $('#lm5').text(),
+                                                tlm6: $('#lm6').text(),
+                                                tlm7: $('#lm7').text(),
+                                                tlm8: $('#lm8').text(),
+                                                tlm9: $('#lm9').text(),
+                                                tlm10: $('#lm10').text(),
+                                                
+                                                tmed_history:$('#med_history').val(),
+                                                tspec_food:$('#spec_food').val(),
+                                                //tsmpai:$('#smpai').val(),
+                                                tfamily_info:$('#family_info').val()
+
+                                            }
+                                          })
+                                            .done(function( msg ) 
+                                            {
+                                              $("#menu5").height(60);
+                                              $("#menu5").hide().html(msg).fadeToggle("slow");
+                                              $("#menu5").slideUp();
+                                              $("#menu6").fadeIn();
+                                             /**  $("#menu5").fadeToggle("slow");
+                                             $("#menu4").slideToggle("slow");**/
+                                            });                        
+                                });  
+                          });
                     });
                   });
                  });
@@ -324,8 +685,162 @@ YUI().use(
                });
                 
                 
-                 /** save3 **/
-              $(document).ready(function(){
+                 /** save3 unuse **/
+                 
+                 $( "#menu5" ).on('click', '#save3', function() {                 
+                           if ($("#checkbox1").is(":checked"))
+                        {
+                            var c1 = 't';                        
+                        }
+                        else
+                        {
+                            var c1 = 'f';
+                        }
+                        
+                        if ($("#checkbox2").is(":checked"))
+                        {
+                            var c2 = 't';                        
+                        }
+                        else
+                        {
+                            var c2 = 'f';
+                        }
+                        if ($("#checkbox3").is(":checked"))
+                        {
+                            var c3 = 't';                        
+                        }
+                        else
+                        {
+                            var c3 = 'f';
+                        }
+                        if ($("#checkbox4").is(":checked"))
+                        {
+                            var c4 = 't';                        
+                        }
+                        else
+                        {
+                            var c4 = 'f';
+                        }
+                        if ($("#checkbox5").is(":checked"))
+                        {
+                            var c5 = 't';                        
+                        }
+                        else
+                        {
+                            var c5 = 'f';
+                        }
+                        
+                        if($('#med1').val() == '')
+                        {
+                            $('#med1').val('-1');
+                        }
+                        if($('#med2').val() == '')
+                        {
+                            $('#med2').val('-2');
+                        }
+                        if($('#med3').val() == '')
+                        {
+                            $('#med3').val('-3');
+                        }
+                        if($('#med4').val() == '')
+                        {
+                            $('#med4').val('-4');
+                        }
+                        if($('#med5').val() == '')
+                        {
+                            $('#med5').val('-5');
+                        }
+                        if($('#med6').val() == '')
+                        {
+                            $('#med6').val('-6');
+                        }
+                        if($('#med7').val() == '')
+                        {
+                            $('#med7').val('-7');
+                        }
+                        if($('#med8').val() == '')
+                        {
+                            $('#med8').val('-8');
+                        }
+                        if($('#med9').val() == '')
+                        {
+                            $('#med9').val('-9');
+                        }
+                        if($('#med10').val() == '')
+                        {
+                            $('#med10').val('-10');
+                        }
+                        
+                        
+                       
+                                         $.ajax({
+
+                                            type: "POST",
+                                            url: "save3_vinich.php",
+                                            data: 
+                                            {                       
+                                                //tAnalysis:$('#analysis').val(),
+                                                tCheckbox1:c1,
+                                                tCheckbox2:c2,
+                                                tCheckbox3:c3,
+                                                tCheckbox4:c4,
+                                                tCheckbox5:c5,
+                                                tInput_other:$('#input_other').val(),
+                                                tDrName:$('#DrName').val(),
+                                                tHospital1:$('#Hospital1').val(),
+                                                tHospital2:$('#Hospital2').val(),
+                                                tHospital3:$('#Hospital3').val(),
+                                                tmed1: $('#med1').val(),
+                                                tmed2: $('#med2').val(),
+                                                tmed3: $('#med3').val(),
+                                                tmed4: $('#med4').val(),
+                                                tmed5: $('#med5').val(),
+                                                tmed6: $('#med6').val(),
+                                                tmed7: $('#med7').val(),
+                                                tmed8: $('#med8').val(),
+                                                tmed9: $('#med9').val(),
+                                                tmed10: $('#med10').val(),
+                                                teat1: $('#eat1').val(),
+                                                teat2: $('#eat2').val(),
+                                                teat3: $('#eat3').val(),
+                                                teat4: $('#eat4').val(),
+                                                teat5: $('#eat5').val(),
+                                                teat6: $('#eat6').val(),
+                                                teat7: $('#eat7').val(),
+                                                teat8: $('#eat8').val(),
+                                                teat9: $('#eat9').val(),
+                                                teat10: $('#eat10').val(),
+                                                
+                                                tlm1: $('#lm1').text(),
+                                                tlm2: $('#lm2').text(),
+                                                tlm3: $('#lm3').text(),
+                                                tlm4: $('#lm4').text(),
+                                                tlm5: $('#lm5').text(),
+                                                tlm6: $('#lm6').text(),
+                                                tlm7: $('#lm7').text(),
+                                                tlm8: $('#lm8').text(),
+                                                tlm9: $('#lm9').text(),
+                                                tlm10: $('#lm10').text(),
+                                                
+                                                tmed_history:$('#med_history').val(),
+                                                tspec_food:$('#spec_food').val(),
+                                                //tsmpai:$('#smpai').val(),
+                                                tfamily_info:$('#family_info').val()
+
+                                            }
+                                          })
+                                            .done(function( msg ) 
+                                            {
+                                              $("#menu5").height(60);
+                                              $("#menu5").hide().html(msg).fadeToggle("slow");
+                                              //$("#menu5").slideUp();
+                                              $("#menu6").fadeIn();
+                                             /**  $("#menu5").fadeToggle("slow");
+                                             $("#menu4").slideToggle("slow");**/
+                                            });                        
+                 });
+                        
+        /**      $(document).ready(function(){
                 $("#save3").click(function(){ 
                     
                         if ($("#checkbox1").is(":checked"))
@@ -412,46 +927,7 @@ YUI().use(
                         }
                         
                         
-                       /** if($('#eat1').val() == '')
-                        {
-                            $('#eat1').val('-');
-                        }
-                        if($('#eat2').val() == '')
-                        {
-                            $('#eat2').val('-');
-                        }
-                        if($('#eat3').val() == '')
-                        {
-                            $('#eat3').val('-');
-                        }
-                        if($('#eat4').val() == '')
-                        {
-                            $('#eat4').val('-');
-                        }
-                        if($('#eat5').val() == '')
-                        {
-                            $('#eat5').val('-');
-                        }
-                        if($('#eat6').val() == '')
-                        {
-                            $('#eat6').val('-');
-                        }
-                        if($('#eat7').val() == '')
-                        {
-                            $('#eat7').val('-');
-                        }
-                        if($('#eat8').val() == '')
-                        {
-                            $('#eat8').val('-');
-                        }
-                        if($('#eat9').val() == '')
-                        {
-                            $('#eat9').val('-');
-                        }
-                        if($('#eat10').val() == '')
-                        {
-                            $('#eat10').val('-');
-                        }**/
+                      
                                          $.ajax({
 
                                             type: "POST",
@@ -489,6 +965,18 @@ YUI().use(
                                                 teat8: $('#eat8').val(),
                                                 teat9: $('#eat9').val(),
                                                 teat10: $('#eat10').val(),
+                                                
+                                                tlm1: $('#lm1').text(),
+                                                tlm2: $('#lm2').text(),
+                                                tlm3: $('#lm3').text(),
+                                                tlm4: $('#lm4').text(),
+                                                tlm5: $('#lm5').text(),
+                                                tlm6: $('#lm6').text(),
+                                                tlm7: $('#lm7').text(),
+                                                tlm8: $('#lm8').text(),
+                                                tlm9: $('#lm9').text(),
+                                                tlm10: $('#lm10').text(),
+                                                
                                                 tmed_history:$('#med_history').val(),
                                                 tspec_food:$('#spec_food').val(),
                                                 //tsmpai:$('#smpai').val(),
@@ -500,14 +988,13 @@ YUI().use(
                                             {
                                               $("#menu5").height(60);
                                               $("#menu5").hide().html(msg).fadeToggle("slow");
-                                              $("#menu5").slideUp();
+                                              //$("#menu5").slideUp();
                                               $("#menu6").fadeIn();
-                                             /**  $("#menu5").fadeToggle("slow");
-                                             $("#menu4").slideToggle("slow");**/
+                                             
                                             });
 
                                   });
-                                 });                                                   
+                                 });    **/                                               
                  
                   /** save4 **/
                $(document).ready(function(){
@@ -1076,6 +1563,8 @@ YUI().use(
                 {
                         $( "#menu4-5" ).slideUp();
                         $( "#menu5" ).slideDown();
+                        
+                        
                 });
             
           });

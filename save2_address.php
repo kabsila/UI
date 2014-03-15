@@ -20,9 +20,21 @@
         $objDB = mysql_select_db("diabetes");
         mysql_query("SET NAMES UTF8");             
                       
-        $strSQL = "INSERT INTO address (ID, address_num, moo, road, aumphor, tumbol, city, zipcode, latitude, longitude, date_accp) 
-                                     VALUES ('$lastID', '$strAddNum', '$strMoo', '$strRoad', '$strAumphor', '$strTumbol', '$strCity', '$strZipcode', '$strLatitude', '$strLongitude', '$strDateAcc')";
-                                           
+        //$strSQL = "INSERT INTO address (ID, address_num, moo, road, aumphor, tumbol, city, zipcode, latitude, longitude, date_accp) 
+                                     //VALUES ('$lastID', '$strAddNum', '$strMoo', '$strRoad', '$strAumphor', '$strTumbol', '$strCity', '$strZipcode', '$strLatitude', '$strLongitude', '$strDateAcc')";
+        
+        $strSQL = "UPDATE address SET      address_num = '$strAddNum',
+                                           moo = '$strMoo',
+                                           road = '$strRoad',
+                                           aumphor = '$strAumphor',
+                                           tumbol = '$strTumbol',
+                                           city = '$strCity',
+                                           zipcode = '$strZipcode',
+                                           latitude = '$strLatitude',
+                                           longitude = '$strLongitude',
+                                           date_accp = '$strDateAcc'
+                   WHERE ID = ".$lastID;
+        
         $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
        
         echo "<label>บันทึกข้อมูลเรียบร้อยแล้ว</label>";

@@ -58,9 +58,21 @@
         $objDB = mysql_select_db("diabetes");
         mysql_query("SET NAMES UTF8");             
                       
-        $strSQL = "INSERT INTO lab_result (id, date, FBS, LDL, HDL, cholesterol, tg, creatinine, BUN, HbA1C) 
-                             VALUES ('$lastID', '$str1', '$str2', '$str3', '$str4', '$str5', '$str9', '$str6', '$str7', '$str8')";
+        //$strSQL = "INSERT INTO lab_result (id, date, FBS, LDL, HDL, cholesterol, tg, creatinine, BUN, HbA1C) 
+                             //VALUES ('$lastID', '$str1', '$str2', '$str3', '$str4', '$str5', '$str9', '$str6', '$str7', '$str8')";
+        
+        $strSQL = "UPDATE lab_result SET date = '$str1',
+                                           FBS = '$str2',
+                                           LDL = '$str3',
+                                           HDL = '$str4',
+                                           cholesterol = '$str5',
+                                           tg = '$str9',
+                                           creatinine = '$str6',
+                                           BUN = '$str7',                                          
+                                           HbA1C = '$str8'
                                            
+                   WHERE id = $lastID";
+        
         $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
        
         echo "<label>บันทึกข้อมูลเรียบร้อยแล้ว</label>";
