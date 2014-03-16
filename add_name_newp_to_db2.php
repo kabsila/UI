@@ -108,10 +108,38 @@
        $strSQL = "INSERT INTO train_d (id) VALUE ($lastID)";
        $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
        
-       $strSQL = "INSERT INTO visit_home (id) VALUE ($lastID)";
+       $strSQL = "INSERT INTO visit_home (id, visit_order) VALUE ($lastID, 1)";
+       $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+        $strSQL = "INSERT INTO visit_home (id, visit_order) VALUE ($lastID, 2)";
+       $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+        $strSQL = "INSERT INTO visit_home (id, visit_order) VALUE ($lastID, 3)";
        $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
        
-       $strSQL = "INSERT INTO visit_table (id) VALUE ($lastID)";
+       $strSQL = "INSERT INTO visit_table (id, visit_order) VALUE ($lastID, 1)";
+       $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+       $strSQL = "INSERT INTO visit_table (id, visit_order) VALUE ($lastID, 1)";
+       $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+       $strSQL = "INSERT INTO visit_table (id, visit_order) VALUE ($lastID, 1)";
+       $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+       $strSQL = "INSERT INTO visit_table (id, visit_order) VALUE ($lastID, 1)";
+       $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+       
+       $strSQL = "INSERT INTO visit_table (id, visit_order) VALUE ($lastID, 2)";
+       $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+       $strSQL = "INSERT INTO visit_table (id, visit_order) VALUE ($lastID, 2)";
+       $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+       $strSQL = "INSERT INTO visit_table (id, visit_order) VALUE ($lastID, 2)";
+       $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+       $strSQL = "INSERT INTO visit_table (id, visit_order) VALUE ($lastID, 2)";
+       $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+       
+       $strSQL = "INSERT INTO visit_table (id, visit_order) VALUE ($lastID, 3)";
+       $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+       $strSQL = "INSERT INTO visit_table (id, visit_order) VALUE ($lastID, 3)";
+       $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+       $strSQL = "INSERT INTO visit_table (id, visit_order) VALUE ($lastID, 3)";
+       $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+       $strSQL = "INSERT INTO visit_table (id, visit_order) VALUE ($lastID, 3)";
        $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
        
        $strSQL = "INSERT INTO ya (id) VALUE ($lastID)";

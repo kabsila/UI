@@ -676,7 +676,7 @@ YUI().use(
                           {
                             $("#menu4").height(60);
                             $("#menu4").hide().html(msg).fadeToggle();
-                            $("#menu4").slideUp(1500);
+                            $("#menu4").slideUp();
                             $("#menu4-5").fadeToggle();
                            /** $("#menu4").slideToggle("slow");**/
                           });
@@ -1293,8 +1293,79 @@ YUI().use(
                               $('#enviFam').val('');
                              
                             $("#menu11").slideUp(2000);                     
-                            $("#menu12").fadeIn();
+                            //$("#menu12").fadeIn();
+                            
+                          $.ajax({
+                          type: "POST",
+                          url: "showVisitTable.php",
+                          data: 
+                          { 
+                              tvisit_order2:$('#visit_order').val(),
+                              
+                          }
+                        })
+                          .done(function( msg ) 
+                          {
+                             $("#menu12").html(msg).fadeIn();
+                             
+                             $('#menu12').on('click', '#finish5', function() { 
+                                 $("#menu12").slideUp();
+                                 $("#menu11").slideDown();
+                                 $("#menu13").fadeIn();
+                             });
+                             
+                             $('#menu12').on('click', '#save10', function() {                            
+                                 $.ajax({
+                          type: "POST",
+                          url: "save10_table_visit.php",
+                          data: 
+                          { 
+                              ttakecarePoint1:$('#takecarePoint1').val(),
+                              ttakecarePoint2:$('#takecarePoint2').val(),
+                              ttakecarePoint3:$('#takecarePoint3').val(),
+                              ttakecarePoint4:$('#takecarePoint4').val(),
+                              ttakecare1:$('#takecare1').val(),
+                              ttakecare2:$('#takecare2').val(),
+                              ttakecare3:$('#takecare3').val(),
+                              ttakecare4:$('#takecare4').val(),
+                              tnamePD1:$('#namePD1').val(),
+                              tnamePD2:$('#namePD2').val(),
+                              tnamePD3:$('#namePD3').val(),
+                              tnamePD4:$('#namePD4').val(),
+                              tnote21:$('#note21').val(),
+                              tnote22:$('#note22').val(),
+                              tnote23:$('#note23').val(),
+                              tnote24:$('#note24').val(),
+                              
+                              idtable1:$('#vlm1').text(),
+                              idtable2:$('#vlm2').text(),
+                              idtable3:$('#vlm3').text(),
+                              idtable4:$('#vlm4').text()
+                                                         
+                          }
+                        })
+                          .done(function( msg ) 
+                          {
+                            var p = $( "#menu12" );
+                            var position = p.position();
+                            $("#successPopUp").css({
+                                    "position": "absolute",
+                                    "top": position.top + 160,
+                                    "left": position.left + 400
+                              }); 
+                             
+                             $("#successPopUp").html(msg).slideDown("slow");                             
+                             //$('#table12').fadeOut();
+                             //$('#takecarePoint').val('');
+                             //$('#takecare').val('');
+                             //$('#namePD').val('');
+                            // $('#note2').val('');
+                             $('#table12').fadeIn();
+                             $("#successPopUp").slideUp("slow");  
+                          });              
+                             });
                           });
+                        });
                     
                 });
                });
@@ -1314,10 +1385,27 @@ YUI().use(
                           url: "save10_table_visit.php",
                           data: 
                           { 
-                              ttakecarePoint:$('#takecarePoint').val(),
-                              ttakecare:$('#takecare').val(),
-                              tnamePD:$('#namePD').val(),
-                              tnote2:$('#note2').val()
+                              ttakecarePoint1:$('#takecarePoint1').val(),
+                              ttakecarePoint2:$('#takecarePoint2').val(),
+                              ttakecarePoint3:$('#takecarePoint3').val(),
+                              ttakecarePoint4:$('#takecarePoint4').val(),
+                              ttakecare1:$('#takecare1').val(),
+                              ttakecare2:$('#takecare2').val(),
+                              ttakecare3:$('#takecare3').val(),
+                              ttakecare4:$('#takecare4').val(),
+                              tnamePD1:$('#namePD1').val(),
+                              tnamePD2:$('#namePD2').val(),
+                              tnamePD3:$('#namePD3').val(),
+                              tnamePD4:$('#namePD4').val(),
+                              tnote21:$('#note21').val(),
+                              tnote22:$('#note22').val(),
+                              tnote23:$('#note23').val(),
+                              tnote24:$('#note24').val(),
+                              
+                              idtable1:$('#lm1').text(),
+                              idtable2:$('#lm2').text(),
+                              idtable3:$('#lm3').text(),
+                              idtable4:$('#lm4').text()
                                                          
                           }
                         })

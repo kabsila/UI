@@ -86,7 +86,7 @@
  <?php
                include_once ( 'connectDB.php' ); 
 
-session_start();
+                session_start();
                 $objDB = mysql_select_db("diabetes");
                 mysql_query("SET NAMES UTF8");
                 $yaa = array();

@@ -717,60 +717,9 @@ function deleteOverlays() {
                     
             </div>
                 
-                <div id="menu12" style="background-color:#27ae60;height:220px;width:700px; border-radius:25px;">
+                <div id="menu12" style="background-color:#27ae60;height:auto;width:700px; border-radius:25px;">
 
-                    <table class="ex5" id="table12" border="0">
-                        <tr>
-                            <th colspan="4">บันทึกการดูแลจากการเยี่ยมบ้าน</th>
-                            
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="control-group">
-                                    <label class="control-label" >ประเด็นที่ดูแล:</label>
-                                    <div class="controls" > 
-                                        <input   type="text" id="takecarePoint" style="">
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="control-group">
-                                    <label class="control-label" >การดูแล:</label>
-                                    <div class="controls" > 
-                                        <input   type="text" id="takecare" style="">
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="control-group">
-                                    <label class="control-label" >ผู้ดูแล:</label>
-                                    <div class="controls" > 
-                                        <input id="namePD" class="train"  type="text">
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="control-group">
-                                    <label class="control-label" >หมายเหตุ:</label>
-                                    <div class="controls" > 
-                                        <input   type="text" id="note2" value="-">
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="4">
-                                <button class="btn btn-success" id="save10" style="color:#484848; width: 90px">บันทึกเพิ่ม</button>
-                            </td>
-                            
-                        </tr>
-                        <tr>
-                            <td colspan="4" style="padding-top:25px;">
-                                <button class="btn btn-success" id="finish5" style="color:#484848; width: 200px;">เสร็จสิ้นการบันทึกในส่วนนี้</button>
-                            </td>
-                            
-                        </tr>
-                    </table>
+                    
                     
             </div>
 

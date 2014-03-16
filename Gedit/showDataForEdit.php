@@ -959,6 +959,10 @@ include_once ( '../connectDB.php' );
             <td colspan="3"><button class="btn btn-success" id="save9" style="color:#484848; width: 80px">บันทึก</button></td>
 
         </tr>
+         <tr>
+            <td colspan="3"><button class="btn btn-success" id="editsave10" style="color:#484848; width: 280px">แก้ไขบันทึกการดูแลจากการเยี่ยมบ้าน</button></td>
+
+        </tr>
         <tr>
             <td colspan="3" style="padding-top:25px;">
                 <button class="btn btn-success" id="finish4" style="color:#484848; width: 200px;">เสร็จสิ้นการบันทึกในส่วนนี้</button>
@@ -969,16 +973,10 @@ include_once ( '../connectDB.php' );
 
 </div>
 
-<?php
-        $strSQL = "SELECT * FROM visit_table WHERE ID = $str1";
-                                           
-        $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
-        $objResuut = mysql_fetch_array($objQuery);        
-        
-?>
 
-<div id="menu12" style="background-color:#27ae60;height:300px;width:700px; border-radius:25px;">
-<label id="idTable" style="display: inline-table;opacity: 0.0;">88</label>
+
+<div id="menu12" style="display: none;background-color:#27ae60;height:300px;width:700px; border-radius:25px;padding-bottom: 30px;">
+<label id="idTable" style="display: inline-table;opacity: 0.0;"></label>
     <table class="ex5" id="table12" border="0">
         <tr>
             <th colspan="4">
