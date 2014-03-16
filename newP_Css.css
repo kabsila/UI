@@ -138,7 +138,7 @@
                 margin-top:20px;               
                 text-align: center;
                 padding-top: 47px;
-                display: block;
+                display: none;
             }
             
             #menu12
@@ -246,6 +246,11 @@
                 width:90%;
                 text-align: center;
             }
+            input.pland
+            {
+                width:90%;
+                text-align: center;
+            }
             #successPopUp
             {  
                 display:none;  
@@ -291,4 +296,9 @@
             #ok_nopic
             {
                 display: none;
+            }
+            
+            #table10
+            {
+                width: 800px; 
             }

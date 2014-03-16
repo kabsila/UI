@@ -95,19 +95,22 @@
        
        //$strSQL = "INSERT INTO img (id) VALUE ($lastID)";
        //$objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+       for($i = 0;$i < 6 ; $i++){
+            $strSQL = "INSERT INTO lab_result (id) VALUE ($lastID)";
+            $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+       }
        
-       $strSQL = "INSERT INTO lab_result (id) VALUE ($lastID)";
-       $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
-       
-       $strSQL = "INSERT INTO plan_d (id) VALUE ($lastID)";
-       $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
-       
+       for($i = 0;$i < 7 ; $i++){
+            $strSQL = "INSERT INTO plan_d (id) VALUE ($lastID)";
+            $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+       }
        $strSQL = "INSERT INTO spec_check (id) VALUE ($lastID)";
        $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
        
-       $strSQL = "INSERT INTO train_d (id) VALUE ($lastID)";
-       $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
-       
+       for($i = 0;$i < 7 ; $i++){
+            $strSQL = "INSERT INTO train_d (id) VALUE ($lastID)";
+            $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+       }
        $strSQL = "INSERT INTO visit_home (id, visit_order) VALUE ($lastID, 1)";
        $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
         $strSQL = "INSERT INTO visit_home (id, visit_order) VALUE ($lastID, 2)";

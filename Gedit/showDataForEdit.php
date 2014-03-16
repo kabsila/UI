@@ -711,16 +711,38 @@ include_once ( '../connectDB.php' );
 
 
 <?php
-        $strSQL = "SELECT * FROM train_d WHERE ID = $str1";
+       // $strSQL = "SELECT * FROM train_d WHERE ID = $str1";
                                            
-        $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
-        $objResuut = mysql_fetch_array($objQuery);        
+       // $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
+        //$objResuut = mysql_fetch_array($objQuery);        
         
 ?>
 
 
-<div id="menu9" style="background-color:#2c3e50;height:230px;width:700px; border-radius:25px;color: #ecf0f1;">
+<div id="menu9" style="background-color:#2c3e50;height:auto;width:700px; border-radius:25px;color: #ecf0f1;padding-bottom: 30px;">
 
+    <?php
+    include_once ( '../connectDB.php' );
+
+    session_start();
+    $objDB = mysql_select_db("diabetes");
+    mysql_query("SET NAMES UTF8");
+    $traind_data = array();
+    $traind_data2 = array();
+
+    //$lastID = $_SESSION["lastid"];
+    $strSQL = "SELECT * FROM train_d WHERE id = " . $_SESSION['lastid'];
+
+    $objQuery = mysql_query($strSQL) or die("Error in query: $strSQL. " . mysql_error());
+
+
+    while ($objResuut = mysql_fetch_array($objQuery)) {
+
+        $traind_data += array($objResuut['date_id'] => array($objResuut['date'] => $objResuut['main_d']));
+        $traind_data2 += array($objResuut['date_id'] => array($objResuut['date'] => $objResuut['trainer_name']));
+    }
+    //mysql_close($objConnect);
+    ?>
     <table class="ex5" id="table9" border="0">
         <tr>
             <th colspan="3">การเตรียมผู้ดูแล</th>
@@ -731,16 +753,36 @@ include_once ( '../connectDB.php' );
                 <div class="control-group">
                     <label class="control-label" >ประเด็นที่ได้รับการเตรียม:</label>
                     <div class="controls" > 
-                        <input class="slide2"  id="trianPoint" type="text" style="">
+<!--                                        <input class="td"  id="trianPoint" type="text" style="">-->
+
+<?php
+$i = 1;
+foreach ($traind_data as $date_id => $array1) {
+    foreach ($array1 as $date => $main_d) {
+
+        echo "<input id='trianPoint$i'  type='text' value='{$main_d}'><label id='tdlm$i' style='visibility:hidden;display: inline-block;width: 1px;'>{$date_id}</label><br>";
+    }
+    $i++;
+}
+?>
                     </div>
                 </div> 
             </td>
             <td>
                 <div class="control-group">
                     <label class="control-label" >วันที่เตรียม:</label>
-                    <div class="slide2" > 
-                        <input class="datepicker" id="dateTrain" type="text">
-                        <label id="date_id2" style="visibility:hidden;display: inline-block;width: 1px;"></label>
+                    <div class="controls" > 
+<!--                                        <input class="datepicker" id="dateTrain" type="text" style="">-->
+<?php
+$i = 1;
+foreach ($traind_data as $date_id => $array1) {
+    foreach ($array1 as $date => $main_d) {
+
+        echo "<input class='datepicker' id='dateTrain$i'  type='text' value='{$date}'><label id='tdlm$i' style='visibility:hidden;display: inline-block;width: 1px;'>{$date_id}</label><br>";
+    }
+    $i++;
+}
+?>
                     </div>
                 </div> 
             </td>
@@ -748,34 +790,25 @@ include_once ( '../connectDB.php' );
                 <div class="control-group">
                     <label class="control-label" >ผู้เตรียม:</label>
                     <div class="controls" > 
-                        <input class="slide2"  id="nameTrain" type="text">
+<!--                                        <input id="nameTrain" class="train" type="text" style="">-->
+
+<?php
+$i = 1;
+foreach ($traind_data2 as $date_id => $array1) {
+    foreach ($array1 as $date => $tner_name) {
+
+        echo "<input id='nameTrain$i'  type='text' value='{$tner_name}'><label id='tdlm$i' style='visibility:hidden;display: inline-block;width: 1px;'>{$date_id}</label><br>";
+    }
+    $i++;
+}
+?>
                     </div>
                 </div> 
             </td>
 
         </tr>
-        <tr>           
-            
-            <td colspan="3">
-                <div class="pagination" id="page2" style="width:auto">
-                    <a href="#" class="first" data-action="first" style="width:40px;">
-                        <button class="btn btn-success" id="" style="color:#484848; width: 40px;"><<</button>
-                    </a>
-
-                    <a href="#" class="previous" data-action="previous" style="width:40px;">
-                       <button class="btn btn-success" id="" style="color:#484848; width: 40px;"><</button>
-                    </a>
-                   <button class="btn btn-success" id="save7" style="color:#484848; width: 80px;">บันทึก</button>
-<!--                    <input type="text" readonly="readonly"/>-->
-                    <a href="#" class="next" data-action="next" style="width:40px;">
-                        <button class="btn btn-success" id="" style="color:#484848; width: 40px;">></button>
-                    </a>
-                    <a href="#" class="last" data-action="last" style="width:40px;">
-                        <button class="btn btn-success" id="" style="color:#484848; width: 40px;">>></button>
-                    </a>
-                </div>
-<!--                <button class="btn btn-success" id="save7" style="color:#484848; width: 80px">บันทึก</button>-->
-            </td>
+        <tr>
+            <td colspan="3"><button class="btn btn-success" id="save7" style="color:#484848; width: 80px">บันทึก</button></td>
 
         </tr>
         <tr>
@@ -790,82 +823,130 @@ include_once ( '../connectDB.php' );
 
 
 
-<div id="menu10" style="background-color:#27ae60;height:310px;width:700px; border-radius:25px;">
+<div id="menu10" style="background-color:#27ae60;height:auto;width:900px; border-radius:25px;padding-bottom: 30px">
+<?php
+               // include_once ( '../connectDB.php' ); 
 
-    <table class="ex5" id="table10" border="0">
-        <tr>
-            <th colspan="3">แผนการดูแลที่บ้านลำดับที่ <label id="orderPlanD" style="display: inline-table;opacity: 0.0;"> 1</label></th>
+               // session_start();
+                //$objDB = mysql_select_db("diabetes");
+                mysql_query("SET NAMES UTF8");
+                $pland_data = array();
+                $pland_data2 = array();
+               
+                //$lastID = $_SESSION["lastid"];
+                $strSQL = "SELECT * FROM plan_d WHERE id = ".$_SESSION['lastid'];
 
-        </tr>
-        <tr>
-            <td>
-                <div class="control-group">
-                    <label class="control-label" >ประเด็นที่ดูแล:</label>
-                    <div class="controls" > 
-                        <input class="slide3"  id="planPoint" type="text" style="">
-                    </div>
-                </div> 
-            </td>
-            <td>
-                <div class="control-group">
-                    <label class="control-label" >แนวทางการดูแล:</label>
-                    <div class="controls" > 
-                        <input class="slide3" id="wayD" type="text" style="">
-                    </div>
-                </div> 
-            </td>
-            <td>
-                <div class="control-group">
-                    <label class="control-label" >ผู้ที่ดูแล:</label>
-                    <div class="controls" > 
-                        <input class="slide3"  id="namedd" type="text" style="">
-                    </div>
-                </div> 
-            </td>
+                $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());        
 
-        </tr>
-        <tr>
-            <td colspan="3">
-                <div class="control-group">
-                    <label class="control-label" >หมายเหตุ:</label>
-                    <div class="controls" > 
-                        <input class="slide3"  id="mark" type="text" style="">
-                    </div>
-                </div> 
-            </td>
-        </tr>
-        <tr>           
-            
-            <td colspan="3">
-                <div class="pagination" id="page3" style="width:auto">
-                    <a href="#" class="first" data-action="first" style="width:40px;">
-                        <button class="btn btn-success" id="" style="color:#484848; width: 40px;"><<</button>
-                    </a>
 
-                    <a href="#" class="previous" data-action="previous" style="width:40px;">
-                       <button class="btn btn-success" id="" style="color:#484848; width: 40px;"><</button>
-                    </a>
-                   <button class="btn btn-success" id="save8" style="color:#484848; width: 80px">บันทึก</button>
-<!--                    <input type="text" readonly="readonly"/>-->
-                    <a href="#" class="next" data-action="next" style="width:40px;">
-                        <button class="btn btn-success" id="" style="color:#484848; width: 40px;">></button>
-                    </a>
-                    <a href="#" class="last" data-action="last" style="width:40px;">
-                        <button class="btn btn-success" id="" style="color:#484848; width: 40px;">>></button>
-                    </a>
-                </div>
+                while($objResuut = mysql_fetch_array($objQuery))
+                {  
                 
-            </td>
+                      $pland_data += array($objResuut['idd'] => array($objResuut['main_takecare'] => $objResuut['takecare']));
+                      $pland_data2 += array($objResuut['idd'] => array($objResuut['name_d'] => $objResuut['note']));
+                }
+                mysql_close($objConnect);
+?>
+<table class="ex5" id="table10" border="0">
+                        <tr>
+                            <th colspan="4">แผนการดูแลที่บ้าน</th>
+                            
+                        </tr>
+                        <tr>
+                            <td>
+                               <div class="control-group">
+                                    <label class="control-label" >ประเด็นที่ดูแล:</label>
+                                    <div class="controls" > 
+<!--                                        <input class="td"  id="planPoint" type="text" style="">-->
+                                        <?php
+                                                $i = 1;
+                                                foreach ($pland_data as $idd => $array1) {
+                                                    foreach ($array1 as $maintake => $takcare) {
 
-        </tr>
-        <tr>
-            <td colspan="3" style="padding-top:25px;">
-                <button class="btn btn-success" id="finish3" style="color:#484848; width: 200px;">เสร็จสิ้นการบันทึกในส่วนนี้</button>
-            </td>
+                                                        echo "<input class='pland' id='planPoint$i'  type='text' value='{$maintake}'><label id='pdlm$i' style='visibility:hidden;display: inline-block;width: 1px;'>{$idd}</label><br>";
+                                                    }
+                                                    $i++;
+                                                }
 
-        </tr>
-    </table>
+                                                
+                                        ?>
+                                    </div>
+                                </div> 
+                            </td>
+                            <td>
+                               <div class="control-group">
+                                    <label class="control-label" >แนวทางการดูแล:</label>
+                                    <div class="controls" > 
+<!--                                        <input class="" id="wayD" type="text" style="">-->
+                                        <?php
+                                                $i = 1;
+                                                foreach ($pland_data as $idd => $array1) {
+                                                    foreach ($array1 as $maintake => $takcare) {
 
+                                                        echo "<input class='pland' id='wayD$i'  type='text' value='{$takcare}'><label id='pdlm$i' style='visibility:hidden;display: inline-block;width: 1px;'>{$idd}</label><br>";
+                                                    }
+                                                    $i++;
+                                                }
+
+                                                
+                                        ?>
+                                    </div>
+                                </div> 
+                            </td>
+                            <td>
+                               <div class="control-group">
+                                    <label class="control-label" >ผู้ที่ดูแล:</label>
+                                    <div class="controls" > 
+<!--                                        <input  id="namedd" class="train" type="text" style="">-->
+                                        <?php
+                                                $i = 1;
+                                                foreach ($pland_data2 as $idd => $array1) {
+                                                    foreach ($array1 as $named => $note) {
+
+                                                        echo "<input class='pland' id='namedd$i'  type='text' value='{$named}'><label id='pdlm$i' style='visibility:hidden;display: inline-block;width: 1px;'>{$idd}</label><br>";
+                                                    }
+                                                    $i++;
+                                                }
+
+                                                
+                                        ?>
+                                    </div>
+                                </div> 
+                            </td>
+                            <td>
+                               <div class="control-group">
+                                    <label class="control-label" >หมายเหตุ:</label>
+                                    <div class="controls" > 
+<!--                                        <input class="td"  id="mark" type="text" style="">-->
+                                        
+                                        <?php
+                                                $i = 1;
+                                                foreach ($pland_data2 as $idd => $array1) {
+                                                    foreach ($array1 as $named => $note) {
+
+                                                        echo "<input class='pland' id='mark$i'  type='text' value='{$note}'><label id='pdlm$i' style='visibility:hidden;display: inline-block;width: 1px;'>{$idd}</label><br>";
+                                                    }
+                                                    $i++;
+                                                }
+
+                                                
+                                        ?>
+                                    </div>
+                                </div> 
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td colspan="4"><button class="btn btn-success" id="save8" style="color:#484848; width: 80px">บันทึก</button></td>
+                            
+                        </tr>
+                        <tr>
+                            <td colspan="4" style="padding-top:25px;">
+                                <button class="btn btn-success" id="finish3" style="color:#484848; width: 200px;">เสร็จสิ้นการบันทึกในส่วนนี้</button>
+                            </td>
+                            
+                        </tr>
+                    </table>
 </div>
 
 

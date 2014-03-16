@@ -30,6 +30,8 @@
         <script src="./alloy/jquery-ui-all/ui/jquery-ui.js"></script>
         <script src="./newP_script.js"></script>
         <script src="./upload/js/jquery.uploadfile.min.js"></script>
+        
+        <script src="./alloy/pagination/js/jquery.jqpagination.js"></script>
 
  <script type="text/javascript" src="./fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
 
@@ -375,81 +377,10 @@ function deleteOverlays() {
                     </table>
                 </div>
                 
-                <div id="menu7" style="background-color:#16a085;height:520px;width:700px; border-radius:25px;color: #ecf0f1;">
+                <div id="menu7" style="background-color:#16a085;height:auto;width:700px; border-radius:25px;color: #ecf0f1;padding-bottom: 30px;">
 
-                    <table class="ex5" id="table7" border="0">
-                        <tr>
-                            <th colspan="3">
-                                ผลการตรวจทางห้องทดลอง
-                            </th>
-                        </tr>
-                        <tr>
-                            <td>ลำดับ</td>
-                            <td>ผลการตรวจ</td>
-                            
-                            <td> วันที่: <input type="text"  id="lab_date" placeholder="เลือกวันที่" class="datepicker" style="width: 58%;" /></td>
-                            
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>น้ำตาลในเลือด (FBS mg%)</td>
-                            <td><input id="fbs"  type="text" style=""></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>ไขมันในเลือด</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>2.1</td>
-                            <td>LDL</td>
-                            <td><input id="ldl"  type="text" style=""></td>
-                        </tr>
-                        <tr class="tg-even">
-                            <td>2.2</td>
-                            <td>HDL</td>
-                            <td><input id="hdl"  type="text" style=""></td>
-                        </tr>
-                        <tr>
-                            <td>2.3</td>
-                            <td>Cholesterol</td>
-                            <td><input id="Cholesterol"  type="text" style=""></td>
-                        </tr>
-                        <tr>
-                            <td>2.4</td>
-                            <td>Triglyceride</td>
-                            <td><input id="Triglyceride"  type="text" style=""></td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>กาทำงานของไต</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>3.1</td>
-                            <td>Creatinine</td>
-                            <td><input id="Creatinine"  type="text" style=""></td>
-                        </tr>
-                        <tr>
-                            <td>3.2</td>
-                            <td>BUN</td>
-                            <td><input id="BUN"  type="text" style=""></td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>HbA1C</td>
-                            <td><input id="HbA1C"  type="text" style=""></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td><button class="btn btn-success" id="save5" style="color:#484848; width: 80px">บันทึก</button></td>
-                        </tr>
-                        <tr class="tg-even">
-                            <td colspan="3"><button class="btn btn-success" id="finish1" style="color:#484848; width: 80px">เสร็จสิ้น</button></td>
-                        </tr>
-                    </table>
                     
+
                 </div>
                 
                 <div id="menu8" style="background-color:#d35400;height:500px;width:700px; border-radius:25px;color: #ecf0f1;">
@@ -529,109 +460,15 @@ function deleteOverlays() {
                 </div>
                 
                 
-                <div id="menu9" style="background-color:#2c3e50;height:230px;width:700px; border-radius:25px;color: #ecf0f1;">
+                <div id="menu9" style="background-color:#2c3e50;height:auto;width:700px; border-radius:25px;color: #ecf0f1;padding-bottom: 30px;">
 
-                    <table class="ex5" id="table9" border="0">
-                        <tr>
-                            <th colspan="3">การเตรียมผู้ดูแล</th>
-                            
-                        </tr>
-                        <tr>
-                            <td>
-                               <div class="control-group">
-                                    <label class="control-label" >ประเด็นที่ได้รับการเตรียม:</label>
-                                    <div class="controls" > 
-                                        <input class="td"  id="trianPoint" type="text" style="">
-                                    </div>
-                                </div> 
-                            </td>
-                            <td>
-                               <div class="control-group">
-                                    <label class="control-label" >วันที่เตรียม:</label>
-                                    <div class="controls" > 
-                                        <input class="datepicker" id="dateTrain" type="text" style="">
-                                    </div>
-                                </div> 
-                            </td>
-                            <td>
-                               <div class="control-group">
-                                    <label class="control-label" >ผู้เตรียม:</label>
-                                    <div class="controls" > 
-                                        <input id="nameTrain" class="train" type="text" style="">
-                                    </div>
-                                </div> 
-                            </td>
-                            
-                        </tr>
-                        <tr>
-                            <td colspan="3"><button class="btn btn-success" id="save7" style="color:#484848; width: 80px">บันทึก</button></td>
-                            
-                        </tr>
-                        <tr>
-                            <td colspan="3" style="padding-top:25px;">
-                                <button class="btn btn-success" id="finish2" style="color:#484848; width: 200px;">เสร็จสิ้นการบันทึกในส่วนนี้</button>
-                            </td>
-                            
-                        </tr>
-                    </table>
+                   
                     
-            </div>
+                </div>
 
-            <div id="menu10" style="background-color:#27ae60;height:310px;width:700px; border-radius:25px;">
+            <div id="menu10" style="background-color:#27ae60;height:auto;width:900px; border-radius:25px;padding-bottom: 30px;">
 
-                    <table class="ex5" id="table10" border="0">
-                        <tr>
-                            <th colspan="3">แผนการดูแลที่บ้าน</th>
-                            
-                        </tr>
-                        <tr>
-                            <td>
-                               <div class="control-group">
-                                    <label class="control-label" >ประเด็นที่ดูแล:</label>
-                                    <div class="controls" > 
-                                        <input class="td"  id="planPoint" type="text" style="">
-                                    </div>
-                                </div> 
-                            </td>
-                            <td>
-                               <div class="control-group">
-                                    <label class="control-label" >แนวทางการดูแล:</label>
-                                    <div class="controls" > 
-                                        <input class="" id="wayD" type="text" style="">
-                                    </div>
-                                </div> 
-                            </td>
-                            <td>
-                               <div class="control-group">
-                                    <label class="control-label" >ผู้ที่ดูแล:</label>
-                                    <div class="controls" > 
-                                        <input  id="namedd" class="train" type="text" style="">
-                                    </div>
-                                </div> 
-                            </td>
-                            
-                        </tr>
-                        <tr>
-                            <td colspan="3">
-                               <div class="control-group">
-                                    <label class="control-label" >หมายเหตุ:</label>
-                                    <div class="controls" > 
-                                        <input class="td"  id="mark" type="text" style="">
-                                    </div>
-                                </div> 
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="3"><button class="btn btn-success" id="save8" style="color:#484848; width: 80px">บันทึก</button></td>
-                            
-                        </tr>
-                        <tr>
-                            <td colspan="3" style="padding-top:25px;">
-                                <button class="btn btn-success" id="finish3" style="color:#484848; width: 200px;">เสร็จสิ้นการบันทึกในส่วนนี้</button>
-                            </td>
-                            
-                        </tr>
-                    </table>
+                    
                     
             </div>
                 
