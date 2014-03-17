@@ -1214,6 +1214,9 @@ $(document).ready(function() {
                         })
                             .done(function(msg)
                     {
+                        
+                        
+                        
                         $('#menu10').html(msg).fadeIn();
                         $('#menu10').on('click', '#save8', function() {
                             $.ajax({
@@ -1277,6 +1280,11 @@ $(document).ready(function() {
                                // $('#table10').fadeIn();
                                 $("#successPopUp").slideUp("slow");
                             });
+                        });
+                        
+                        $('#menu10').on('click', '#finish3', function() {
+                            $("#menu10").slideUp();
+                            $("#menu11").fadeIn();
                         });
                     });
 

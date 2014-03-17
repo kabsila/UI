@@ -340,7 +340,7 @@ function showEdit(gId) {
         });
 
 
-        $("#listName3").on('keypress', 'input[type=text]#nameTrain', function() {
+        $("#listName3").on('keypress', 'input[type=text].nameTrn', function() {
 
             $.extend($.ui.autocomplete.prototype, {
                 _renderItem: function(ul, item) {
@@ -353,7 +353,7 @@ function showEdit(gId) {
                 }
             });
 
-            $('#nameTrain').autocomplete({
+            $('.nameTrn').autocomplete({
                 source: './Gedit/findTrain.php',
                 minLength: 0,
                 select: function(event, ui)
@@ -654,6 +654,7 @@ function showEdit(gId) {
             }
 
         });
+        
 
 
 

@@ -731,7 +731,7 @@ include_once ( '../connectDB.php' );
     $traind_data2 = array();
 
     //$lastID = $_SESSION["lastid"];
-    $strSQL = "SELECT * FROM train_d WHERE id = " . $_SESSION['lastid'];
+    $strSQL = "SELECT * FROM train_d WHERE id = " . $str1;
 
     $objQuery = mysql_query($strSQL) or die("Error in query: $strSQL. " . mysql_error());
 
@@ -760,7 +760,7 @@ $i = 1;
 foreach ($traind_data as $date_id => $array1) {
     foreach ($array1 as $date => $main_d) {
 
-        echo "<input id='trianPoint$i'  type='text' value='{$main_d}'><label id='tdlm$i' style='visibility:hidden;display: inline-block;width: 1px;'>{$date_id}</label><br>";
+        echo "<input class='nameTrn' id='trianPoint$i'  type='text' value='{$main_d}'><label id='tdlm$i' style='visibility:hidden;display: inline-block;width: 1px;'>{$date_id}</label><br>";
     }
     $i++;
 }
@@ -797,7 +797,7 @@ $i = 1;
 foreach ($traind_data2 as $date_id => $array1) {
     foreach ($array1 as $date => $tner_name) {
 
-        echo "<input id='nameTrain$i'  type='text' value='{$tner_name}'><label id='tdlm$i' style='visibility:hidden;display: inline-block;width: 1px;'>{$date_id}</label><br>";
+        echo "<input class='nameTrn' id='nameTrain$i'  type='text' value='{$tner_name}'><label id='tdlm$i' style='visibility:hidden;display: inline-block;width: 1px;'>{$date_id}</label><br>";
     }
     $i++;
 }
@@ -834,7 +834,7 @@ foreach ($traind_data2 as $date_id => $array1) {
                 $pland_data2 = array();
                
                 //$lastID = $_SESSION["lastid"];
-                $strSQL = "SELECT * FROM plan_d WHERE id = ".$_SESSION['lastid'];
+                $strSQL = "SELECT * FROM plan_d WHERE id = ".$str1;
 
                 $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());        
 
@@ -903,7 +903,7 @@ foreach ($traind_data2 as $date_id => $array1) {
                                                 foreach ($pland_data2 as $idd => $array1) {
                                                     foreach ($array1 as $named => $note) {
 
-                                                        echo "<input class='pland' id='namedd$i'  type='text' value='{$named}'><label id='pdlm$i' style='visibility:hidden;display: inline-block;width: 1px;'>{$idd}</label><br>";
+                                                        echo "<input class='nameTrn' id='namedd$i'  type='text' value='{$named}'><label id='pdlm$i' style='visibility:hidden;display: inline-block;width: 1px;'>{$idd}</label><br>";
                                                     }
                                                     $i++;
                                                 }
