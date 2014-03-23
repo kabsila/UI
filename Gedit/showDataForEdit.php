@@ -5,7 +5,7 @@ include_once ( '../connectDB.php' );
         
         $str1 = trim($_POST['tID']);
         //$str1 = "aaaaaaaaaaaaaaaaaaaaa";
-        
+        $_SESSION['lastIdEdit'] = $str1;
         //$objConnect = mysql_connect("localhost","root","root") or die("Error Connect to Database");
         $objDB = mysql_select_db("diabetes");
         mysql_query("SET NAMES UTF8");             
@@ -21,68 +21,90 @@ include_once ( '../connectDB.php' );
 ?>
 <div id="successPopUp2">บันทึกแล้ว</div>
 <div id="menu3">
-    <table class='ex1' border='0' >
-        <tr>
-            <td>
-                <div class='control-group'>
-                    <label class='control-label' >ชื่อผู้ป่วย:</label> 
-                    <div class='controls' >
-                        <input class='w_input2' id='namep' type='text' value="<?php echo $objResuut["name"]; ?>">
-                    </div>
-                </div>
-            </td>
-            <td>
-                <div class='control-group'>
-                    <label class='control-label' >นามสกุลผู้ป่วย:</label>  
-                    <div class='controls' >
-                        <input class='w_input2' id='snamep' type='text' value="<?php echo $objResuut["sname"]; ?>"> 
-                    </div>
-                </div>
-            </td>
-            <td>
-                <div class='control-group'>
-                    <label class='control-label' >อายุ:</label> 
-                    <div class='controls' >
-                        <input class='w_input2' name='age' id='age'  type='text' value="<?php echo $objResuut["age"]; ?>">
-                    </div>
-                </div>
-            </td>
+    
 
-        </tr>
-        <tr>
-            <td>
-                <div class='control-group'>
 
-                    <label class='control-label' >ชื่อผู้ดูแล:</label>
-                    <div class='controls' > 
-                        <input class='w_input2' name='dname' id='named'  type='text' value="<?php echo $objResuut["name_d"]; ?>">
-                    </div>
-                </div>
-            </td>
-            <td>
-                <div class='control-group'>
-                    <label class='control-label' >นามสกลุผู้ดูแล:</label>
-                    <div class='controls' >
-                        <input class='w_input2' name='dsname' id='snamed'  type='text' value="<?php echo $objResuut["sname_d"]; ?>">
-                    </div>
-                </div>
-            </td>
-            <td>
-                <div class='control-group'>
-                    <label class='control-label' >ความเกี่ยวข้อง:</label>
-                    <div class='controls' > 
-                        <input class='w_input2' name='with' id='with'  type='text' value="<?php echo $objResuut["relation"]; ?>">
-                    </div>
-                </div>
-            </td>
 
-        </tr>
-        <tr >
-            <td colspan='5'>
-                <button class='btn btn-success' id='save1' style='color:#484848; width: 150px'>บันทึกการแก้ไข</button>
-            </td>
-        </tr>
-    </table>
+<table class='ex1' border='0' >
+                            <tr>
+                                <td>
+                                    <div class='control-group'>
+                                        <label class='control-label' >ชื่อผู้ป่วย:</label> 
+                                        <div class='controls' >
+                                            <input class='w_input2' id='namep' type='text' value="<?php echo $objResuut["name"]; ?>">
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class='control-group'>
+                                        <label class='control-label' >นามสกุลผู้ป่วย:</label>  
+                                        <div class='controls' >
+                                           <input class='w_input2' id='snamep' type='text' value="<?php echo $objResuut["sname"]; ?>"> 
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class='control-group'>
+                                        <label class='control-label' >อายุ:</label> 
+                                        <div class='controls' >
+                                            <input class='w_input2' name='age' id='age'  type='text' value="<?php echo $objResuut["age"]; ?>">
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class='control-group'>
+                                        <label class='control-label' >HN:</label> 
+                                        <div class='controls' >
+                                            <input class='w_input2' name='age' id='hn'  type='text' value="<?php echo $objResuut["hn"]; ?>">
+                                        </div>
+                                    </div>
+                                </td>
+                                
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class='control-group'>
+
+                                        <label class='control-label' >คุ้ม อสม.:</label>
+                                        <div class='controls' > 
+                                            <input class='w_input2' name='age' id='kum'  type='text' value="<?php echo $objResuut["kum"]; ?>">
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class='control-group'>
+
+                                        <label class='control-label' >ชื่อผู้ดูแล:</label>
+                                        <div class='controls' > 
+                                            <input class='w_input2' name='dname' id='named'  type='text' value="<?php echo $objResuut["name_d"]; ?>">
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class='control-group'>
+                                        <label class='control-label' >นามสกลุผู้ดูแล:</label>
+                                        <div class='controls' >
+                                            <input class='w_input2' name='dsname' id='snamed'  type='text' value="<?php echo $objResuut["sname_d"]; ?>">
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class='control-group'>
+                                        <label class='control-label' >ความเกี่ยวข้อง:</label>
+                                        <div class='controls' > 
+                                            <input class='w_input2' name='with' id='with'  type='text' value="<?php echo $objResuut["relation"]; ?>">
+                                        </div>
+                                    </div>
+                                </td>
+                                
+                            </tr>
+                            <tr >
+                                <td colspan='5'>
+                                    <button class='btn btn-success' id='save1' style='color:#484848; width: 150px'>บันทึกการแก้ไข</button>
+                                </td>
+                            </tr>
+                        </table>
+
 </div>
 
 <?php
@@ -1056,7 +1078,7 @@ foreach ($traind_data2 as $date_id => $array1) {
 
 
 
-<div id="menu12" style="display: none;background-color:#27ae60;height:300px;width:700px; border-radius:25px;padding-bottom: 30px;">
+<div id="menu12" style="display: none;background-color:#27ae60;height:auto;width:700px; border-radius:25px;padding-bottom: 30px;">
 <label id="idTable" style="display: inline-table;opacity: 0.0;"></label>
     <table class="ex5" id="table12" border="0">
         <tr>

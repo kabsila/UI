@@ -71,8 +71,8 @@ include_once ( '../connectDB.php' );
                                            tai_y = '$checkbox3',
                                            h_fail = '$checkbox4',
                                            other = '$checkbox5',
-                                           drname = '$str4',
-                                           hospital1 = '$str3',
+                                           drname = '$str3',
+                                           hospital1 = '$str4',
                                            hospital2 = '$str5',
                                            hospital3 = '$str6',
                                           

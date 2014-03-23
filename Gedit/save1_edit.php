@@ -11,6 +11,8 @@ include_once ( '../connectDB.php' );
         $str4 = trim($_POST['tNameD']);
         $str5 = trim($_POST['tSnameD']);
         $str6 = trim($_POST['tWithD']);
+        $str7 = trim($_POST['tHn']);
+        $str8 = trim($_POST['tKum']);
         
         
         
@@ -46,7 +48,9 @@ include_once ( '../connectDB.php' );
                                            sname_d = '$str5',
                                            relation = '$str6',
                                            name = '$str1',
-                                           sname = '$str2'
+                                           sname = '$str2',
+                                           hn = '$str7',
+                                           kum = '$str8'
                                            
                    WHERE ID = $str0";
                                            

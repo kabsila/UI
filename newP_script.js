@@ -123,7 +123,7 @@ $(document).ready(function() {
                 .done(function(msg)
         {
             //uploadObj2.startUpload(); 
-
+            $("#menu").fadeOut();
             $('#fname').val('');
             $('#sname').val('');
             $("#menu3").html(msg).fadeIn("slow");
@@ -337,7 +337,7 @@ $(document).ready(function() {
                 .done(function(msg)
         {
             //uploadObj2.startUpload(); 
-
+            $('#menu').fadeOut();
             $('#fname').val('');
             $('#sname').val('');
             $("#menu3").html(msg).fadeIn("slow");
@@ -641,9 +641,9 @@ function save1()
     })
             .done(function(msg)
     {
-        $("#menu3").hide().html(msg).fadeToggle("slow");
-        $("#menu3").slideToggle();
-        $("#menu4").slideToggle("slow");
+        $("#menu3").hide().html(msg).fadeIn("slow");
+        $("#menu3").slideUp("slow");
+        $("#menu4").slideDown("slow");
         initialize();
     });
 }
@@ -1042,7 +1042,7 @@ $(document).ready(function() {
                     $("#menu8").fadeIn();
                 });
                 
-                $('#menu7').on('click', '.datepicker', function() {
+                $('#menu7').on('click', 'input[type=text]#lab_date', function() {
                     $(".datepicker").datepicker({changeMonth: true, changeYear: true});
                     $(".datepicker").datepicker($.datepicker.regional[ "th" ]);
                 });
@@ -1566,26 +1566,42 @@ $(document).ready(function() {
                         url: "save10_table_visit.php",
                         data:
                                 {
+                                    
                                     ttakecarePoint1: $('#takecarePoint1').val(),
                                     ttakecarePoint2: $('#takecarePoint2').val(),
                                     ttakecarePoint3: $('#takecarePoint3').val(),
                                     ttakecarePoint4: $('#takecarePoint4').val(),
+                                    ttakecarePoint5: $('#takecarePoint5').val(),
+                                    ttakecarePoint6: $('#takecarePoint6').val(),
+                                    ttakecarePoint7: $('#takecarePoint7').val(),
                                     ttakecare1: $('#takecare1').val(),
                                     ttakecare2: $('#takecare2').val(),
                                     ttakecare3: $('#takecare3').val(),
                                     ttakecare4: $('#takecare4').val(),
+                                    ttakecare5: $('#takecare5').val(),
+                                    ttakecare6: $('#takecare6').val(),
+                                    ttakecare7: $('#takecare7').val(),
                                     tnamePD1: $('#namePD1').val(),
                                     tnamePD2: $('#namePD2').val(),
                                     tnamePD3: $('#namePD3').val(),
                                     tnamePD4: $('#namePD4').val(),
+                                    tnamePD5: $('#namePD5').val(),
+                                    tnamePD6: $('#namePD6').val(),
+                                    tnamePD7: $('#namePD7').val(),
                                     tnote21: $('#note21').val(),
                                     tnote22: $('#note22').val(),
                                     tnote23: $('#note23').val(),
                                     tnote24: $('#note24').val(),
+                                    tnote25: $('#note25').val(),
+                                    tnote26: $('#note26').val(),
+                                    tnote27: $('#note27').val(),
                                     idtable1: $('#vlm1').text(),
                                     idtable2: $('#vlm2').text(),
                                     idtable3: $('#vlm3').text(),
-                                    idtable4: $('#vlm4').text()
+                                    idtable4: $('#vlm4').text(),
+                                    idtable5: $('#vlm5').text(),
+                                    idtable6: $('#vlm6').text(),
+                                    idtable7: $('#vlm7').text()
 
                                 }
                     })
@@ -1693,7 +1709,7 @@ $(document).ready(function() {
         $("#menu12").slideUp();
         $("#menu11").slideUp();
         $("#menu13").html("<label>บันทึกข้อมูลของผู้ป่วยรายนี้เสร็จสิ้นแล้ว</label>").fadeIn("slow");
-
+        location.reload();
         //$("#menu13").html("<label>บันทึกข้อมูลของผู้ป่วยรายนี้เสร็จสิ้นแล้ว</label>").fadeIn("slow");
         //$("#menu13").fadeIn(2000);
     });

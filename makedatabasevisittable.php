@@ -18,40 +18,42 @@ $objQuery = mysql_query($strSQL) or die("Error in query: $strSQL. " . mysql_erro
 while ($objResuut = mysql_fetch_array($objQuery)) {
     $lastID = $objResuut["ID"];
 
-    $strSQL = "SELECT COUNT(*) as total FROM lab_result WHERE id = $lastID";
+    $strSQL = "SELECT COUNT(*) as total FROM visit_table WHERE id = $lastID and visit_order = 1";
     $objQuery1 = mysql_query($strSQL) or die("Error in query: $strSQL. " . mysql_error());
     $objResuut1 = mysql_fetch_array($objQuery1);
     //echo $objResuut['total'];
 
-    $labre = $objResuut1['total'];
+    $v1 = $objResuut1['total'];
 
-    $strSQL = "SELECT COUNT(*) as total FROM plan_d WHERE id = $lastID";
+    $strSQL = "SELECT COUNT(*) as total FROM visit_table WHERE id = $lastID and visit_order = 2";
     $objQuery1 = mysql_query($strSQL) or die("Error in query: $strSQL. " . mysql_error());
     $objResuut1 = mysql_fetch_array($objQuery1);
     //echo $objResuut['total'];
 
-    $pland = $objResuut1['total'];
-
-    $strSQL = "SELECT COUNT(*) as total FROM train_d WHERE id = $lastID";
+    $v2 = $objResuut1['total'];
+    
+    $strSQL = "SELECT COUNT(*) as total FROM visit_table WHERE id = $lastID and visit_order = 3";
     $objQuery1 = mysql_query($strSQL) or die("Error in query: $strSQL. " . mysql_error());
     $objResuut1 = mysql_fetch_array($objQuery1);
+    //echo $objResuut['total'];
 
-    $traind = $objResuut1['total'];
+    $v3 = $objResuut1['total'];
 
-    for ($i = 0; $i < 6 - $labre; $i++) {
-        $strSQL = "INSERT INTO lab_result (id) VALUE ($lastID)";
+    for ($i = 0; $i < 7 - $v1; $i++) {
+        $strSQL = "INSERT INTO visit_table (id, visit_order) VALUE ($lastID, 1)";
         $objQuery1 = mysql_query($strSQL) or die("Error in query: $strSQL. " . mysql_error());
     }
-    for ($i = 0; $i < 7 - $pland; $i++) {
-        $strSQL = "INSERT INTO plan_d (id) VALUE ($lastID)";
+    
+    for ($i = 0; $i < 7 - $v2; $i++) {
+        $strSQL = "INSERT INTO visit_table (id, visit_order) VALUE ($lastID, 2)";
         $objQuery1 = mysql_query($strSQL) or die("Error in query: $strSQL. " . mysql_error());
     }
-
-
-    for ($i = 0; $i < 7 - $traind; $i++) {
-        $strSQL = "INSERT INTO train_d (id) VALUE ($lastID)";
+    
+    for ($i = 0; $i < 7 - $v3; $i++) {
+        $strSQL = "INSERT INTO visit_table (id, visit_order) VALUE ($lastID, 3)";
         $objQuery1 = mysql_query($strSQL) or die("Error in query: $strSQL. " . mysql_error());
     }
+    
 }
 
 

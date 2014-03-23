@@ -201,29 +201,45 @@ function showEdit(gId) {
                 $('#menu12').on('click', '#save10', function() {
                     $.ajax({
                         type: "POST",
-                        url: "./save10_table_visit.php",
+                        url: "./Gedit/save10_table_visit2.php",
                         data:
                                 {
+                                    tID: gId,
                                     ttakecarePoint1: $('#takecarePoint1').val(),
                                     ttakecarePoint2: $('#takecarePoint2').val(),
                                     ttakecarePoint3: $('#takecarePoint3').val(),
                                     ttakecarePoint4: $('#takecarePoint4').val(),
+                                    ttakecarePoint5: $('#takecarePoint5').val(),
+                                    ttakecarePoint6: $('#takecarePoint6').val(),
+                                    ttakecarePoint7: $('#takecarePoint7').val(),
                                     ttakecare1: $('#takecare1').val(),
                                     ttakecare2: $('#takecare2').val(),
                                     ttakecare3: $('#takecare3').val(),
                                     ttakecare4: $('#takecare4').val(),
+                                    ttakecare5: $('#takecare5').val(),
+                                    ttakecare6: $('#takecare6').val(),
+                                    ttakecare7: $('#takecare7').val(),
                                     tnamePD1: $('#namePD1').val(),
                                     tnamePD2: $('#namePD2').val(),
                                     tnamePD3: $('#namePD3').val(),
                                     tnamePD4: $('#namePD4').val(),
+                                    tnamePD5: $('#namePD5').val(),
+                                    tnamePD6: $('#namePD6').val(),
+                                    tnamePD7: $('#namePD7').val(),
                                     tnote21: $('#note21').val(),
                                     tnote22: $('#note22').val(),
                                     tnote23: $('#note23').val(),
                                     tnote24: $('#note24').val(),
+                                    tnote25: $('#note25').val(),
+                                    tnote26: $('#note26').val(),
+                                    tnote27: $('#note27').val(),
                                     idtable1: $('#vlm1').text(),
                                     idtable2: $('#vlm2').text(),
                                     idtable3: $('#vlm3').text(),
-                                    idtable4: $('#vlm4').text()
+                                    idtable4: $('#vlm4').text(),
+                                    idtable5: $('#vlm5').text(),
+                                    idtable6: $('#vlm6').text(),
+                                    idtable7: $('#vlm7').text()
 
                                 }
                     })
@@ -238,12 +254,13 @@ function showEdit(gId) {
                         });
 
                         $("#successPopUp").html(msg).slideDown("slow");
+                        //alert(msg);
                         //$('#table12').fadeOut();
                         //$('#takecarePoint').val('');
                         //$('#takecare').val('');
                         //$('#namePD').val('');
                         // $('#note2').val('');
-                        $('#table12').fadeIn();
+                        //$('#table12').fadeIn();
                         $("#successPopUp").slideUp("slow");
                         $("#menu12").slideUp();
                     });
@@ -1252,6 +1269,8 @@ function save1_Edit(gId)
                     tName: $('#namep').val(),
                     tSname: $('#snamep').val(),
                     tAge: $('#age').val(),
+                    tHn: $('#hn').val(),
+                    tKum: $('#kum').val(),
                     tNameD: $('#named').val(),
                     tSnameD: $('#snamed').val(),
                     tWithD: $('#with').val()
@@ -1769,36 +1788,53 @@ function save9_Edit(gId)
 function save10_Edit(gId)
 {
     $.ajax({
-        type: "POST",
-        url: "./Gedit/save10_edit.php",
-        dataType: "HTML",
-        cache: true,
-        data:
-                {
-                    tId: gId,
-                    t1: $('#idTable').text(),
-                    t2: $('#visit_order_table').text(),
-                    t3: $('#takecarePoint').val(),
-                    t4: $('#takecare').val(),
-                    t5: $('#namePD').val(),
-                    t6: $('#note2').val()
+                        type: "POST",
+                        url: "./Gedit/save10_table_visit2.php",
+                        data:
+                                {
+                                    tID: gId,
+                                    ttakecarePoint1: $('#takecarePoint1').val(),
+                                    ttakecarePoint2: $('#takecarePoint2').val(),
+                                    ttakecarePoint3: $('#takecarePoint3').val(),
+                                    ttakecarePoint4: $('#takecarePoint4').val(),
+                                    ttakecare1: $('#takecare1').val(),
+                                    ttakecare2: $('#takecare2').val(),
+                                    ttakecare3: $('#takecare3').val(),
+                                    ttakecare4: $('#takecare4').val(),
+                                    tnamePD1: $('#namePD1').val(),
+                                    tnamePD2: $('#namePD2').val(),
+                                    tnamePD3: $('#namePD3').val(),
+                                    tnamePD4: $('#namePD4').val(),
+                                    tnote21: $('#note21').val(),
+                                    tnote22: $('#note22').val(),
+                                    tnote23: $('#note23').val(),
+                                    tnote24: $('#note24').val(),
+                                    idtable1: $('#vlm1').text(),
+                                    idtable2: $('#vlm2').text(),
+                                    idtable3: $('#vlm3').text(),
+                                    idtable4: $('#vlm4').text()
 
-                }
-    })
-            .done(function(msg)
-    {
-        //$("#menu12").html(msg);
-        //$("#menu12").slideUp(2000);บันทึกการแก้ไขแล้ว
+                                }
+                    })
+                            .done(function(msg)
+                    {
+                        var p = $("#menu12");
+                        var position = p.position();
+                        $("#successPopUp").css({
+                            "position": "absolute",
+                            "top": position.top + 160,
+                            "left": position.left + 400
+                        });
 
-        var p = $("#menu12");
-        var position = p.position();
-        $("#successPopUp2").css({
-            "position": "absolute",
-            "top": position.top + 160,
-            "left": position.left + 400
-        });
-        $("#successPopUp2").fadeIn("slow");
-        $("#successPopUp2").fadeOut("slow");
-
-    });
+                        $("#successPopUp").html(msg).slideDown("slow");
+                        
+                        //$('#table12').fadeOut();
+                        //$('#takecarePoint').val('');
+                        //$('#takecare').val('');
+                        //$('#namePD').val('');
+                        // $('#note2').val('');
+                        //$('#table12').fadeIn();
+                        $("#successPopUp").slideUp("slow");
+                        $("#menu12").slideUp();
+                    });
 }

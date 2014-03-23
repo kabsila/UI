@@ -1,6 +1,6 @@
 <?php
 
-        include_once ( 'connectDB.php' ); 
+        include_once ( '../connectDB.php' ); 
 
         session_start();
 
@@ -51,7 +51,7 @@
       
         
         
-        $lastID = $_SESSION["lastid"];
+        $lastID = $_POST['tID'];//$_SESSION["lastid"];
         $visitOrder = $_SESSION["visit_order"];
         //$objConnect = mysql_connect("localhost","root","root") or die("Error Connect to Database");
         $objDB = mysql_select_db("diabetes");
@@ -89,7 +89,7 @@
                    WHERE id = $lastID AND visit_order = $visitOrder AND idTable = $idt4";                                           
         $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
         
-         $strSQL = "UPDATE visit_table SET  takecarePoint = '$str15',
+        $strSQL = "UPDATE visit_table SET  takecarePoint = '$str15',
                                            takecare = '$str25',
                                            name_d = '$str35',
                                            note = '$str45'
@@ -111,6 +111,7 @@
         $objQuery = mysql_query($strSQL) or die ("Error in query: $strSQL. ".mysql_error());
         
        
+        
         echo "<label>บันทึกข้อมูลเรียบร้อยแล้ว</label>";
         mysql_close($objConnect);
 ?>

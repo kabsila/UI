@@ -56,7 +56,7 @@
         
 ?>
     
-    <center><table class='ex-pro1' border='0' >
+    <center><table class='ex-pro1' border='1' >
         <tr>
             <td>
                 <div class='control-group'>
@@ -67,7 +67,13 @@
                     <label type='text' class='control-label'><?php echo $objResuut["sname"]; ?></label>
                     
                     <label class='control-label' ><b>อายุ</b></label> 
-                    <label type='text' class='control-label'><?php echo $objResuut["age"]." ปี"; ?></label><br><br>
+                    <label type='text' class='control-label'><?php echo $objResuut["age"]." ปี"; ?></label>
+                    
+                    <label class='control-label' ><b>HN</b></label> 
+                    <label type='text' class='control-label'><?php echo $objResuut["hn"]; ?></label>
+                    
+                    <label class='control-label' ><b>คุ้ม อสม.</b></label> 
+                    <label type='text' class='control-label'><?php echo $objResuut["kum"]; ?></label><br><br>
 
                 </div>
 
@@ -84,7 +90,8 @@
                     <label type='text' class='control-label'><?php echo $objResuut["sname_d"]; ?></label>
                     
                     <label class='control-label' ><b>ความเกี่ยวข้อง</b></label> 
-                    <label type='text' class='control-label'><?php echo $objResuut["relation"]; ?></label><br><br>
+                    <label type='text' class='control-label'><?php echo $objResuut["relation"]; ?></label><br><br>                  
+                    
 
                 </div>
 

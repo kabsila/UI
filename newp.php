@@ -554,7 +554,7 @@ function deleteOverlays() {
                     
             </div>
                 
-                <div id="menu12" style="background-color:#27ae60;height:auto;width:700px; border-radius:25px;">
+                <div id="menu12" style="background-color:#27ae60;height:auto;width:700px; border-radius:25px;padding-bottom: 30px;">
 
                     
                     

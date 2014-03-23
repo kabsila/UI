@@ -53,7 +53,7 @@
                                         <?php
                                                 $i = 1;
                                                 foreach ($vistable_data as $idTable => $array1) {
-                                                    if($i > 4){$i = 1;}
+                                                    if($i > 7){$i = 1;}
                                                     foreach ($array1 as $visit_order => $tkp) {
                                                         
                                                         if($visit_order == $visorder){
@@ -79,7 +79,7 @@
                                          <?php
                                                $i = 1;
                                                 foreach ($vistable_data2 as $idTable => $array1) {
-                                                     if($i > 4){$i = 1;}
+                                                     if($i > 7){$i = 1;}
                                                     foreach ($array1 as $visit_order => $tkp) {
                                                         if($visit_order == $visorder){
                                                             echo "<input id='takecare$i' class='takecare' type='text' value='{$tkp}'><label id='vlm$i' style='visibility:hidden;display: inline-block;width: 1px;'>{$idTable}</label><br>";
@@ -104,7 +104,7 @@
                                         <?php
                                                 $i = 1;
                                                 foreach ($vistable_data3 as $idTable => $array1) {
-                                                   if($i > 4){$i = 1;}
+                                                   if($i > 7){$i = 1;}
                                                     foreach ($array1 as $visit_order => $tkp) {
                                                         if($visit_order == $visorder){
                                                             echo "<input id='namePD$i' class='takecarePoint' type='text' value='{$tkp}'><label id='vlm$i' style='visibility:hidden;display: inline-block;width: 1px;'>{$idTable}</label><br>";
@@ -129,7 +129,7 @@
                                         <?php
                                                 $i = 1;
                                                 foreach ($vistable_data4 as $idTable => $array1) {
-                                                    if($i > 4){$i = 1;}
+                                                    if($i > 7){$i = 1;}
                                                     foreach ($array1 as $visit_order => $tkp) {
                                                         if($visit_order == $visorder){
                                                             echo "<input id='note2$i' class='takecarePoint' type='text' value='{$tkp}'><label id='vlm$i' style='visibility:hidden;display: inline-block;width: 1px;'>{$idTable}</label><br>";
