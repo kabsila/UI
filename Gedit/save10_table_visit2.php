@@ -52,7 +52,7 @@
         
         
         $lastID = $_POST['tID'];//$_SESSION["lastid"];
-        $visitOrder = $_SESSION["visit_order"];
+        $visitOrder = $_POST['t1']; //$_SESSION["visit_order"];
         //$objConnect = mysql_connect("localhost","root","root") or die("Error Connect to Database");
         $objDB = mysql_select_db("diabetes");
         mysql_query("SET NAMES UTF8");             

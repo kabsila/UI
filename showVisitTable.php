@@ -58,10 +58,12 @@
                                                         
                                                         if($visit_order == $visorder){
                                                             echo "<input id='takecarePoint$i' class='takecarePoint' type='text' value='{$tkp}'><label id='vlm$i' style='visibility:hidden;display: inline-block;width: 1px;'>{$idTable}</label><br>";
-                                                        }
+                                                         $i++;
+                                                            
+                                                            }
                                                     
                                                     }
-                                                    $i++;
+                                                   
                                                 }
 
                                                // for ($k = $i; $k <= 4; $k++) {
@@ -83,10 +85,12 @@
                                                     foreach ($array1 as $visit_order => $tkp) {
                                                         if($visit_order == $visorder){
                                                             echo "<input id='takecare$i' class='takecare' type='text' value='{$tkp}'><label id='vlm$i' style='visibility:hidden;display: inline-block;width: 1px;'>{$idTable}</label><br>";
-                                                        }
+                                                         $i++;
+                                                            
+                                                            }
                                                     
                                                     }
-                                                    $i++;
+                                                   
                                                 }
 
                                                // for ($k = $i; $k <= 4; $k++) {
@@ -108,10 +112,12 @@
                                                     foreach ($array1 as $visit_order => $tkp) {
                                                         if($visit_order == $visorder){
                                                             echo "<input id='namePD$i' class='takecarePoint' type='text' value='{$tkp}'><label id='vlm$i' style='visibility:hidden;display: inline-block;width: 1px;'>{$idTable}</label><br>";
-                                                        }
+                                                        $i++;
+                                                            
+                                                            }
                                                    
                                                     }
-                                                     $i++;
+                                                     
                                                 }
 
                                                // for ($k = $i; $k <= 4; $k++) {
@@ -133,10 +139,11 @@
                                                     foreach ($array1 as $visit_order => $tkp) {
                                                         if($visit_order == $visorder){
                                                             echo "<input id='note2$i' class='takecarePoint' type='text' value='{$tkp}'><label id='vlm$i' style='visibility:hidden;display: inline-block;width: 1px;'>{$idTable}</label><br>";
-                                                        }
+                                                       $i++;
+                                                            }
                                                       
                                                     }
-                                                  $i++;
+                                                  
                                                 }
 
                                                // for ($k = $i; $k <= 4; $k++) {

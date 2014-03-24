@@ -26,6 +26,10 @@ include_once ( '../connectDB.php' );
         //echo $row['ID'];
        // echo "</br>";
         
+        echo "UPDATE train_d SET    date = '$str2',
+                                         main_d = '$str1',
+                                         trainer_name = '$str3'
+                                         WHERE id = '$str0' AND date_id = '$str00'";
         echo "<label>บันทึกการแก้ไขข้อมูลเรียบร้อยแล้ว</label>";
         mysql_close($objConnect);
 ?>

@@ -11,6 +11,8 @@ YUI().use(
 );
 
 $(document).ready(function() {
+    
+    
 
     $.extend($.ui.autocomplete.prototype, {
         _renderItem: function(ul, item) {
@@ -68,8 +70,10 @@ $(document).ready(function() {
             }
         });
     });
+    
+    
 
-
+    
 
 });
 
@@ -98,7 +102,8 @@ $(document).ready(function() {
         $("#menu2").slideToggle();
         $("#menu13").fadeOut();
     });
-
+    
+    
 });
 
 /**
@@ -177,6 +182,44 @@ function showEdit(gId) {
             .done(function(msg)
     {
 
+       $("#listName3").on("click", ".delimgage", function() { 
+          if (confirm("ต้องการลบภาพนี้หรือไม่"))
+          { 
+            $.ajax({
+            type: "POST",
+            url: "./upload/delImg.php",
+            dataType: "HTML",
+            cache: true,
+            data:
+                    {
+                        timageID: $(this).attr('id'),
+                        tID: gId
+                        //tSname:$('#sname').val()
+                    }
+            })
+            .done(function(msg)
+            {
+                    var p = $("#menu4-55");
+                        var position = p.position();
+                        $("#successPopUp").css({
+                            "position": "absolute",
+                            "top": position.top + 160,
+                            "left": position.left + 200
+                        });
+                        
+                        $("#successPopUp").html(msg).slideDown("slow");                        
+                        $("#successPopUp").slideUp("slow");
+                        
+                        
+            });
+          }
+          else
+          {
+              
+          }
+        });
+       
+        
         $("#listName3").on('click', '#editsave10', function() {
 
             $.ajax({
@@ -198,6 +241,31 @@ function showEdit(gId) {
                     $("#menu13").fadeIn();
                 });
 
+$("#listName3").on('keypress', 'input[type=text].nameTrn', function() {
+
+            $.extend($.ui.autocomplete.prototype, {
+                _renderItem: function(ul, item) {
+                    var term = this.element.val(),
+                            html = item.label.replace(term, "<b>$&</b>");
+                    return $("<li></li>")
+                            .data("item.autocomplete", item)
+                            .append($("<a></a>").html(html))
+                            .appendTo(ul);
+                }
+            });
+
+            $('.nameTrn').autocomplete({
+                source: './Gedit/findTrain.php',
+                minLength: 0,
+                select: function(event, ui)
+                {
+
+                },
+            });
+
+
+        });
+        
                 $('#menu12').on('click', '#save10', function() {
                     $.ajax({
                         type: "POST",
@@ -205,6 +273,7 @@ function showEdit(gId) {
                         data:
                                 {
                                     tID: gId,
+                                    t1: $('#visit_order').text(),
                                     ttakecarePoint1: $('#takecarePoint1').val(),
                                     ttakecarePoint2: $('#takecarePoint2').val(),
                                     ttakecarePoint3: $('#takecarePoint3').val(),
@@ -262,13 +331,14 @@ function showEdit(gId) {
                         // $('#note2').val('');
                         //$('#table12').fadeIn();
                         $("#successPopUp").slideUp("slow");
-                        $("#menu12").slideUp();
+                       // $("#menu12").slideUp();
                     });
                 });
             });
         });
 
-
+        
+        
         $("#listName3").on('click', '#del', function() {
             if (confirm("ต้องการลบข้อมูลของวันที่ " + $("#lab_date").val() + " หรือไม่"))
             {
@@ -523,6 +593,7 @@ function showEdit(gId) {
                 $('.slide4').fadeToggle();
                 $('.slide4').val("");
                 $('.slide4').fadeToggle();
+                $('#menu12').fadeOut();
                 getValue4(gId, page);
 
             }
@@ -580,21 +651,21 @@ function showEdit(gId) {
         $("#listName3").on('click', '#save7', function() {
             save7_Edit(gId);
         });
-        $("#listName3").on('click', '#save7-insert', function() {
-            save7_insert(gId);
-        });
+        //$("#listName3").on('click', '#save7-insert', function() {
+         //   save7_insert(gId);
+        //});
         $("#listName3").on('click', '#save8', function() {
             save8_Edit(gId);
         });
-        $("#listName3").on('click', '#save8-insert', function() {
-            save8_insert(gId);
-        });
+        //$("#listName3").on('click', '#save8-insert', function() {
+           // save8_insert(gId);
+        //});
         $("#listName3").on('click', '#save9', function() {
             save9_Edit(gId);
         });
-        $("#listName3").on('click', '#save10', function() {
-            save10_Edit(gId);
-        });
+       // $("#listName3").on('click', '#save10', function() {
+           // save10_Edit(gId);
+        //});
 
 
         $("#listName3").on('click', '#finish1', function() {
@@ -997,14 +1068,14 @@ function getValue2(gId, page)
         $("#dateTrain").val(str1[2 + index2]);
         $("#nameTrain").val(str1[3 + index2]);
 
-        if ($("#trianPoint").val() == '' && $("#dateTrain").val() == '' && $("#nameTrain").val() == '')
-        {
-            $("#save7").attr('id', 'save7-insert');
-        }
-        else
-        {
-            $("#save7-insert").attr('id', 'save7');
-        }
+        //if ($("#trianPoint").val() == '' && $("#dateTrain").val() == '' && $("#nameTrain").val() == '')
+        //{
+         //   $("#save7").attr('id', 'save7-insert');
+        //}
+       // else
+       // {
+         //   $("#save7-insert").attr('id', 'save7');
+        //}
 
     });
 
@@ -1055,14 +1126,14 @@ function getValue3(gId, page)
         $("#namedd").val(str1[3 + index3]);
         $("#mark").val(str1[4 + index3]);
 
-        if ($("#planPoint").val() == '' && $("#wayD").val() == '' && $("#namedd").val() == '')
-        {
-            $("#save8").attr('id', 'save8-insert');
-        }
-        else
-        {
-            $("#save8-insert").attr('id', 'save8');
-        }
+        //if ($("#planPoint").val() == '' && $("#wayD").val() == '' && $("#namedd").val() == '')
+       // {
+           // $("#save8").attr('id', 'save8-insert');
+       // }
+       // else
+       // {
+           // $("#save8-insert").attr('id', 'save8');
+       // }
     });
 
     index3 = 0;
@@ -1418,8 +1489,24 @@ function save3_Edit(gId)
     })
             .done(function(msg)
     {
-        $("#menu5").html(msg);
-        //$("#menu5").slideUp(2000);                    
+        //$("#menu5").html(msg);
+        //$("#menu5").slideUp(2000);  
+         var p = $("#menu5");
+        var position = p.position();
+        $("#successPopUp2").css({
+            "position": "absolute",
+            "top": position.top + 760,
+            "left": position.left + 400
+        });
+
+        $("#successPopUp2").html(msg).slideDown("slow");
+        //$('#table12').fadeOut();
+        //$('#takecarePoint').val('');
+        //$('#takecare').val('');
+        //$('#namePD').val('');
+        // $('#note2').val('');
+        //$('#table12').fadeIn();
+        $("#successPopUp2").slideUp("slow");
 
     });
 }
@@ -1560,9 +1647,10 @@ function save7_Edit(gId)
 {
     $.ajax({
         type: "POST",
-        url: "./save7_trainD.php",
+        url: "./Gedit/save7_trainD2.php",
         data:
                 {
+                    tId: gId,
                     maind1: $('#trianPoint1').val(),
                     maind2: $('#trianPoint2').val(),
                     maind3: $('#trianPoint3').val(),
@@ -1651,9 +1739,10 @@ function save8_Edit(gId)
 {
     $.ajax({
         type: "POST",
-        url: "./save8_plan_d.php",
+        url: "./Gedit/save8_plan_d2.php",
         data:
                 {
+                    tId: gId,
                     maind1: $('#planPoint1').val(),
                     maind2: $('#planPoint2').val(),
                     maind3: $('#planPoint3').val(),
@@ -1785,6 +1874,7 @@ function save9_Edit(gId)
     });
 }
 
+
 function save10_Edit(gId)
 {
     $.ajax({
@@ -1834,7 +1924,7 @@ function save10_Edit(gId)
                         //$('#namePD').val('');
                         // $('#note2').val('');
                         //$('#table12').fadeIn();
-                        $("#successPopUp").slideUp("slow");
-                        $("#menu12").slideUp();
+                        //$("#successPopUp").slideUp("slow");
+                        //$("#menu12").slideUp();
                     });
 }

@@ -2,6 +2,8 @@
                         <tr>
                             <th colspan="4">บันทึกการดูแลจากการเยี่ยมบ้าน</th>
                              <?php
+                             
+                             $i = 1;
                                 include_once ( '../connectDB.php' ); 
 
                                  session_start();
@@ -36,7 +38,7 @@
                                  //print_r($vistable_data);
                                  foreach ($vistable_data as $idTable => $array1) {
                                      foreach ($array1 as $visit_order => $tkp) {
-                                        // echo "{$visit_order} ";
+                                         //echo "{$visit_order} ";
                                      }
                                      
                                      
@@ -52,16 +54,20 @@
 <!--                                        <input   type="text" id="takecarePoint" style="">-->
                                         <?php
                                                 $i = 1;
+                                                
                                                 foreach ($vistable_data as $idTable => $array1) {
-                                                    if($i > 7){$i = 1;}
+                                                   if($i > 7 ){$i = 1;}
                                                     foreach ($array1 as $visit_order => $tkp) {
                                                         
                                                         if($visit_order == $visorder){
                                                             echo "<input id='takecarePoint$i' class='takecarePoint' type='text' value='{$tkp}'><label id='vlm$i' style='visibility:hidden;display: inline-block;width: 1px;'>{$idTable}</label><br>";
-                                                        }
+                                                            $i++;
+                                                            
+                                                         }
                                                     
                                                     }
-                                                    $i++;
+                                                    
+                                                   
                                                 }
 
                                                // for ($k = $i; $k <= 4; $k++) {
@@ -79,14 +85,16 @@
                                          <?php
                                                $i = 1;
                                                 foreach ($vistable_data2 as $idTable => $array1) {
-                                                     if($i > 7){$i = 1;}
+                                                     if($i > 8){$i = 1;}
                                                     foreach ($array1 as $visit_order => $tkp) {
                                                         if($visit_order == $visorder){
                                                             echo "<input id='takecare$i' class='takecare' type='text' value='{$tkp}'><label id='vlm$i' style='visibility:hidden;display: inline-block;width: 1px;'>{$idTable}</label><br>";
+                                                            $i++;
+                                                            
                                                         }
                                                     
                                                     }
-                                                    $i++;
+                                                   
                                                 }
 
                                                // for ($k = $i; $k <= 4; $k++) {
@@ -104,14 +112,16 @@
                                         <?php
                                                 $i = 1;
                                                 foreach ($vistable_data3 as $idTable => $array1) {
-                                                   if($i > 7){$i = 1;}
+                                                   if($i > 8){$i = 1;}
                                                     foreach ($array1 as $visit_order => $tkp) {
                                                         if($visit_order == $visorder){
-                                                            echo "<input id='namePD$i' class='takecarePoint' type='text' value='{$tkp}'><label id='vlm$i' style='visibility:hidden;display: inline-block;width: 1px;'>{$idTable}</label><br>";
+                                                            echo "<input id='namePD$i' class='nameTrn' type='text' value='{$tkp}'><label id='vlm$i' style='visibility:hidden;display: inline-block;width: 1px;'>{$idTable}</label><br>";
+                                                            $i++;
+                                                            
                                                         }
                                                    
                                                     }
-                                                     $i++;
+                                                    
                                                 }
 
                                                // for ($k = $i; $k <= 4; $k++) {
@@ -129,14 +139,16 @@
                                         <?php
                                                 $i = 1;
                                                 foreach ($vistable_data4 as $idTable => $array1) {
-                                                    if($i > 7){$i = 1;}
+                                                    if($i > 8){$i = 1;}
                                                     foreach ($array1 as $visit_order => $tkp) {
                                                         if($visit_order == $visorder){
                                                             echo "<input id='note2$i' class='takecarePoint' type='text' value='{$tkp}'><label id='vlm$i' style='visibility:hidden;display: inline-block;width: 1px;'>{$idTable}</label><br>";
+                                                            $i++;
+                                                            
                                                         }
                                                       
                                                     }
-                                                  $i++;
+                                                  
                                                 }
 
                                                // for ($k = $i; $k <= 4; $k++) {

@@ -229,9 +229,11 @@ include_once ( '../connectDB.php' );
             if($objResuut["path"] == ''){
                 //$objResuut["path"] = "noimg.png";
             }
-            
+ 
+                //$pathid = substr($objResuut["path"],0,-4);
                 echo "<div class='non-immediate-parent-container' >";
                 echo "<a class='fancybox' rel='group' href='".$vPath.$objResuut["path"]."'><img src='".$vPath.$objResuut["path"]."' alt='' /></a>";		
+                echo "<input type='button' id='delimg".$objResuut["path"]."' class='delimgage' value='ลบ'/>";
                 echo "</div>";
             
             

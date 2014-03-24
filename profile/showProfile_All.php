@@ -56,7 +56,7 @@
         
 ?>
     
-    <center><table class='ex-pro1' border='1' >
+    <center><table class='ex-pro1' border='0' >
         <tr>
             <td>
                 <div class='control-group'>
@@ -118,6 +118,9 @@
                 <div class='control-group'>
                     <label class='control-label' ><b>ที่อยู่</b></label> 
                     <label type='text' class='control-label'><?php echo $objResuut["address_num"]; ?></label>
+                    
+                    <label class='control-label' ><b>หมู่</b></label> 
+                    <label type='text' class='control-label'><?php echo $objResuut["moo"]; ?></label>
                     
                     <label class='control-label' ><b>ถนน</b></label>  
                     <label type='text' class='control-label'><?php echo $objResuut["road"]; ?></label>
@@ -198,19 +201,19 @@
                             {
                                 echo "เบาหวาน, ";
                             }
-                            elseif ($objResuut["h_blood"] == 't') 
+                            if ($objResuut["h_blood"] == 't') 
                             {
                                 echo "ความดันโลหิตสูง, ";
                             }
-                            elseif ($objResuut["tai_y"] == 't') 
+                            if ($objResuut["tai_y"] == 't') 
                             {
                                 echo "ไตวาย, ";
                             }
-                            elseif ($objResuut["h_fail"] == 't') 
+                            if ($objResuut["h_fail"] == 't') 
                             {
                                 echo "หัวใจล้มเหลว, ";
                             }
-                            elseif ($objResuut["other"] != 'f') 
+                            if ($objResuut["other"] != 'f') 
                             {
                                 echo $objResuut["other"];
                             }
@@ -500,7 +503,7 @@
              <?php
                     while($objResuut = mysql_fetch_array($objQuery))
                    {
-                        echo "<td class='n-label'>".$objResuut["cholesterol"]."</td>";
+                        echo "<td class='n-label'>".$objResuut["BUN"]."</td>";
                    }
                    mysql_data_seek($objQuery, 0);
              ?>
